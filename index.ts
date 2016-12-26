@@ -91,7 +91,9 @@ export * from './src/language/language.service';
         MaxbytesValidatorDirective,
         MinbytesValidatorDirective,
         ShowValidationDirective,
-        TranslateModule
+        TranslateModule,
+        HttpModule,
+        CommonModule
     ]
 })
 export class NgJhipsterModule {
