@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
         };
     }
 
-    // from https://github.com/VadimDez/ng2-filter-pipe
+    // adapted from https://github.com/VadimDez/ng2-filter-pipe
     private filterByString(filter) {
         return value => {
             return !filter || value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
@@ -24,11 +24,8 @@ export class FilterPipe implements PipeTransform {
 
     private filterByObject(filter) {
         return value => {
-            for (let key in filter) {
-                if (!value.hasOwnProperty(key)) {
-                    return false;
-                }
-
+            for (let i = 0, keys = Object.keys(filter); i < keys.length; i++) {
+                let key = keys[i];
                 const type = typeof value[key];
                 let isMatching;
 

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
     "module": "es2015",
     "target": "es5",
     "emitDecoratorMetadata": true,
@@ -17,7 +16,8 @@
   },
   "exclude": [
     "node_modules",
-    "bundles"
+    "bundles",
+    "config"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,

@@ -15,12 +15,12 @@ function validateMinbytesFactory() {
 }
 
 @Directive({
-    selector: '[minbytes][ngModel]',
+    selector: '[jhi-minbytes][ngModel]',
     providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MinbytesValidator), multi: true }
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MinbytesValidatorDirective), multi: true }
     ]
 })
-export class MinbytesValidator {
+export class MinbytesValidatorDirective {
     @Input() minbytes: number;
     validator: Function;
 

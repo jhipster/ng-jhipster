@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DateUtils {
+    private pattern = 'yyyy-MM-dd';
 
     constructor (private datePipe: DatePipe) {}
 
@@ -22,15 +23,15 @@ export class DateUtils {
         return null;
     }
 
-    convertLocalDateToServer (date: any) {
+    convertLocalDateToServer (date: any, pattern = this.pattern) {
         if (date) {
-            return this.datePipe.transform(date, 'yyyy-MM-dd');
+            return this.datePipe.transform(date, pattern);
         } else {
             return null;
         }
     }
 
     dateformat () {
-        return 'yyyy-MM-dd';
+        return this.pattern;
     }
 }

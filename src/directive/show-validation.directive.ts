@@ -3,17 +3,16 @@ import { Directive, ElementRef, Renderer } from '@angular/core';
 @Directive({ selector: 'form[jhiShowValidation]' })
 export class ShowValidationDirective {
     constructor(el: ElementRef, renderer: Renderer) {
-       $(el.nativeElement).find('.form-group').each(() => {
-           let $formGroup = $(this);
-           // TODO the selector needs to be updated
-           let $inputs = $formGroup.find('input[ng-model],textarea[ng-model],select[ng-model]');
+       let formElements = el.nativeElement.querySelectorAll('.form-group');
+       Array.prototype.forEach.call(formElements, (formGroup: any) => {
+           // TODO this needs to be properly tested
+           let inputs = formGroup.querySelectorAll('input[(ngModel)],textarea[(ngModel)],select[(ngModel)]');
 
-           if ($inputs.length > 0) {
-               $inputs.each(() => {
-                   let $input = $(this);
+           if (inputs !== null) {
+               Array.prototype.forEach.call(inputs, (input: any) => {
                    // TODO this logic needs to be checked and fixed accordingly
-                   let isInvalid = $input.hasClass('ng-invalid') && $input.hasClass('ng-dirty');
-                   $formGroup.toggleClass('has-error', isInvalid);
+                   let isInvalid = input.classList.contains('ng-invalid') && input.classList.contains('ng-dirty');
+                   formGroup.classList.toggle('has-error', isInvalid);
                    /*scope.$watch(function() {
                        return $input.hasClass('ng-invalid') && $input.hasClass('ng-dirty');
                    }, function(isInvalid) {

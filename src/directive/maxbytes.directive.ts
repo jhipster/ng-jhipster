@@ -15,12 +15,12 @@ function validateMaxbytesFactory() {
 }
 
 @Directive({
-    selector: '[maxbytes][ngModel]',
+    selector: '[jhi-maxbytes][ngModel]',
     providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MaxbytesValidator), multi: true }
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MaxbytesValidatorDirective), multi: true }
     ]
 })
-export class MaxbytesValidator {
+export class MaxbytesValidatorDirective {
     @Input() maxbytes: number;
     validator: Function;
 
