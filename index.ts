@@ -45,11 +45,14 @@ export * from './src/service/parse-links.service';
 export * from './src/service/data-util.service';
 export * from './src/service/date-util.service';
 export * from './src/service/event-manager.service';
+export * from './src/language/translate-partial-loader.provider';
 
 
 @NgModule({
     imports: [
         TranslateModule.forRoot(createTranslatePartialLoader()),
+        HttpModule,
+        CommonModule
     ],
     declarations: [
         TruncateCharactersPipe,
@@ -81,8 +84,6 @@ export * from './src/service/event-manager.service';
         MaxbytesValidatorDirective,
         MinbytesValidatorDirective,
         ShowValidationDirective,
-        HttpModule,
-        CommonModule,
         TranslateModule,
     ]
 })
