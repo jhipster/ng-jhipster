@@ -41,11 +41,3 @@ export class TranslatePartialLoader implements TranslateLoader {
         });
     }
 }
-
-export function createTranslatePartialLoader() {
-    return {
-        provide: TranslateLoader,
-        useFactory: (http: Http) => new TranslatePartialLoader(http, 'i18n', '.json'),
-        deps: [Http]
-    };
-}

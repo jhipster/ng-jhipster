@@ -1,9 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, MissingTranslationHandler } from 'ng2-translate';
+import { TranslateModule, MissingTranslationHandler, TranslateLoader } from 'ng2-translate/ng2-translate';
 
-import { createTranslatePartialLoader } from './src/language/translate-partial-loader.provider';
 import { JhiMissingTranslationHandler } from './src/language/jhi-missing-translation.config';
 
 import { TruncateCharactersPipe } from './src/pipe/truncate-characters.pipe';
@@ -24,9 +23,12 @@ import { ParseLinks } from './src/service/parse-links.service';
 import { DataUtils } from './src/service/data-util.service';
 import { DateUtils } from './src/service/date-util.service';
 import { EventManager } from './src/service/event-manager.service';
+import { JhiLanguageService } from './src/language/language.service';
 
 import { ModuleConfig } from './src/config';
-import { SORT_ICONS } from './src/constants';
+import { SORT_ICONS, I18N } from './src/constants';
+import { ConfigHelper } from './src/helper';
+import { TranslatePartialLoader } from './src/language/translate-partial-loader';
 
 // Re export the files
 export * from './src/pipe/truncate-characters.pipe';
@@ -45,12 +47,17 @@ export * from './src/service/parse-links.service';
 export * from './src/service/data-util.service';
 export * from './src/service/date-util.service';
 export * from './src/service/event-manager.service';
-export * from './src/language/translate-partial-loader.provider';
+export * from './src/language/translate-partial-loader';
+export * from './src/language/language.service';
 
 
 @NgModule({
     imports: [
-        TranslateModule.forRoot(createTranslatePartialLoader()),
+        TranslateModule.forRoot({
+            provide: TranslateLoader,
+            useFactory: (http: Http) => new TranslatePartialLoader(http, 'i18n', '.json'),
+            deps: [Http]
+        }),
         HttpModule,
         CommonModule
     ],
@@ -69,7 +76,7 @@ export * from './src/language/translate-partial-loader.provider';
     ],
     providers: [
         {
-            provide: MissingTranslationHandler, useClass: JhiMissingTranslationHandler
+            provide: MissingTranslationHandler, useFactory: () => new JhiMissingTranslationHandler()
         }
     ],
     exports: [
@@ -84,7 +91,7 @@ export * from './src/language/translate-partial-loader.provider';
         MaxbytesValidatorDirective,
         MinbytesValidatorDirective,
         ShowValidationDirective,
-        TranslateModule,
+        TranslateModule
     ]
 })
 export class NgJhipsterModule {
@@ -92,8 +99,11 @@ export class NgJhipsterModule {
         sortIcon : SORT_ICONS.icon,
         sortAscIcon : SORT_ICONS.ascIcon,
         sortDescIcon : SORT_ICONS.descIcon,
-        sortIconSelector : SORT_ICONS.iconSelector
+        sortIconSelector : SORT_ICONS.iconSelector,
+        defaultI18nLocation: I18N.defaultLocation,
+        defaultI18nLang: I18N.defaultLanguage
     }): ModuleWithProviders {
+        ConfigHelper.setModuleConfigOptions(providedConfig);
         return {
             ngModule: NgJhipsterModule,
             providers: [
@@ -101,7 +111,8 @@ export class NgJhipsterModule {
                 ParseLinks,
                 DataUtils,
                 DateUtils,
-                EventManager
+                EventManager,
+                JhiLanguageService
             ]
         };
     }
