@@ -70,5 +70,6 @@
   "dependencies": {
     "commitizen": "^2.9.2",
     "global": "^4.3.1"
-  }
+  },
+  "version": "0.0.0"
 }
