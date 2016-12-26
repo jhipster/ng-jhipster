@@ -1,0 +1,75 @@
+{
+  "name": "ng-jhipster",
+  "description": "A Jhipster util library for Angular 2",
+  "scripts": {
+    "test": "karma start",
+    "test-watch": "karma start --singleRun=false --autoWatch=true",
+    "commit": "npm run prepublish && npm test",
+    "prepublish": "ngc && npm run build",
+    "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhipster/ng-jhipster.git"
+  },
+  "keywords": [
+    "jhipster",
+    "angular",
+    "angular2"
+  ],
+  "author": "Deepu KS",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jhipster/generator-jhipster/issues"
+  },
+  "main": "bundles/ng-jhipster.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "homepage": "https://jhipster.github.io",
+  "peerDependencies": {
+    "@angular/core": "^2.0.0",
+    "@angular/http": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "2.4.1",
+    "@angular/compiler": "2.4.1",
+    "@angular/compiler-cli": "2.4.1",
+    "@angular/core": "2.4.1",
+    "@angular/forms": "2.4.1",
+    "@angular/http": "2.4.1",
+    "@angular/platform-browser": "2.4.1",
+    "@angular/platform-browser-dynamic": "2.4.1",
+    "@types/hammerjs": "2.0.34",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "6.0.53",
+    "awesome-typescript-loader": "3.0.0-beta.17",
+    "codelyzer": "2.0.0-beta.4",
+    "core-js": "2.4.1",
+    "istanbul-instrumenter-loader": "1.2.0",
+    "jasmine-core": "2.5.2",
+    "jquery": "3.1.1",
+    "karma": "1.3.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.1.0",
+    "karma-mocha-reporter": "^2.1.0",
+    "karma-remap-coverage": "0.1.4",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-webpack": "1.8.1",
+    "loader-utils": "0.2.16",
+    "ng2-translate": "4.2.0",
+    "reflect-metadata": "0.1.9",
+    "rxjs": "5.0.2",
+    "source-map-loader": "0.1.5",
+    "ts-helpers": "1.1.2",
+    "tslint": "4.2.0",
+    "tslint-loader": "3.3.0",
+    "typescript": "2.1.4",
+    "webpack": "2.1.0-beta.27",
+    "zone.js": "0.7.4"
+  },
+  "dependencies": {
+    "commitizen": "^2.9.2",
+    "global": "^4.3.1"
+  }
+}

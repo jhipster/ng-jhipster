@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "es2015",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node"
+    ],
+    "lib": ["es2015", "dom"]
+  },
+  "exclude": [
+    "node_modules",
+    "bundles"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}
