@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 export class TranslatePartialLoader implements TranslateLoader {
-    private locations: string[];
+    private locations: string[] = [];
 
     constructor(private http: Http, private prefix = 'i18n', private suffix = '.json') {
     }

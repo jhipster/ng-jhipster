@@ -26,7 +26,6 @@ import { EventManager } from './src/service/event-manager.service';
 import { JhiLanguageService } from './src/language/language.service';
 
 import { ModuleConfig } from './src/config';
-import { SORT_ICONS, I18N } from './src/constants';
 import { ConfigHelper } from './src/helper';
 import { TranslatePartialLoader } from './src/language/translate-partial-loader';
 
@@ -104,14 +103,7 @@ export function missingTranslationHandler() {
     ]
 })
 export class NgJhipsterModule {
-    static forRoot(providedConfig: ModuleConfig = {
-        sortIcon : SORT_ICONS.icon,
-        sortAscIcon : SORT_ICONS.ascIcon,
-        sortDescIcon : SORT_ICONS.descIcon,
-        sortIconSelector : SORT_ICONS.iconSelector,
-        defaultI18nLocation: I18N.defaultLocation,
-        defaultI18nLang: I18N.defaultLanguage
-    }): ModuleWithProviders {
+    static forRoot(providedConfig: ModuleConfig): ModuleWithProviders {
         ConfigHelper.setModuleConfigOptions(providedConfig);
         return {
             ngModule: NgJhipsterModule,
