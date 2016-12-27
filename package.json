@@ -39,6 +39,7 @@
     "@angular/http": "2.4.1",
     "@angular/platform-browser": "2.4.1",
     "@angular/platform-browser-dynamic": "2.4.1",
+    "@angular/platform-server": "2.4.1",
     "@types/hammerjs": "2.0.34",
     "@types/jasmine": "2.5.38",
     "@types/node": "6.0.53",
@@ -63,13 +64,9 @@
     "ts-helpers": "1.1.2",
     "tslint": "4.2.0",
     "tslint-loader": "3.3.0",
-    "typescript": "2.1.4",
-    "webpack": "2.1.0-beta.27",
+    "typescript": "2.0.10",
+    "webpack": "2.2.0-rc.2",
     "zone.js": "0.7.4"
-  },
-  "dependencies": {
-    "commitizen": "^2.9.2",
-    "global": "^4.3.1"
   },
   "version": "0.0.0"
 }

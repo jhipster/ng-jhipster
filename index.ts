@@ -50,12 +50,19 @@ export * from './src/service/event-manager.service';
 export * from './src/language/translate-partial-loader';
 export * from './src/language/language.service';
 
+export function translatePartialLoader(http: Http) {
+    return new TranslatePartialLoader(http, 'i18n', '.json');
+}
+
+export function missingTranslationHandler() {
+    return new JhiMissingTranslationHandler();
+}
 
 @NgModule({
     imports: [
         TranslateModule.forRoot({
             provide: TranslateLoader,
-            useFactory: (http: Http) => new TranslatePartialLoader(http, 'i18n', '.json'),
+            useFactory: translatePartialLoader,
             deps: [Http]
         }),
         HttpModule,
@@ -76,7 +83,7 @@ export * from './src/language/language.service';
     ],
     providers: [
         {
-            provide: MissingTranslationHandler, useFactory: () => new JhiMissingTranslationHandler()
+            provide: MissingTranslationHandler, useFactory: missingTranslationHandler
         }
     ],
     exports: [
