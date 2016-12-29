@@ -16,6 +16,9 @@
 import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 
+/**
+ * An utility service for date.
+ */
 @Injectable()
 export class DateUtils {
 
