@@ -33,6 +33,7 @@ export class ConfigHelper {
         setProperty('sortIconSelector');
         setProperty('defaultI18nLocation');
         setProperty('defaultI18nLang');
+        setProperty('noi18nMessage');
 
         CONFIG_OPTIONS = options;
     }

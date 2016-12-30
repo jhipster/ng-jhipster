@@ -20,4 +20,5 @@ export interface ModuleConfig {
     sortIconSelector?: string;
     defaultI18nLocation?: string;
     defaultI18nLang?: string;
+    noi18nMessage?: string;
 }
