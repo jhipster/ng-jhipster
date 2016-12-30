@@ -1,27 +1,29 @@
 {
+  "typescript.tsdk": "./node_modules/typescript/lib",
   "files.exclude": {
-    "**/.DS_Store": "explorerExcludedFiles",
     "nbproject": "explorerExcludedFiles",
     "manifest.mf": "explorerExcludedFiles",
     "build.xml": "explorerExcludedFiles",
+    "node_modules": "explorerExcludedFiles",
     "node_modules/*": "explorerExcludedFiles",
     "npm-debug.log": "explorerExcludedFiles",
+    "src/**/*.js": "explorerExcludedFiles",
     "*.js": "explorerExcludedFiles",
-    "!config/*": "explorerExcludedFiles",
-    "!karma.conf.js": "explorerExcludedFiles",
-    "!webpack.config.js": "explorerExcludedFiles",
     "*.map": "explorerExcludedFiles",
     "*.d.ts": "explorerExcludedFiles",
     "!make.js": "explorerExcludedFiles",
     "!examples/**/*.js": "explorerExcludedFiles",
     "coverage": "explorerExcludedFiles",
+    "**/*.metadata.json": "explorerExcludedFiles",
     "*.metadata.json": "explorerExcludedFiles",
     "bundles": "explorerExcludedFiles",
     ".idea": "explorerExcludedFiles",
     ".project": "explorerExcludedFiles",
     ".settings": "explorerExcludedFiles",
+    ".vscode": "explorerExcludedFiles",
     "Thumbs.db": "explorerExcludedFiles",
     "Desktop.ini": "explorerExcludedFiles",
-    ".DS_Store": "explorerExcludedFiles"
+    ".DS_Store": "explorerExcludedFiles",
+    "**/.DS_Store": "explorerExcludedFiles"
   }
 }

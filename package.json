@@ -6,6 +6,7 @@
     "test-watch": "karma start --singleRun=false --autoWatch=true",
     "commit": "npm run prepublish && npm test",
     "prepublish": "ngc && npm run build",
+    "ngc": "ngc",
     "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js"
   },
   "repository": {
