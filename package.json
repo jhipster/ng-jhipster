@@ -7,6 +7,7 @@
     "commit": "npm run prepublish && npm test",
     "prepublish": "ngc && npm run build",
     "ngc": "ngc",
+    "lint": "tslint --project tslint.json",
     "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js"
   },
   "repository": {

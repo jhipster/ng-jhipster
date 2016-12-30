@@ -19,30 +19,22 @@ import { NG_VALIDATORS } from '@angular/forms';
 import { forwardRef } from '@angular/core';
 import { numberOfBytes } from './number-of-bytes';
 
-function validateMinbytesFactory() {
-    return (c: FormControl, minbytes: number) => {
-        return (c.value || numberOfBytes(c.value) >= minbytes) ? null : {
-            minbytes: {
-                valid: false
-            }
-        };
-    };
-}
-
 @Directive({
-    selector: '[jhi-minbytes][ngModel]',
+    selector: '[jhiMinbytes][ngModel]',
     providers: [
         { provide: NG_VALIDATORS, useExisting: forwardRef(() => MinbytesValidatorDirective), multi: true }
     ]
 })
 export class MinbytesValidatorDirective {
-    @Input() minbytes: number;
-    validator: Function;
+    @Input() jhiMinbytes: number;
 
-    constructor() {
-        this.validator = validateMinbytesFactory();
-    }
+    constructor() {}
+
     validate(c: FormControl) {
-        return this.validator(c, this.minbytes);
+        return (c.value && numberOfBytes(c.value) >= this.jhiMinbytes) ? null : {
+            minbytes: {
+                valid: false
+            }
+        };
     }
 }

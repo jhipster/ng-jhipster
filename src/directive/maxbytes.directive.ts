@@ -19,30 +19,22 @@ import { NG_VALIDATORS } from '@angular/forms';
 import { forwardRef } from '@angular/core';
 import { numberOfBytes } from './number-of-bytes';
 
-function validateMaxbytesFactory() {
-    return (c: FormControl, maxbytes: number) => {
-        return (c.value || numberOfBytes(c.value) <= maxbytes) ? null : {
-            maxbytes: {
-                valid: false
-            }
-        };
-    };
-}
-
 @Directive({
-    selector: '[jhi-maxbytes][ngModel]',
+    selector: '[jhiMaxbytes][ngModel]',
     providers: [
         { provide: NG_VALIDATORS, useExisting: forwardRef(() => MaxbytesValidatorDirective), multi: true }
     ]
 })
 export class MaxbytesValidatorDirective {
-    @Input() maxbytes: number;
-    validator: Function;
+    @Input() jhiMaxbytes: number;
 
-    constructor() {
-        this.validator = validateMaxbytesFactory();
-    }
+    constructor() {}
+
     validate(c: FormControl) {
-        return this.validator(c, this.maxbytes);
+        return (c.value && numberOfBytes(c.value) <= this.jhiMaxbytes) ? null : {
+            maxbytes: {
+                valid: false
+            }
+        };
     }
 }

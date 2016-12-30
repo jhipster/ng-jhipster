@@ -34,5 +34,3 @@ before_script:
 
 script:
   - yarn test
-  - yarn run ngc
-  - yarn run build
