@@ -16,7 +16,7 @@
 
 import { TestBed, inject } from '@angular/core/testing';
 
-import {PaginationUtil} from '../../src/service/pagination-util.service';
+import { PaginationUtil } from '../../src/service/pagination-util.service';
 
 describe('Pagination Util service test', () => {
 

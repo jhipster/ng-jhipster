@@ -15,9 +15,9 @@
  */
 
 import { TestBed, inject } from '@angular/core/testing';
-import {DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 
-import {DateUtils} from '../../src/service/date-util.service';
+import { DateUtils } from '../../src/service/date-util.service';
 
 describe('Date Utils service test', () => {
 
