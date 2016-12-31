@@ -1,22 +1,23 @@
 {
   "compilerOptions": {
+    "module": "es2015",
     "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "declaration": true,
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": ["es6", "dom"],
-    "typeRoots": [
-        "node_modules/@types"
-    ]
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node"
+    ],
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
     "node_modules",
-    "bundles",
-    "config"
+    "bundles"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,

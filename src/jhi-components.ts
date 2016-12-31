@@ -13,36 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as JhiPipes from './pipe';
-import * as JhiDirectives from './directive';
-import * as JhiComponents from './component';
-import * as JhiServices from './service';
+import { CapitalizePipe, FilterPipe, KeysPipe, OrderByPipe, TruncateCharactersPipe, TruncateWordsPipe} from './pipe';
+import { MaxbytesValidatorDirective, MinbytesValidatorDirective,
+    ShowValidationDirective, JhiSortDirective, JhiSortByDirective } from './directive';
+import { JhiItemCountComponent } from './component';
+import { DataUtils, DateUtils, EventManager, ParseLinks, PaginationUtil} from './service';
 
 export const JHI_PIPES = [
-    JhiPipes.CapitalizePipe,
-    JhiPipes.FilterPipe,
-    JhiPipes.KeysPipe,
-    JhiPipes.OrderByPipe,
-    JhiPipes.TruncateCharactersPipe,
-    JhiPipes.TruncateWordsPipe
+    CapitalizePipe,
+    FilterPipe,
+    KeysPipe,
+    OrderByPipe,
+    TruncateCharactersPipe,
+    TruncateWordsPipe
 ];
 
 export const JHI_DIRECTIVES = [
-    JhiDirectives.MaxbytesValidatorDirective,
-    JhiDirectives.MinbytesValidatorDirective,
-    JhiDirectives.ShowValidationDirective,
-    JhiDirectives.JhiSortDirective,
-    JhiDirectives.JhiSortByDirective
+    MaxbytesValidatorDirective,
+    MinbytesValidatorDirective,
+    ShowValidationDirective,
+    JhiSortDirective,
+    JhiSortByDirective
 ];
 
 export const JHI_COMPONENTS = [
-    JhiComponents.JhiItemCountComponent
+    JhiItemCountComponent
 ];
 
 export const JHI_SERVICES = [
-    JhiServices.DataUtils,
-    JhiServices.DateUtils,
-    JhiServices.EventManager,
-    JhiServices.ParseLinks,
-    JhiServices.PaginationUtil
+    DataUtils,
+    DateUtils,
+    EventManager,
+    ParseLinks,
+    PaginationUtil
 ];
