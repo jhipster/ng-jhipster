@@ -1,5 +1,4 @@
-import {ComponentFixture, TestBed, async} from '@angular/core/testing';
-import {KeysPipe} from '../../pipe/keys.pipe';
+import {KeysPipe} from '../../src/pipe/keys.pipe';
 
 describe('keyspipe Tests', () => {
 

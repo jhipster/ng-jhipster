@@ -1,5 +1,4 @@
-import {ComponentFixture, TestBed, async} from '@angular/core/testing';
-import {CapitalizePipe} from '../../pipe/capitalize.pipe';
+import {CapitalizePipe} from '../../src/pipe/capitalize.pipe';
 
 
 describe('capitalizepipe Tests', () => {
