@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { CapitalizePipe, FilterPipe, KeysPipe, OrderByPipe, TruncateCharactersPipe, TruncateWordsPipe} from './pipe';
+import { CapitalizePipe, FilterPipe, KeysPipe, OrderByPipe, PureFilterPipe, TruncateCharactersPipe, TruncateWordsPipe} from './pipe';
 import { MaxbytesValidatorDirective, MinbytesValidatorDirective,
     ShowValidationDirective, JhiSortDirective, JhiSortByDirective } from './directive';
 import { JhiItemCountComponent } from './component';
@@ -24,6 +24,7 @@ export const JHI_PIPES = [
     FilterPipe,
     KeysPipe,
     OrderByPipe,
+    PureFilterPipe,
     TruncateCharactersPipe,
     TruncateWordsPipe
 ];
