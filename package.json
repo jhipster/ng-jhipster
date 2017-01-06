@@ -2,13 +2,13 @@
   "name": "ng-jhipster",
   "description": "A Jhipster util library for Angular 2",
   "scripts": {
-    "test": "karma start",
-    "test-watch": "karma start --singleRun=false --autoWatch=true",
-    "commit": "npm run prepublish && npm test",
-    "prepublish": "ngc && npm run build",
-    "ngc": "ngc",
     "lint": "tslint --project tslint.json",
-    "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js"
+    "test": "npm run lint && karma start",
+    "test-watch": "karma start --singleRun=false --autoWatch=true",
+    "ngc": "ngc",
+    "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js",
+    "prepublish": "ngc && npm run build && npm test",
+    "release-patch": "npm run prepublish && npm version patch -a -m \"Update to %s\" && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
