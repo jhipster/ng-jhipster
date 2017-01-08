@@ -36,7 +36,6 @@ import {
     EventManager,
     ParseLinks,
     PaginationUtil,
-    AlertService,
     Base64
 } from './service';
 
@@ -68,6 +67,5 @@ export const JHI_SERVICES = [
     EventManager,
     ParseLinks,
     PaginationUtil,
-    AlertService,
     Base64
 ];
