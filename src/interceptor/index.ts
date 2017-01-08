@@ -1,2 +1,2 @@
 export * from './http.interceptor';
-export * from './http.interceptable';
+export * from './interceptable-http';

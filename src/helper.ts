@@ -31,6 +31,7 @@ export class ConfigHelper {
         setProperty('sortAscIcon');
         setProperty('sortDescIcon');
         setProperty('sortIconSelector');
+        setProperty('i18nEnabled');
         setProperty('defaultI18nLocation');
         setProperty('defaultI18nLang');
         setProperty('noi18nMessage');

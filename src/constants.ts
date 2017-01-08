@@ -18,6 +18,7 @@ export const CONSTANTS = {
     sortAscIcon: 'fa-sort-asc',
     sortDescIcon: 'fa-sort-desc',
     sortIconSelector: 'span.fa',
+    i18nEnabled: false,
     defaultI18nLocation: 'global',
     defaultI18nLang: 'en',
     noi18nMessage: 'translation-not-found'

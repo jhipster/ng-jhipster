@@ -13,70 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { HttpInterceptable } from './http.interceptable';
-import { Injectable } from '@angular/core';
-import { Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Request, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Response, RequestOptionsArgs } from '@angular/http';
 
-@Injectable()
-export class HttpInterceptor extends Http {
-    private firstInterceptor: HttpInterceptable;
+/**
+ * A HTTP interceptor responsibility chain member is a class, which may react on request and response of all requests
+ * done by HTTP.
+ */
+export abstract class HttpInterceptor {
+    private _successor: HttpInterceptor = null;
 
-    constructor(
-        backend: ConnectionBackend,
-        defaultOptions: RequestOptions,
-        interceptors: HttpInterceptable[]
-    ) {
-        super(backend, defaultOptions);
-
-        /**
-         * building a responsibility chain of http interceptables, so when processXXXInterception is called on first interceptor,
-         * all http interceptables are called in a row
-         * Note: the array of interceptors are wired in customHttpProvider of the generated Jhipster app in file `http.provider.ts`
-         *
-        */
-        if (interceptors.length > 0) {
-            interceptors.reduce((chain, current) => {
-                chain.successor = current;
-                return current;
-            });
-
-            this.firstInterceptor = interceptors[0];
-        }
+    set successor(successor: HttpInterceptor) {
+        this._successor = successor;
     }
 
-    request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.request(url, this.getRequestOptionArgs(options)));
+    processRequestInterception(options?: RequestOptionsArgs): RequestOptionsArgs {
+        return (!this._successor) ? this.requestIntercept(options) :
+            this._successor.processRequestInterception(this.requestIntercept(options));
     }
 
-    get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.get(url, this.getRequestOptionArgs(options));
+    processResponseInterception(response: Observable<Response>): Observable<Response> {
+        return (!this._successor) ? this.responseIntercept(response) :
+            this._successor.processResponseInterception(this.responseIntercept(response));
     }
 
-    post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.post(url, body, this.getRequestOptionArgs(options));
-    }
+    abstract requestIntercept(options?: RequestOptionsArgs): RequestOptionsArgs;
 
-    put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.put(url, body, this.getRequestOptionArgs(options));
-    }
+    abstract responseIntercept(observable: Observable<Response>): Observable<Response>;
 
-    delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.delete(url, this.getRequestOptionArgs(options));
-    }
-
-    getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
-        if (options == null) {
-            options = new RequestOptions();
-        }
-        if (options.headers == null) {
-            options.headers = new Headers();
-        }
-
-        return !this.firstInterceptor ? options : this.firstInterceptor.processRequestInterception(options);
-    }
-
-    intercept(observable: Observable<Response>): Observable<Response> {
-        return !this.firstInterceptor ? observable : this.firstInterceptor.processResponseInterception(observable);
-    }
 }

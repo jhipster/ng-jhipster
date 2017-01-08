@@ -17,7 +17,7 @@ import { CapitalizePipe, FilterPipe, KeysPipe, OrderByPipe, PureFilterPipe, Trun
 import { MaxbytesValidatorDirective, MinbytesValidatorDirective,
     ShowValidationDirective, JhiSortDirective, JhiSortByDirective } from './directive';
 import { JhiItemCountComponent } from './component';
-import { DataUtils, DateUtils, EventManager, ParseLinks, PaginationUtil} from './service';
+import { DataUtils, DateUtils, EventManager, ParseLinks, PaginationUtil, AlertService } from './service';
 
 export const JHI_PIPES = [
     CapitalizePipe,
@@ -46,5 +46,6 @@ export const JHI_SERVICES = [
     DateUtils,
     EventManager,
     ParseLinks,
-    PaginationUtil
+    PaginationUtil,
+    AlertService
 ];
