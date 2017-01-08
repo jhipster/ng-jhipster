@@ -16,7 +16,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, MissingTranslationHandler, TranslateLoader } from 'ng2-translate/ng2-translate';
+import { TranslateModule, MissingTranslationHandler, TranslateLoader } from 'ng2-translate';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
 
