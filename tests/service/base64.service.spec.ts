@@ -18,9 +18,9 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { Base64 } from '../../src/service/base64.service';
 
-describe('Data Utils service test', () => {
+describe('Base64 service test', () => {
 
-    describe('Data Utils Service Test', () => {
+    describe('Base64 Service Test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
