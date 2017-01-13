@@ -2,17 +2,17 @@ import {OrderByPipe} from '../../src/pipe/order-by.pipe';
 
 describe('orderBy Tests', () => {
 
-    let value = ["Banana", "Orange", "Apple", "Mango","Lemon"];
-    let predicate : string = "";
-    let pipe:OrderByPipe;
+    let value = ['Banana', 'Orange', 'Apple', 'Mango', 'Lemon'];
+    let predicate: '';
+    let pipe: OrderByPipe;
     beforeEach(() => {
         pipe = new OrderByPipe();
     });
 
     it('Should order an array whith the predicate', () => {
-        var result = pipe.transform(value,predicate ,false);
+        let result = pipe.transform(value, predicate , false);
 
-        expect(result).toEqual(["Lemon","Mango","Apple","Orange","Banana"]);
+        expect(result).toEqual(['Lemon', 'Mango', 'Apple', 'Orange', 'Banana']);
     });
 });
 
