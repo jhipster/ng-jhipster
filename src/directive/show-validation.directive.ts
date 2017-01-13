@@ -13,28 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Directive, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit } from '@angular/core';
 
 @Directive({ selector: 'form[jhiShowValidation]' })
-export class ShowValidationDirective {
-    constructor(el: ElementRef, renderer: Renderer) {
-       let formElements = el.nativeElement.querySelectorAll('.form-group');
-       formElements.forEach((formGroup) =>  {
-           let inputs = formGroup.querySelectorAll('input[(ngModel)],textarea[(ngModel)],select[(ngModel)]');
+export class ShowValidationDirective implements AfterViewInit {
 
-           if (inputs) {
-               inputs.forEach((input) => {
+    constructor(private el: ElementRef) {}
+
+    ngAfterViewInit() {
+        let formElements = this.el.nativeElement.querySelectorAll('.form-group');
+
+        formElements.forEach((formGroup) =>  {
+            let inputs = formGroup.querySelectorAll('input[(ngModel)],textarea[(ngModel)],select[(ngModel)]');
+
+            if (inputs) {
+                inputs.forEach((input) => {
                     let isInvalid = input.classList.contains('ng-invalid') && input.classList.contains('ng-dirty');
                     formGroup.classList.toggle('has-error', isInvalid);
+                });
+            }
 
-                    /*scope.$watch(function() {
-                       return $input.hasClass('ng-invalid') && $input.hasClass('ng-dirty');
-                   }, function(isInvalid) {
-                       $formGroup.toggleClass('has-error', isInvalid);
-                   });*/
-               });
-           }
-
-       });
+        });
     }
 }
