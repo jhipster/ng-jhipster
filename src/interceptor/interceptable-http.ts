@@ -35,7 +35,7 @@ export class InterceptableHttp extends Http {
          * Note: the array of interceptors are wired in customHttpProvider of the generated Jhipster app in file `http.provider.ts`
          *
         */
-        if (interceptors.length > 0) {
+        if (interceptors && interceptors.length > 0) {
             interceptors.reduce((chain, current) => {
                 chain.successor = current;
                 return current;
@@ -66,10 +66,10 @@ export class InterceptableHttp extends Http {
     }
 
     getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
-        if (options == null) {
+        if (!options) {
             options = new RequestOptions();
         }
-        if (options.headers == null) {
+        if (!options.headers) {
             options.headers = new Headers();
         }
 
