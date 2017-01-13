@@ -1,7 +1,7 @@
 import {TruncateCharactersPipe} from '../../src/pipe/truncate-characters.pipe';
 
 
-describe('truncateCharacters Tests', () => {
+describe('TruncateCharactersPipe Tests', () => {
 
     let input: any = 'jhipster lover';
     let chars: any = 13;
@@ -17,4 +17,3 @@ describe('truncateCharacters Tests', () => {
         expect(result).toEqual('jhipster...');
     });
 });
-
