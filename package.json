@@ -75,5 +75,5 @@
     "webpack": "2.2.0-rc.2",
     "zone.js": "0.7.4"
   },
-  "version": "0.0.14"
+  "version": "0.0.15"
 }
