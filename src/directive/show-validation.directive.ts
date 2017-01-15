@@ -24,14 +24,12 @@ export class ShowValidationDirective implements AfterViewInit {
         let formElements = this.el.nativeElement.querySelectorAll('.form-group');
 
         formElements.forEach((formGroup) =>  {
-            let inputs = formGroup.querySelectorAll('input,textarea,select');
+            let inputs = formGroup.querySelectorAll('input[ng-reflect-model],textarea[ng-reflect-model],select[ng-reflect-model]');
 
             if (inputs) {
                 inputs.forEach((input) => {
-                    if (input.hasAttribute('[(ngModel)]')) {
-                        let isInvalid = input.classList.contains('ng-invalid') && input.classList.contains('ng-dirty');
-                        formGroup.classList.toggle('has-error', isInvalid);
-                    }
+                    let isInvalid = input.classList.contains('ng-invalid') && input.classList.contains('ng-dirty');
+                    formGroup.classList.toggle('has-error', isInvalid);
                 });
             }
 
