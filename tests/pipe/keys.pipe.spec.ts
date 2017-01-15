@@ -1,6 +1,6 @@
 import {KeysPipe} from '../../src/pipe/keys.pipe';
 
-describe('keyspipe Tests', () => {
+describe('keysPipe Tests', () => {
     let value = {'one': 1 , 'two' : 2, 'three' : 3 } ;
     let pipe: KeysPipe;
 
