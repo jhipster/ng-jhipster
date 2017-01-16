@@ -1,18 +1,6 @@
 {
   "name": "ng-jhipster",
   "description": "A Jhipster util library for Angular 2",
-  "scripts": {
-    "lint": "tslint --project tslint.json",
-    "test": "npm run lint && karma start",
-    "test-watch": "karma start --singleRun=false --autoWatch=true",
-    "ngc": "ngc",
-    "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "prepublish": "ngc && npm run build && npm test",
-    "release": "git push && git push --tags && npm publish",
-    "release-patch": "npm version patch -a -m \"Update to %s\" && npm run release",
-    "release-minor": "npm version minor -a -m \"Update to %s\" && npm run release",
-    "release-major": "npm version major -a -m \"Update to %s\" && npm run release"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jhipster/ng-jhipster.git"
@@ -75,5 +63,17 @@
     "webpack": "2.2.0-rc.2",
     "zone.js": "0.7.4"
   },
-  "version": "0.0.15"
+  "version": "0.0.15",
+  "scripts": {
+    "lint": "tslint --project tslint.json",
+    "test": "npm run lint && karma start",
+    "test-watch": "karma start --singleRun=false --autoWatch=true",
+    "ngc": "ngc",
+    "build": "webpack && cp bundles/ng-jhipster.umd.js bundles/index.js",
+    "prepublish": "ngc && npm run build && npm test",
+    "release": "git push && git push --tags && npm publish",
+    "release-patch": "npm version patch -a -m \"Update to %s\" && npm run release",
+    "release-minor": "npm version minor -a -m \"Update to %s\" && npm run release",
+    "release-major": "npm version major -a -m \"Update to %s\" && npm run release"
+  }
 }
