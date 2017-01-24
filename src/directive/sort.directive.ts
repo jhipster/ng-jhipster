@@ -57,9 +57,11 @@ export class JhiSortDirective {
     }
 
     private resetClasses() {
-        let allThIcons = this.element.querySelectorAll(this.sortIconSelector)[0];
-        allThIcons.classList.remove(this.sortAscIcon);
-        allThIcons.classList.remove(this.sortDescIcon);
-        allThIcons.classList.add(this.sortIcon);
+        let allThIcons = this.element.querySelectorAll(this.sortIconSelector);
+        allThIcons.forEach((value) => {
+            value.classList.remove(this.sortAscIcon);
+            value.classList.remove(this.sortDescIcon);
+            value.classList.add(this.sortIcon);
+        });
     };
 }
