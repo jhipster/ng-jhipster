@@ -25,7 +25,6 @@ import {
 import {
     MaxbytesValidatorDirective,
     MinbytesValidatorDirective,
-    ShowValidationDirective,
     JhiSortDirective,
     JhiSortByDirective
 } from './directive';
@@ -52,7 +51,6 @@ export const JHI_PIPES = [
 export const JHI_DIRECTIVES = [
     MaxbytesValidatorDirective,
     MinbytesValidatorDirective,
-    ShowValidationDirective,
     JhiSortDirective,
     JhiSortByDirective
 ];

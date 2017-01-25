@@ -2,11 +2,25 @@ import { Injectable, Sanitizer, SecurityContext } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 import { ConfigHelper } from '../helper';
 
+export type AlertType =  'success' | 'danger' | 'warning' | 'info';
+
+export interface Alert {
+    id?: number;
+    type: AlertType;
+    msg: string;
+    params?: any;
+    timeout?: number;
+    toast?: boolean;
+    position?: string;
+    scoped?: boolean;
+    close?: (alerts: Alert[]) => void;
+}
+
 @Injectable()
 export class AlertService {
 
     private alertId: number;
-    private alerts: any[];
+    private alerts: Alert[];
     private timeout: number;
     private i18nEnabled: boolean;
     private translateService: TranslateService;
@@ -15,7 +29,7 @@ export class AlertService {
         this.i18nEnabled = ConfigHelper.getConfig().i18nEnabled;
         this.alertId = 0; // unique id for each alert. Starts from 0.
         this.alerts = [];
-        this.timeout = 5000; // default timeout
+        this.timeout = 5000; // default timeout in milliseconds
         if (this.i18nEnabled) {
             this.translateService = translateService;
         }
@@ -25,11 +39,11 @@ export class AlertService {
         this.alerts = [];
     }
 
-    get(): any {
+    get(): Alert[] {
         return this.alerts;
     }
 
-    success(msg, params?, position?): any {
+    success(msg: string, params?: any, position?: string): Alert {
         return this.addAlert({
             type: 'success',
             msg: msg,
@@ -40,7 +54,7 @@ export class AlertService {
         }, []);
     }
 
-    error(msg, params?, position?): any {
+    error(msg: string, params?: any, position?: string): Alert {
         return this.addAlert({
             type: 'danger',
             msg: msg,
@@ -51,7 +65,7 @@ export class AlertService {
         }, []);
     }
 
-    warning(msg, params?, position?): any {
+    warning(msg: string, params?: any, position?: string): Alert {
         return this.addAlert({
             type: 'warning',
             msg: msg,
@@ -62,7 +76,7 @@ export class AlertService {
         }, []);
     }
 
-    info(msg, params?, position?): any {
+    info(msg: string, params?: any, position?: string): Alert {
         return this.addAlert({
             type: 'info',
             msg: msg,
@@ -73,17 +87,17 @@ export class AlertService {
         }, []);
     }
 
-    factory(alertOptions): any {
-        let alert = {
+    private factory(alertOptions: Alert): Alert {
+        let alert: Alert = {
             type: alertOptions.type,
             msg: this.sanitizer.sanitize(SecurityContext.HTML, alertOptions.msg),
-            id: alertOptions.alertId,
+            id: alertOptions.id,
             timeout: alertOptions.timeout,
             toast: alertOptions.toast,
             position: alertOptions.position ? alertOptions.position : 'top right',
             scoped: alertOptions.scoped,
-            close: (alerts) => {
-                return this.closeAlert(alertOptions.alertId, alerts);
+            close: (alerts: Alert[]) => {
+                return this.closeAlert(alertOptions.id, alerts);
             }
         };
         if (!alert.scoped) {
@@ -92,28 +106,26 @@ export class AlertService {
         return alert;
     }
 
-    addAlert(alertOptions, extAlerts): any {
-        alertOptions.alertId = this.alertId++;
+    addAlert(alertOptions: Alert, extAlerts: Alert[]): Alert {
+        alertOptions.id = this.alertId++;
         if (this.i18nEnabled && alertOptions.msg) {
             alertOptions.msg = this.translateService.instant(alertOptions.msg, alertOptions.params);
         }
         let alert = this.factory(alertOptions);
         if (alertOptions.timeout && alertOptions.timeout > 0) {
             setTimeout(() => {
-                this.closeAlert(alertOptions.alertId, extAlerts);
+                this.closeAlert(alertOptions.id, extAlerts);
             }, alertOptions.timeout);
         }
         return alert;
     }
 
-    closeAlert(id, extAlerts?): any {
-        let thisAlerts = extAlerts ? extAlerts : this.alerts;
-        return this.closeAlertByIndex(thisAlerts.map(function (e) {
-            return e.id;
-        }).indexOf(id), thisAlerts);
+    closeAlert(id: number, extAlerts?: Alert[]): any {
+        let thisAlerts: Alert[] = extAlerts ? extAlerts : this.alerts;
+        return this.closeAlertByIndex(thisAlerts.map(e => e.id).indexOf(id), thisAlerts);
     }
 
-    closeAlertByIndex(index, thisAlerts): any {
+    closeAlertByIndex(index: number, thisAlerts: Alert[]): Alert[] {
         return thisAlerts.splice(index, 1);
     }
 
