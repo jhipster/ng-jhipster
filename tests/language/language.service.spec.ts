@@ -4,14 +4,14 @@ import { TranslateService } from 'ng2-translate';
 import { Observable } from 'rxjs/Observable';
 
 class TranslateLoaderMock {
-    public setLocations(locaions: string[]) {}
+    public setLocations(locaions: string[]) { }
 }
 
 class TranslateServiceMock {
     private lang: string;
     private currentLoader: TranslateLoaderMock;
 
-    constructor () {
+    constructor() {
         this.currentLoader = new TranslateLoaderMock();
     }
 
@@ -19,11 +19,11 @@ class TranslateServiceMock {
         return this.lang;
     }
 
-    public setDefaultLang(lang: string) {}
+    public setDefaultLang(lang: string) { }
 
-    public setLocations(locations: string[]) {}
+    public setLocations(locations: string[]) { }
 
-    public resetLang(lang: string) {}
+    public resetLang(lang: string) { }
 
     public use(lang: string): Observable<any> {
         return Observable.of();
@@ -35,8 +35,8 @@ describe('LanguageService Test', () => {
         TestBed.configureTestingModule({
             providers: [
                 JhiLanguageService, {
-                        provide: TranslateService,
-                        useClass: TranslateServiceMock
+                    provide: TranslateService,
+                    useClass: TranslateServiceMock
                 }
             ]
         });
