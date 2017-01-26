@@ -12,7 +12,7 @@ describe('TruncateWordsPipe Tests', () => {
         let result = pipe.transform(input, words);
         expect(result).toBe('');
     });
-    
+
     it('Should return sentence', () => {
         let words = 3;
         let result = pipe.transform(input, words);

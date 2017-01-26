@@ -34,7 +34,7 @@ describe('LanguageService Test', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
-                JhiLanguageService,{
+                JhiLanguageService, {
                         provide: TranslateService,
                         useClass: TranslateServiceMock
                 }
