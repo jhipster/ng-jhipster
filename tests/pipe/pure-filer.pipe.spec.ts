@@ -1,4 +1,4 @@
-import {PureFilterPipe} from '../../src/pipe/pure-filter.pipe';
+import { PureFilterPipe} from '../../src/pipe/pure-filter.pipe';
 
 
 describe('PureFilterPipe Tests', () => {
