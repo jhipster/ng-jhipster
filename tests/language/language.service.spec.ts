@@ -1,4 +1,4 @@
-import { JhiLanguageService} from '../../src/language/language.service';
+import { JhiLanguageService } from '../../src/language/language.service';
 import { TestBed, inject } from '@angular/core/testing';
 import { TranslateService } from 'ng2-translate';
 import { Observable } from 'rxjs/Observable';

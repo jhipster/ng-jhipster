@@ -1,4 +1,4 @@
-import { TruncateWordsPipe} from '../../src/pipe/truncate-words.pipe';
+import { TruncateWordsPipe } from '../../src/pipe/truncate-words.pipe';
 
 describe('TruncateWordsPipe Tests', () => {
     let pipe: TruncateWordsPipe;
