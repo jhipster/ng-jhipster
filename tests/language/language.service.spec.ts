@@ -4,7 +4,6 @@ import { TranslateService } from 'ng2-translate';
 import { Observable } from 'rxjs/Observable';
 
 class TranslateLoaderMock {
-
     public setLocations(locaions: string[]) {}
 }
 
@@ -31,23 +30,21 @@ class TranslateServiceMock {
     }
 }
 
-
-    describe('LanguageService Test', () => {
-        beforeEach(() => {
-            TestBed.configureTestingModule({
-                providers: [
-                    JhiLanguageService,
-                    {
+describe('LanguageService Test', () => {
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [
+                JhiLanguageService,{
                         provide: TranslateService,
                         useClass: TranslateServiceMock
-                    }
-                ]
-            });
+                }
+            ]
         });
-
-        it('should changeLanguage', inject([JhiLanguageService], (service: JhiLanguageService) => {
-            service.changeLanguage('fr');
-            expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
-        }));
-
     });
+
+    it('should changeLanguage', inject([JhiLanguageService], (service: JhiLanguageService) => {
+        service.changeLanguage('fr');
+        expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
+    }));
+
+});
