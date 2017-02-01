@@ -65,9 +65,12 @@ export class DateUtils {
     dateformat () {
         return this.pattern;
     }
-
-    // TODO Find a better way to have Date fields because NgbDatePicker returns an object (Related to entities)
-    toDate(date: any): Date {
-        return date ? new Date(date.year, date.month - 1, date.day) : null;
+    // TODO Change this method when moving from datetime-local input to NgbDatePicker
+    toDate(date: string): Date {
+        if (date === undefined) {
+            return null;
+        }
+        let dateParts = date.split(/\D+/);
+        return new Date(dateParts[0], dateParts[1] - 1, dateParts[2], dateParts[3], dateParts[4]);
     }
 }
