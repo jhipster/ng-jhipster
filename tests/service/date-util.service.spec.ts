@@ -62,12 +62,12 @@ describe('Date Utils service test', () => {
         }));
 
         it('should convertLocalDateToServer to default date pattern', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertLocalDateToServer('2016-05-10');
+            let dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10});
             expect(dateValue).toEqual('2016-05-10');
         }));
 
         it('should convertLocalDateToServer to specified date pattern', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertLocalDateToServer('2016-05-10', 'yyyy');
+            let dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10}, 'yyyy');
             expect(dateValue).toEqual('2016');
         }));
     });
