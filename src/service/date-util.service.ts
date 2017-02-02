@@ -53,7 +53,7 @@ export class DateUtils {
      */
     convertLocalDateToServer (date: any, pattern = this.pattern) {
         if (date) {
-            var newDate = new Date(date.year, date.month - 1, date.day);
+            let newDate = new Date(date.year, date.month - 1, date.day);
             return this.datePipe.transform(newDate, pattern);
         } else {
             return null;
