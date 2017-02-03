@@ -34,9 +34,9 @@ export class JhiSortDirective {
 
     element: any;
 
-    constructor(el: ElementRef, renderer: Renderer) {
+    constructor(el: ElementRef, renderer: Renderer, configHelper: ConfigHelper) {
         this.element = el.nativeElement;
-        let config = ConfigHelper.getConfig();
+        let config = configHelper.getConfig();
         this.sortIcon = config.sortIcon;
         this.sortAscIcon = config.sortAscIcon;
         this.sortDescIcon = config.sortDescIcon;

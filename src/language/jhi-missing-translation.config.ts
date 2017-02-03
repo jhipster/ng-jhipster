@@ -17,8 +17,10 @@ import { MissingTranslationHandler, MissingTranslationHandlerParams } from 'ng2-
 import { ConfigHelper } from '../helper';
 
 export class JhiMissingTranslationHandler implements MissingTranslationHandler {
+    constructor(private ConfigHelper: ConfigHelper) {}
+
     handle(params: MissingTranslationHandlerParams) {
         let key = params.key;
-        return `${ConfigHelper.getConfig().noi18nMessage}[${key}]`;
+        return `${this.ConfigHelper.getConfig().noi18nMessage}[${key}]`;
     }
 }
