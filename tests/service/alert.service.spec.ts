@@ -20,22 +20,23 @@ import { Sanitizer } from '@angular/core';
 import { AlertService } from '../../src/service/alert.service';
 import { ConfigHelper } from '../../src/helper';
 
-function mockAlertService(sanitizer: Sanitizer) {
-    return new AlertService(sanitizer, false);
+function mockAlertService(sanitizer: Sanitizer, configHelper: ConfigHelper) {
+    return new AlertService(sanitizer, configHelper, false);
 }
 
-ConfigHelper.setModuleConfigOptions({
-    i18nEnabled: false
-});
 
 describe('Alert service test', () => {
 
     describe('Alert Service Test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
-                providers: [{
-                    provide: AlertService, useFactory: mockAlertService, deps: [Sanitizer]
-                }]
+                providers: [
+                    {
+                    provide: AlertService, useFactory: mockAlertService, deps: [Sanitizer, ConfigHelper]
+                    },
+                    ConfigHelper,
+                    {provide: 'configValue', useValue: {}}
+                ]
             });
             // Make sure we can install mock clock
             jasmine.clock().uninstall();

@@ -15,31 +15,30 @@
  */
 import { ModuleConfig } from './config';
 import { CONSTANTS } from './constants';
+import {Injectable, Inject} from '@angular/core';
 
-let CONFIG_OPTIONS: ModuleConfig;
-
+@Injectable()
 export class ConfigHelper {
-    static setModuleConfigOptions(options: ModuleConfig) {
-        function setProperty(property) {
-            options[property] = options[property] ? options[property] : CONSTANTS[property];
-        }
+    CONFIG_OPTIONS: ModuleConfig;
 
-        if (!options) {
-            options = {};
+    constructor(@Inject('configValue') configValue: ModuleConfig) {
+        if (!configValue) {
+            configValue = {};
         }
-        setProperty('sortIcon');
-        setProperty('sortAscIcon');
-        setProperty('sortDescIcon');
-        setProperty('sortIconSelector');
-        setProperty('i18nEnabled');
-        setProperty('defaultI18nLocation');
-        setProperty('defaultI18nLang');
-        setProperty('noi18nMessage');
-
-        CONFIG_OPTIONS = options;
+        this.setProperty(configValue, 'sortIcon');
+        this.setProperty(configValue, 'sortAscIcon');
+        this.setProperty(configValue, 'sortDescIcon');
+        this.setProperty(configValue, 'sortIconSelector');
+        this.setProperty(configValue, 'i18nEnabled');
+        this.setProperty(configValue, 'defaultI18nLocation');
+        this.setProperty(configValue, 'defaultI18nLang');
+        this.setProperty(configValue, 'noi18nMessage');
+        this.CONFIG_OPTIONS = configValue;
     }
-
-    static getConfig(): ModuleConfig {
-        return CONFIG_OPTIONS;
+    private setProperty(options, property) {
+        options[property] = options[property] ? options[property] : CONSTANTS[property];
+    }
+    getConfig(): ModuleConfig {
+        return this.CONFIG_OPTIONS;
     }
 }

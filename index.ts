@@ -37,13 +37,13 @@ export * from './src/service';
 export * from './src/component';
 export * from './src/language';
 export * from './src/interceptor';
-
+export * from './src/jhi-components';
 export function translatePartialLoader(http: Http) {
     return new TranslatePartialLoader(http, 'i18n', '.json');
 }
 
-export function missingTranslationHandler() {
-    return new JhiMissingTranslationHandler();
+export function missingTranslationHandler(configHelper: ConfigHelper) {
+    return new JhiMissingTranslationHandler(configHelper);
 }
 
 @NgModule({
@@ -64,7 +64,7 @@ export function missingTranslationHandler() {
     ],
     providers: [
         {
-            provide: MissingTranslationHandler, useFactory: missingTranslationHandler
+            provide: MissingTranslationHandler, useFactory: missingTranslationHandler, deps: [ConfigHelper]
         }
     ],
     exports: [
@@ -79,12 +79,13 @@ export function missingTranslationHandler() {
 })
 export class NgJhipsterModule {
     static forRoot(providedConfig: ModuleConfig): ModuleWithProviders {
-        ConfigHelper.setModuleConfigOptions(providedConfig);
         return {
             ngModule: NgJhipsterModule,
             providers: [
                 ...JHI_SERVICES,
-                JhiLanguageService
+                JhiLanguageService,
+                ConfigHelper,
+                {provide: 'configValue', useValue: providedConfig}
             ]
         };
     }

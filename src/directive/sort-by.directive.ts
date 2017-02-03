@@ -28,7 +28,7 @@ export class JhiSortByDirective {
 
     jhiSort: JhiSortDirective;
 
-    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, private renderer: Renderer) {
+    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, private renderer: Renderer, ConfigHelper: ConfigHelper) {
         this.jhiSort = jhiSort;
         let config = ConfigHelper.getConfig();
         this.sortAscIcon = config.sortAscIcon;

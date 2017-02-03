@@ -25,7 +25,7 @@ export class AlertService {
     private i18nEnabled: boolean;
     private translateService: TranslateService;
 
-    constructor(private sanitizer: Sanitizer, private toast?: boolean, translateService?: TranslateService) {
+    constructor(private sanitizer: Sanitizer, ConfigHelper: ConfigHelper, private toast?: boolean, translateService?: TranslateService, ) {
         this.i18nEnabled = ConfigHelper.getConfig().i18nEnabled;
         this.alertId = 0; // unique id for each alert. Starts from 0.
         this.alerts = [];
