@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, MissingTranslationHandler, TranslateLoader } from 'ng2-translate';
+import { TranslateModule, MissingTranslationHandler } from 'ng2-translate';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
 
 import {
     JhiMissingTranslationHandler,
-    TranslatePartialLoader,
     JhiTranslateComponent,
     JhiLanguageService
 } from './src/language';
@@ -38,21 +37,13 @@ export * from './src/component';
 export * from './src/language';
 export * from './src/interceptor';
 
-export function translatePartialLoader(http: Http) {
-    return new TranslatePartialLoader(http, 'i18n', '.json');
-}
-
 export function missingTranslationHandler() {
     return new JhiMissingTranslationHandler();
 }
 
 @NgModule({
     imports: [
-        TranslateModule.forRoot({
-            provide: TranslateLoader,
-            useFactory: translatePartialLoader,
-            deps: [Http]
-        }),
+        TranslateModule.forRoot(),
         HttpModule,
         CommonModule
     ],
