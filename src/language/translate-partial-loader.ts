@@ -28,22 +28,22 @@ export class TranslatePartialLoader implements TranslateLoader {
 
     public getTranslation(lang: string): Observable<any> {
         let combinedObject = new Object();
-        let oldObsevers: Observable<any>;
+        let oldObservers: Observable<any>;
         let newObserver: Observable<any>;
         this.locations.forEach((value) => {
             newObserver = this.getPartFile(value, combinedObject, lang);
-            if (oldObsevers == null) {
-                oldObsevers = newObserver;
+            if (oldObservers == null) {
+                oldObservers = newObserver;
             } else {
-                oldObsevers = oldObsevers.merge(newObserver);
+                oldObservers = oldObservers.merge(newObserver);
             }
         });
-        return oldObsevers;
+        return oldObservers;
     }
 
     private getPartFile(part: string, combinedObject: any, lang: string): Observable<any> {
         return Observable.create((observer: any) => {
-            let responseObj = require("webapp/" + this.prefix + "/" + lang + "/" + part + this.suffix);
+            let responseObj = require('webapp/' + this.prefix + '/' + lang + '/' + part + this.suffix);
             Object.keys(responseObj).forEach(key => {
                 if (!combinedObject[key]) {
                     combinedObject[key] = responseObj[key];

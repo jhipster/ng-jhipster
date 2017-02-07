@@ -38,8 +38,8 @@ export * from './src/component';
 export * from './src/language';
 export * from './src/interceptor';
 
-export function translatePartialLoader(http: Http) {
-    return new TranslatePartialLoader(http, 'i18n', '.json');
+export function translatePartialLoader() {
+    return new TranslatePartialLoader('i18n', '.json');
 }
 
 export function missingTranslationHandler() {
