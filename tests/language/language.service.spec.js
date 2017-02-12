@@ -3,36 +3,29 @@ import { TranslateService } from 'ng2-translate';
 import { Observable } from 'rxjs/Observable';
 import { JhiLanguageService } from '../../src/language/language.service';
 import { ConfigService } from '../../src/config.service';
-
-class TranslateLoaderMock {
-    public setLocations(locaions: string[]) { }
-}
-
-class TranslateServiceMock {
-    private lang: string;
-    private currentLoader: TranslateLoaderMock;
-
-    constructor() {
+var TranslateLoaderMock = (function () {
+    function TranslateLoaderMock() {
+    }
+    TranslateLoaderMock.prototype.setLocations = function (locaions) { };
+    return TranslateLoaderMock;
+}());
+var TranslateServiceMock = (function () {
+    function TranslateServiceMock() {
         this.currentLoader = new TranslateLoaderMock();
     }
-
-    public getTranslation(): string {
+    TranslateServiceMock.prototype.getTranslation = function () {
         return this.lang;
-    }
-
-    public setDefaultLang(lang: string) { }
-
-    public setLocations(locations: string[]) { }
-
-    public resetLang(lang: string) { }
-
-    public use(lang: string): Observable<any> {
+    };
+    TranslateServiceMock.prototype.setDefaultLang = function (lang) { };
+    TranslateServiceMock.prototype.setLocations = function (locations) { };
+    TranslateServiceMock.prototype.resetLang = function (lang) { };
+    TranslateServiceMock.prototype.use = function (lang) {
         return Observable.of();
-    }
-}
-
-describe('LanguageService Test', () => {
-    beforeEach(() => {
+    };
+    return TranslateServiceMock;
+}());
+describe('LanguageService Test', function () {
+    beforeEach(function () {
         TestBed.configureTestingModule({
             providers: [
                 JhiLanguageService,
@@ -44,14 +37,11 @@ describe('LanguageService Test', () => {
                     provide: ConfigService,
                     useValue: new ConfigService({})
                 }
-
             ]
         });
     });
-
-    it('should changeLanguage', inject([JhiLanguageService], (service: JhiLanguageService) => {
+    it('should changeLanguage', inject([JhiLanguageService], function (service) {
         service.changeLanguage('fr');
         expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
     }));
-
 });

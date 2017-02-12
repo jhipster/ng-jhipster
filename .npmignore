@@ -1,10 +1,10 @@
 #################
 ## Misc
 #################
-**/.DS_Store
 nbproject
 manifest.mf
 build.xml
+node_modules
 node_modules/*
 npm-debug.log
 *.ts
@@ -15,13 +15,15 @@ examples
 coverage
 !*.metadata.json
 !bundles/*.js
+/aot/
 
 #################
-## JetBrains
+## IDE
 #################
 .idea
 .project
 .settings
+.vscode
 
 ############
 ## Windows
@@ -39,3 +41,4 @@ Desktop.ini
 
 # Mac crap
 .DS_Store
+**/.DS_Store

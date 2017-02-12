@@ -8,11 +8,9 @@ node_modules
 node_modules/*
 npm-debug.log
 src/**/*.js
-*.js
-!config/*
+/index.js
+/ng-jhipster.js
 config/testing-utils.js
-!karma.conf.js
-!webpack.config.js
 *.map
 *.d.ts
 !make.js
@@ -20,7 +18,8 @@ config/testing-utils.js
 coverage
 **/*.metadata.json
 *.metadata.json
-bundles
+/bundles
+/aot/
 
 #################
 ## IDE

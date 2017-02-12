@@ -17,7 +17,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 
 import { TranslatePartialLoader } from './translate-partial-loader';
-import { ConfigHelper } from '../helper';
+import { ConfigService } from '../config.service';
 
 @Injectable()
 export class JhiLanguageService {
@@ -26,12 +26,12 @@ export class JhiLanguageService {
     currentLang = 'en';
     locations: string[] = [];
 
-    constructor (private translateService: TranslateService) {
+    constructor (private translateService: TranslateService, private configService: ConfigService) {
         this.init();
     }
 
     init () {
-        let config = ConfigHelper.getConfig();
+        let config = this.configService.getConfig();
         this.defaultLocation = config.defaultI18nLocation;
         this.currentLang = config.defaultI18nLang;
         this.translateService.setDefaultLang(this.currentLang);

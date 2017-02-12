@@ -70,6 +70,7 @@
     "test": "npm run lint && karma start",
     "test-watch": "karma start --singleRun=false --autoWatch=true",
     "ngc": "ngc",
+    "ngc-aot": "ngc -p tsconfig-aot.json",
     "build": "webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
     "prepublish": "ngc && npm run build && npm test",
     "release": "git push && git push --tags && npm publish",
