@@ -69,7 +69,7 @@ export class DateUtils {
 
     // TODO Change this method when moving from datetime-local input to NgbDatePicker
     toDate(date: any): Date {
-        if (date === undefined) {
+        if (date === undefined || date === null) {
             return null;
         }
         let dateParts = date.split(/\D+/);
