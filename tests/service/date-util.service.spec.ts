@@ -74,7 +74,7 @@ describe('Date Utils service test', () => {
         it('should toDate convert datetime-local to date', inject([DateUtils], (service: DateUtils) => {
             let date = '2016-05-10T23:20:50.52';
             let dateValue = service.toDate(date);
-            expect(dateValue).toEqual(new Date('Fri May 10 2016 23:20:00 GMT+0200 (CEST)'));
+            expect(dateValue).toEqual(new Date('2016-05-10 23:20'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
