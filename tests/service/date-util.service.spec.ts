@@ -70,5 +70,26 @@ describe('Date Utils service test', () => {
             let dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10}, 'yyyy');
             expect(dateValue).toEqual('2016');
         }));
+
+        it('should toDate convert datetime-local to date', inject([DateUtils], (service: DateUtils) => {
+            let date = '2016-05-10T23:20:50.52';
+            let dateValue = service.toDate(date);
+            expect(dateValue).toEqual(new Date('2016-05-10 23:20'));
+            expect(dateValue instanceof Date).toBe(true);
+        }));
+
+        it('should toDate to null when input is undefined', inject([DateUtils], (service: DateUtils) => {
+            let date = undefined;
+            let dateValue = service.toDate(date);
+            expect(dateValue).toBeNull;
+            expect(dateValue instanceof Date).toBe(false);
+        }));
+
+        it('should toDate to null when input is null', inject([DateUtils], (service: DateUtils) => {
+            let date = null;
+            let dateValue = service.toDate(date);
+            expect(dateValue).toBeNull;
+            expect(dateValue instanceof Date).toBe(false);
+        }));
     });
 });
