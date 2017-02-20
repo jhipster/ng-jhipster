@@ -40,6 +40,7 @@ export class JhiLanguageService {
 
     changeLanguage(languageKey: string) {
         this.currentLang = languageKey;
+        this.configService.CONFIG_OPTIONS.defaultI18nLang = languageKey;
         this.reload();
     }
 
