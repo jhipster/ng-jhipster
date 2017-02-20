@@ -49,8 +49,14 @@ describe('LanguageService Test', () => {
         });
     });
 
-    it('should changeLanguage', inject([JhiLanguageService], (service: JhiLanguageService) => {
+    it('should change Language', inject([JhiLanguageService], (service: JhiLanguageService) => {
         service.changeLanguage('fr');
+        expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
+    }));
+
+    it('should retain changed language even after force refresh', inject([JhiLanguageService], (service: JhiLanguageService) => {
+        service.changeLanguage('fr');
+        service.init();
         expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
     }));
 
