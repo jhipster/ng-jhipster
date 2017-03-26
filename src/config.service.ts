@@ -15,29 +15,30 @@
  */
 import { Injectable } from '@angular/core';
 import { ModuleConfig } from './config';
-import { CONSTANTS } from './constants';
 
 @Injectable()
 export class ConfigService {
     CONFIG_OPTIONS: ModuleConfig;
+    defaultConfig = new ModuleConfig();
 
-    constructor(moduleConfig: ModuleConfig) {
-        this.CONFIG_OPTIONS = Object.assign({}, moduleConfig);
-        this.setProperty('sortIcon');
-        this.setProperty('sortAscIcon');
-        this.setProperty('sortDescIcon');
-        this.setProperty('sortIconSelector');
-        this.setProperty('i18nEnabled');
-        this.setProperty('defaultI18nLocation');
-        this.setProperty('defaultI18nLang');
-        this.setProperty('noi18nMessage');
+    constructor(moduleConfig?: ModuleConfig) {
+        this.CONFIG_OPTIONS = this.defaultConfig;
+        this.setProperty('sortIcon', moduleConfig);
+        this.setProperty('sortAscIcon', moduleConfig);
+        this.setProperty('sortDescIcon', moduleConfig);
+        this.setProperty('sortIconSelector', moduleConfig);
+        this.setProperty('i18nEnabled', moduleConfig);
+        this.setProperty('defaultI18nLocation', moduleConfig);
+        this.setProperty('defaultI18nLang', moduleConfig);
+        this.setProperty('noi18nMessage', moduleConfig);
     }
 
     getConfig(): ModuleConfig {
         return this.CONFIG_OPTIONS;
     }
 
-    private setProperty(property) {
-        this.CONFIG_OPTIONS[property] = this.CONFIG_OPTIONS[property] ? this.CONFIG_OPTIONS[property] : CONSTANTS[property];
+    private setProperty(property, moduleConfig) {
+        this.CONFIG_OPTIONS[property] = moduleConfig[property] ? moduleConfig[property] : this.CONFIG_OPTIONS[property];
     }
+
 }
