@@ -38,7 +38,7 @@ export class ConfigService {
     }
 
     private setProperty(property, moduleConfig) {
-        this.CONFIG_OPTIONS[property] = moduleConfig[property] ? moduleConfig[property] : this.CONFIG_OPTIONS[property];
+        this.CONFIG_OPTIONS[property] = (moduleConfig && moduleConfig[property]) ? moduleConfig[property] : this.CONFIG_OPTIONS[property];
     }
 
 }
