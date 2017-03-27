@@ -19,10 +19,9 @@ import { ModuleConfig } from './config';
 @Injectable()
 export class ConfigService {
     CONFIG_OPTIONS: ModuleConfig;
-    defaultConfig = new ModuleConfig();
 
     constructor(moduleConfig?: ModuleConfig) {
-        this.CONFIG_OPTIONS = this.defaultConfig;
+        this.CONFIG_OPTIONS = new ModuleConfig();
         this.setProperty('sortIcon', moduleConfig);
         this.setProperty('sortAscIcon', moduleConfig);
         this.setProperty('sortDescIcon', moduleConfig);
