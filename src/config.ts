@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export interface ModuleConfig {
-    sortIcon?: string;
-    sortAscIcon?: string;
-    sortDescIcon?: string;
-    sortIconSelector?: string;
-    i18nEnabled?: boolean;
-    defaultI18nLocation?: string;
-    defaultI18nLang?: string;
-    noi18nMessage?: string;
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ModuleConfig {
+    sortIcon? = 'fa-sort';
+    sortAscIcon? = 'fa-sort-asc';
+    sortDescIcon? = 'fa-sort-desc';
+    sortIconSelector? = 'span.fa';
+    i18nEnabled? = false;
+    defaultI18nLocation? = 'global';
+    defaultI18nLang? = 'en';
+    noi18nMessage? = 'translation-not-found';
 }
