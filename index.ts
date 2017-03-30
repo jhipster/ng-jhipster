@@ -84,7 +84,8 @@ export class NgJhipsterModule {
             providers: [
                 ...JHI_SERVICES,
                 JhiLanguageService,
-                { provide: ModuleConfig, useValue: moduleConfig }
+                { provide: ModuleConfig, useValue: moduleConfig },
+                ConfigService
             ]
         };
     }
