@@ -20,8 +20,8 @@
   "typings": "index.d.ts",
   "homepage": "https://jhipster.github.io",
   "peerDependencies": {
-    "@angular/core": "^2.0.0",
-    "@angular/http": "^2.0.0"
+    "@angular/core": "4.0.0",
+    "@angular/http": "4.0.0"
   },
   "dependencies": {
     "ng2-translate": "4.2.0"
