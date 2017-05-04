@@ -3,7 +3,8 @@
  */
 
 const helpers = require('./config/helpers'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    path = require('path');
 
 /**
  * Webpack Plugins
@@ -16,6 +17,9 @@ module.exports = {
     devtool: 'inline-source-map',
 
     resolve: {
+        alias: {
+            webapp: path.resolve('./')
+        },
         extensions: ['.ts', '.js']
     },
 
@@ -33,6 +37,9 @@ module.exports = {
     externals: [/^\@angular\//, /^rxjs\//],
 
     module: {
+        // require("prefix" + expr + "surfix")
+        wrappedContextRegExp: /$^/,
+        wrappedContextCritical: false,
         rules: [{
             enforce: 'pre',
             test: /\.ts$/,
