@@ -47,7 +47,7 @@ export class TranslatePartialLoader implements TranslateLoader {
             this.http.get(`${this.prefix}/${lang}/${part}${this.suffix}`).subscribe((res) => {
                 let responseObj = res.json();
                 Object.keys(responseObj).forEach(key => {
-                    if (!combinedObject[key]) {
+                    if (!combinedObject[key] || typeof(combinedObject[key]) === 'string') {
                         combinedObject[key] = responseObj[key];
                     } else {
                         Object.assign(combinedObject[key], responseObj[key]);
