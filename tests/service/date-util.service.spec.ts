@@ -46,7 +46,7 @@ describe('Date Utils service test', () => {
         it('should convertDateTimeFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
             let date;
             let dateValue = service.convertDateTimeFromServer(date);
-            expect(dateValue).toBeNull;
+            expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
@@ -59,7 +59,7 @@ describe('Date Utils service test', () => {
         it('should convertLocalDateFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
             let date;
             let dateValue = service.convertLocalDateFromServer(date);
-            expect(dateValue).toBeNull;
+            expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
@@ -83,14 +83,14 @@ describe('Date Utils service test', () => {
         it('should toDate to null when input is undefined', inject([DateUtils], (service: DateUtils) => {
             let date = undefined;
             let dateValue = service.toDate(date);
-            expect(dateValue).toBeNull;
+            expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
         it('should toDate to null when input is null', inject([DateUtils], (service: DateUtils) => {
             let date = null;
             let dateValue = service.toDate(date);
-            expect(dateValue).toBeNull;
+            expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
     });
