@@ -64,7 +64,7 @@
     "webpack": "^2.6.1",
     "zone.js": "^0.8.11"
   },
-  "version": "0.1.15",
+  "version": "0.1.16",
   "scripts": {
     "lint": "tslint --project tslint.json",
     "test": "npm run lint && karma start",
