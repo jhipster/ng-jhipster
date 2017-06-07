@@ -17,7 +17,7 @@
  limitations under the License.
  */
 import { HttpInterceptor } from './http.interceptor';
-import { Injectable } from '@angular/core';
+import { forwardRef, Inject, Injectable } from '@angular/core';
 import { Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Request, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -28,7 +28,7 @@ export class InterceptableHttp extends Http {
     constructor(
         backend: ConnectionBackend,
         defaultOptions: RequestOptions,
-        interceptors: HttpInterceptor[]
+        @Inject(forwardRef(() => HttpInterceptor)) interceptors: HttpInterceptor[]
     ) {
         super(backend, defaultOptions);
 
