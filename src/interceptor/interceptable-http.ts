@@ -68,6 +68,18 @@ export class InterceptableHttp extends Http {
         return this.intercept(super.delete(url, this.getRequestOptionArgs(options)));
     }
 
+    patch(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+        return this.intercept(super.patch(url, body, this.getRequestOptionArgs(options)));
+    }
+
+    head(url: string, options?: RequestOptionsArgs): Observable<Response> {
+        return this.intercept(super.head(url, this.getRequestOptionArgs(options)));
+    }
+
+    options(url: string, options?: RequestOptionsArgs): Observable<Response> {
+        return this.intercept(super.options(url, this.getRequestOptionArgs(options)));
+    }
+
     getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
         if (!options) {
             options = new RequestOptions();
