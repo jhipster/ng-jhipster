@@ -23,7 +23,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class InterceptableHttp extends Http {
-    // private interceptors: HttpInterceptor[];
     private firstInterceptor: HttpInterceptor;
 
     constructor(
