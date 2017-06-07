@@ -19,7 +19,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, MissingTranslationHandler, TranslateLoader } from 'ng2-translate';
+import { TranslateModule, MissingTranslationHandler } from '@ngx-translate/core';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
 
@@ -51,11 +51,11 @@ export function missingTranslationHandler(configService: ConfigService) {
 
 @NgModule({
     imports: [
-        TranslateModule.forRoot({
+        TranslateModule.forRoot(/*{
             provide: TranslateLoader,
             useFactory: translatePartialLoader,
             deps: [Http]
-        }),
+        }*/),
         HttpModule,
         CommonModule
     ],

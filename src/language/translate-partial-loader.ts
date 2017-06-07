@@ -18,7 +18,7 @@
  */
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { TranslateLoader } from 'ng2-translate';
+import { TranslateLoader } from '@ngx-translate/core';
 
 export class TranslatePartialLoader implements TranslateLoader {
     private locations: string[] = [];
