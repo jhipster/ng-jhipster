@@ -28,7 +28,7 @@ export class InterceptableHttp extends Http {
     constructor(
         backend: ConnectionBackend,
         defaultOptions: RequestOptions,
-        @Inject(forwardRef(() => HttpInterceptor)) interceptors: HttpInterceptor[]
+        @Inject(forwardRef(() => HttpInterceptor)) interceptors: HttpInterceptor[] // see the issue generator-jhipster#4794
     ) {
         super(backend, defaultOptions);
 
