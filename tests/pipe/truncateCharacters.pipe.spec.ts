@@ -20,8 +20,8 @@ import {TruncateCharactersPipe} from '../../src/pipe/truncate-characters.pipe';
 
 describe('TruncateCharactersPipe Tests', () => {
 
-    const input: any = 'jhipster test';
-    const chars: any = 13;
+    const input = 'jhipster test';
+    const chars = 12;
     const breakOnWord: any = false;
     let pipe: TruncateCharactersPipe;
     beforeEach(() => {
