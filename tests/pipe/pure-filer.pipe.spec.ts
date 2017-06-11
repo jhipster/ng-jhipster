@@ -35,7 +35,7 @@ describe('PureFilterPipe Tests', () => {
     it('Should filter by  string and field', () => {
         list = [{ value: 'java', extention: 'java' }, { value: 'javaScript', extention: 'js' }, { value: 'TypeScript', extention: 'ts' }];
         filter = 'ts';
-        let field = 'extention';
+        const field = 'extention';
         const result = pipe.transform(list, filter, field);
         expect(result).toEqual([{ value: 'TypeScript', extention: 'ts' }]);
     });

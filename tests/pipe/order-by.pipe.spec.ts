@@ -26,14 +26,14 @@ describe('OrderByPipe Tests', () => {
 
     it('Should order an array', () => {
         const value = ['Banana', 'Orange', 'Apple', 'Mango', 'Lemon'];
-        let result = pipe.transform(value);
+        const result = pipe.transform(value);
 
         expect(result).toEqual(['Apple', 'Banana', 'Lemon', 'Mango', 'Orange']);
     });
 
     it('Should order an array in reverse', () => {
         const value = ['Banana', 'Orange', 'Apple', 'Mango', 'Lemon'];
-        let result = pipe.transform(value, '', true);
+        const result = pipe.transform(value, '', true);
 
         expect(result).toEqual(['Apple', 'Banana', 'Lemon', 'Mango', 'Orange'].reverse());
     });
@@ -57,7 +57,7 @@ describe('OrderByPipe Tests', () => {
                 order: 11
             }
         ];
-        let result = pipe.transform(value, 'name' , false);
+        const result = pipe.transform(value, 'name' , false);
 
         expect(result).toEqual([
             {
@@ -78,7 +78,7 @@ describe('OrderByPipe Tests', () => {
             }
         ]);
 
-        let result2 = pipe.transform(value, 'order' , true);
+        const result2 = pipe.transform(value, 'order' , true);
 
         expect(result2).toEqual([
             {

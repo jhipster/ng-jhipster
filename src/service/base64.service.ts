@@ -16,6 +16,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+/* tslint:disable:no-bitwise */
 import { Injectable } from '@angular/core';
 
 @Injectable()

@@ -29,7 +29,7 @@ export class TruncateWordsPipe implements PipeTransform  {
             return '';
         }
         if (input) {
-            let inputWords = input.split(/\s+/);
+            const inputWords = input.split(/\s+/);
             if (inputWords.length > words) {
                 input = inputWords.slice(0, words).join(' ') + '...';
             }

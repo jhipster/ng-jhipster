@@ -29,7 +29,7 @@ describe('CapitalizePipe Tests', () => {
         expect(result).toEqual('Jhipster');
     });
     it('Should capitalize the first letter and lower the rest for a sentence', () => {
-        let result = pipe.transform('jhipster Test this Sentence');
+        const result = pipe.transform('jhipster Test this Sentence');
         expect(result).toEqual('Jhipster test this sentence');
     });
     it('Should capitalize the first letter and lower the rest in words in different case', () => {

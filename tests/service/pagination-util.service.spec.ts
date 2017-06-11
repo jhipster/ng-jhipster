@@ -32,32 +32,32 @@ describe('Pagination Util service test', () => {
         });
 
         it('should return true when no sort is defined', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = 'id';
+            const sort = 'id';
             expect(service.parseAscending(sort)).toBeTruthy();
         }));
 
         it('should return true when sort is ascending', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = 'id,asc';
+            const sort = 'id,asc';
             expect(service.parseAscending(sort)).toBeTruthy();
         }));
 
         it('should return false when sort is descending', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = 'id,desc';
+            const sort = 'id,desc';
             expect(service.parseAscending(sort)).toBeFalsy();
         }));
 
         it('should return the number for the pagenumber sent', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = '1';
+            const sort = '1';
             expect(service.parsePage(sort)).toBe(1);
         }));
 
         it('should return the NAN error for not valid pagenumber sent', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = 'asdas';
+            const sort = 'asdas';
             expect(service.parsePage(sort)).toBeNaN();
         }));
 
         it('should return only the predicate when sort is sent', inject([PaginationUtil], (service: PaginationUtil) => {
-            let sort = 'id,asc';
+            const sort = 'id,asc';
             expect(service.parsePredicate(sort)).toBe('id');
         }));
 

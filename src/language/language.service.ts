@@ -26,12 +26,12 @@ export class JhiLanguageService {
 
     currentLang = 'en';
 
-    constructor (private translateService: TranslateService, private configService: ConfigService) {
+    constructor(private translateService: TranslateService, private configService: ConfigService) {
         this.init();
     }
 
     init() {
-        let config = this.configService.getConfig();
+        const config = this.configService.getConfig();
         this.currentLang = config.defaultI18nLang;
         this.translateService.setDefaultLang(this.currentLang);
         this.translateService.use(this.currentLang);

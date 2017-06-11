@@ -27,7 +27,7 @@ export class DateUtils {
 
     private pattern = 'yyyy-MM-dd';
 
-    constructor (private datePipe: DatePipe) {}
+    constructor(private datePipe: DatePipe) {}
 
     /**
      * Method to convert the date time from server into JS date object
@@ -45,7 +45,7 @@ export class DateUtils {
      */
     convertLocalDateFromServer(date: any) {
         if (date) {
-            let dateString = date.split('-');
+            const dateString = date.split('-');
             return new Date(dateString[0], dateString[1] - 1, dateString[2]);
         }
         return null;
@@ -56,7 +56,7 @@ export class DateUtils {
      */
     convertLocalDateToServer(date: any, pattern = this.pattern) {
         if (date) {
-            let newDate = new Date(date.year, date.month - 1, date.day);
+            const newDate = new Date(date.year, date.month - 1, date.day);
             return this.datePipe.transform(newDate, pattern);
         } else {
             return null;
@@ -75,7 +75,7 @@ export class DateUtils {
         if (date === undefined || date === null) {
             return null;
         }
-        let dateParts = date.split(/\D+/);
+        const dateParts = date.split(/\D+/);
         return new Date(dateParts[0], dateParts[1] - 1, dateParts[2], dateParts[3], dateParts[4]);
     }
 }

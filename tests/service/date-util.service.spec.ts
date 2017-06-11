@@ -38,58 +38,58 @@ describe('Date Utils service test', () => {
         }));
 
         it('should convertDateTimeFromServer to a new date value', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertDateTimeFromServer('2016-05-10 11:00');
+            const dateValue = service.convertDateTimeFromServer('2016-05-10 11:00');
             expect(dateValue).toEqual(new Date('2016-05-10 11:00'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
         it('should convertDateTimeFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
-            let date;
-            let dateValue = service.convertDateTimeFromServer(date);
+            const date = undefined;
+            const dateValue = service.convertDateTimeFromServer(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
         it('should convertLocalDateFromServer to a new date value', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertDateTimeFromServer('2016-05-10');
+            const dateValue = service.convertDateTimeFromServer('2016-05-10');
             expect(dateValue).toEqual(new Date('2016-05-10'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
         it('should convertLocalDateFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
-            let date;
-            let dateValue = service.convertLocalDateFromServer(date);
+            const date = undefined;
+            const dateValue = service.convertLocalDateFromServer(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
         it('should convertLocalDateToServer to default date pattern', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10});
+            const dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10});
             expect(dateValue).toEqual('2016-05-10');
         }));
 
         it('should convertLocalDateToServer to specified date pattern', inject([DateUtils], (service: DateUtils) => {
-            let dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10}, 'yyyy');
+            const dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10}, 'yyyy');
             expect(dateValue).toEqual('2016');
         }));
 
         it('should toDate convert datetime-local to date', inject([DateUtils], (service: DateUtils) => {
-            let date = '2016-05-10T23:20:50.52';
-            let dateValue = service.toDate(date);
+            const date = '2016-05-10T23:20:50.52';
+            const dateValue = service.toDate(date);
             expect(dateValue).toEqual(new Date('2016-05-10 23:20'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
         it('should toDate to null when input is undefined', inject([DateUtils], (service: DateUtils) => {
-            let date = undefined;
-            let dateValue = service.toDate(date);
+            const date = undefined;
+            const dateValue = service.toDate(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
         it('should toDate to null when input is null', inject([DateUtils], (service: DateUtils) => {
-            let date = null;
-            let dateValue = service.toDate(date);
+            const date = null;
+            const dateValue = service.toDate(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
