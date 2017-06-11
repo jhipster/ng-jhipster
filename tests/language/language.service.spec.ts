@@ -40,8 +40,6 @@ class TranslateServiceMock {
 
     public setDefaultLang(lang: string) { }
 
-    public setLocations(locations: string[]) { }
-
     public resetLang(lang: string) { }
 
     public use(lang: string): Observable<any> {
