@@ -27,7 +27,7 @@ describe('ModuleConfig Test', () => {
     expect(config.sortDescIcon).toBe('fa-sort-desc');
     expect(config.sortIconSelector).toBe('span.fa');
     expect(config.i18nEnabled).toBe(false);
-    expect(config.defaultI18nLocation).toBe('global');
+    expect(config.alertAsToast).toBe(false);
     expect(config.defaultI18nLang).toBe('en');
     expect(config.noi18nMessage).toBe('translation-not-found');
   });
