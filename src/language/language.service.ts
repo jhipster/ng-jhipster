@@ -30,7 +30,7 @@ export class JhiLanguageService {
         this.init();
     }
 
-    init () {
+    init() {
         let config = this.configService.getConfig();
         this.currentLang = config.defaultI18nLang;
         this.translateService.setDefaultLang(this.currentLang);
@@ -43,7 +43,7 @@ export class JhiLanguageService {
         this.translateService.use(this.currentLang);
     }
 
-    getCurrent(): Promise<any> {
+    getCurrent(): Promise<string> {
         return Promise.resolve(this.currentLang);
     }
 }
