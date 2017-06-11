@@ -17,6 +17,7 @@ coverage
 !*.metadata.json
 !bundles/*.js
 /aot/
+/sample/
 
 #################
 ## IDE

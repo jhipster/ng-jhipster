@@ -19,13 +19,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, MissingTranslationHandler } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
 
 import {
     JhiMissingTranslationHandler,
-    TranslatePartialLoader,
     JhiTranslateComponent,
     JhiLanguageService
 } from './src/language';
@@ -42,7 +42,7 @@ export * from './src/language';
 export * from './src/interceptor';
 
 export function translatePartialLoader(http: Http) {
-    return new TranslatePartialLoader(http, 'i18n', '.json');
+    return new TranslateHttpLoader(http, 'i18n/', '.json');
 }
 
 export function missingTranslationHandler(configService: ConfigService) {
@@ -51,11 +51,18 @@ export function missingTranslationHandler(configService: ConfigService) {
 
 @NgModule({
     imports: [
-        TranslateModule.forRoot(/*{
-            provide: TranslateLoader,
-            useFactory: translatePartialLoader,
-            deps: [Http]
-        }*/),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: translatePartialLoader,
+                deps: [Http]
+            },
+            missingTranslationHandler: {
+                provide: MissingTranslationHandler,
+                useFactory: missingTranslationHandler,
+                deps: [ConfigService]
+            }
+        }),
         HttpModule,
         CommonModule
     ],
@@ -64,11 +71,6 @@ export function missingTranslationHandler(configService: ConfigService) {
         ...JHI_DIRECTIVES,
         ...JHI_COMPONENTS,
         JhiTranslateComponent
-    ],
-    providers: [
-        {
-            provide: MissingTranslationHandler, useFactory: missingTranslationHandler, deps: [ConfigService]
-        }
     ],
     exports: [
         ...JHI_PIPES,
