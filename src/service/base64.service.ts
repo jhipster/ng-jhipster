@@ -26,7 +26,7 @@ export class Base64 {
         'wxyz0123456789+/' +
         '=';
 
-    encode (input) {
+    encode(input) {
         let output = '';
         let enc1: any = '';
         let enc2: any = '';
@@ -65,7 +65,7 @@ export class Base64 {
         return output;
     }
 
-    decode (input) {
+    decode(input) {
         let output = '';
         let enc1: any = '';
         let enc2: any = '';

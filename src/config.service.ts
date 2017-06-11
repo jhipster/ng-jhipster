@@ -24,23 +24,13 @@ export class ConfigService {
     CONFIG_OPTIONS: ModuleConfig;
 
     constructor(moduleConfig?: ModuleConfig) {
-        this.CONFIG_OPTIONS = new ModuleConfig();
-        this.setProperty('sortIcon', moduleConfig);
-        this.setProperty('sortAscIcon', moduleConfig);
-        this.setProperty('sortDescIcon', moduleConfig);
-        this.setProperty('sortIconSelector', moduleConfig);
-        this.setProperty('i18nEnabled', moduleConfig);
-        this.setProperty('defaultI18nLocation', moduleConfig);
-        this.setProperty('defaultI18nLang', moduleConfig);
-        this.setProperty('noi18nMessage', moduleConfig);
+        this.CONFIG_OPTIONS = {
+            ...new ModuleConfig(),
+            ...moduleConfig
+        }
     }
 
     getConfig(): ModuleConfig {
         return this.CONFIG_OPTIONS;
     }
-
-    private setProperty(property, moduleConfig) {
-        this.CONFIG_OPTIONS[property] = (moduleConfig && moduleConfig[property]) ? moduleConfig[property] : this.CONFIG_OPTIONS[property];
-    }
-
 }
