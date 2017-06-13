@@ -16,16 +16,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {TruncateCharactersPipe} from '../../src/pipe/truncate-characters.pipe';
+import {JhiTruncateCharactersPipe} from '../../src/pipe/truncate-characters.pipe';
 
 describe('TruncateCharactersPipe Tests', () => {
 
     const input = 'jhipster test';
     const chars = 12;
     const breakOnWord: any = false;
-    let pipe: TruncateCharactersPipe;
+    let pipe: JhiTruncateCharactersPipe;
     beforeEach(() => {
-        pipe = new TruncateCharactersPipe();
+        pipe = new JhiTruncateCharactersPipe();
     });
 
     it('Should return the first word', () => {

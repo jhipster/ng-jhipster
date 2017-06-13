@@ -16,14 +16,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { PureFilterPipe } from '../../src/pipe/pure-filter.pipe';
+import { JhiPureFilterPipe } from '../../src/pipe/pure-filter.pipe';
 
 describe('PureFilterPipe Tests', () => {
-    let pipe: PureFilterPipe;
+    let pipe: JhiPureFilterPipe;
     let list: Array<any>;
     let filter;
     beforeEach(() => {
-        pipe = new PureFilterPipe();
+        pipe = new JhiPureFilterPipe();
     });
 
     it('Should filter by  string', () => {

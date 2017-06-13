@@ -20,7 +20,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class Base64 {
+export class JhiBase64Service {
     private keyStr: string = 'ABCDEFGHIJKLMNOP' +
         'QRSTUVWXYZabcdef' +
         'ghijklmnopqrstuv' +

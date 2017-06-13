@@ -16,13 +16,13 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { TruncateWordsPipe } from '../../src/pipe/truncate-words.pipe';
+import { JhiTruncateWordsPipe } from '../../src/pipe/truncate-words.pipe';
 
 describe('TruncateWordsPipe Tests', () => {
-    let pipe: TruncateWordsPipe;
+    let pipe: JhiTruncateWordsPipe;
     const input = 'Jhipster is the best';
     beforeEach(() => {
-        pipe = new TruncateWordsPipe();
+        pipe = new JhiTruncateWordsPipe();
     });
 
     it('Should return any', () => {

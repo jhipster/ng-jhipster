@@ -19,7 +19,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({name: 'truncateCharacters'})
-export class TruncateCharactersPipe implements PipeTransform {
+export class JhiTruncateCharactersPipe implements PipeTransform {
 
     transform(input: string, chars: number, breakOnWord?: boolean): string {
         if (isNaN(chars)) {

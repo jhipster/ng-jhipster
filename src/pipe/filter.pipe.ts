@@ -19,7 +19,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'filter', pure: false })
-export class FilterPipe implements PipeTransform {
+export class JhiFilterPipe implements PipeTransform {
 
     private filterByStringAndField(filter, field) {
         return (value) => {

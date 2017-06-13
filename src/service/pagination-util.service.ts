@@ -22,7 +22,7 @@ import { Injectable } from '@angular/core';
  * An utility service for pagination
  */
 @Injectable()
-export class PaginationUtil  {
+export class JhiPaginationUtil  {
 
     constructor() {}
 

@@ -16,12 +16,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {OrderByPipe} from '../../src/pipe/order-by.pipe';
+import {JhiOrderByPipe} from '../../src/pipe/order-by.pipe';
 
 describe('OrderByPipe Tests', () => {
-    let pipe: OrderByPipe;
+    let pipe: JhiOrderByPipe;
     beforeEach(() => {
-        pipe = new OrderByPipe();
+        pipe = new JhiOrderByPipe();
     });
 
     it('Should order an array', () => {

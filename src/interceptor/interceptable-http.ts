@@ -16,19 +16,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { HttpInterceptor } from './http.interceptor';
+import { JhiHttpInterceptor } from './http.interceptor';
 import { forwardRef, Inject, Injectable } from '@angular/core';
 import { Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Request, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class InterceptableHttp extends Http {
-    private firstInterceptor: HttpInterceptor;
+export class JhiInterceptableHttp extends Http {
+    private firstInterceptor: JhiHttpInterceptor;
 
     constructor(
         backend: ConnectionBackend,
         defaultOptions: RequestOptions,
-        @Inject(forwardRef(() => HttpInterceptor)) interceptors: HttpInterceptor[] // see the issue generator-jhipster#4794
+        @Inject(forwardRef(() => JhiHttpInterceptor)) interceptors: JhiHttpInterceptor[] // see the issue generator-jhipster#4794
     ) {
         super(backend, defaultOptions);
 

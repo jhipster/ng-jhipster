@@ -16,13 +16,13 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {CapitalizePipe} from '../../src/pipe/capitalize.pipe';
+import {JhiCapitalizePipe} from '../../src/pipe/capitalize.pipe';
 
 describe('CapitalizePipe Tests', () => {
-    let pipe: CapitalizePipe;
+    let pipe: JhiCapitalizePipe;
 
     beforeEach(() => {
-        pipe = new CapitalizePipe();
+        pipe = new JhiCapitalizePipe();
     });
     it('Should capitalize the first letter and lower the rest in words', () => {
         const result = pipe.transform('jhipster');

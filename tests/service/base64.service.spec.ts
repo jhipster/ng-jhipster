@@ -18,7 +18,7 @@
  */
 import { TestBed, inject } from '@angular/core/testing';
 
-import { Base64 } from '../../src/service/base64.service';
+import { JhiBase64Service } from '../../src/service/base64.service';
 
 describe('Base64 service test', () => {
 
@@ -26,16 +26,16 @@ describe('Base64 service test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    Base64
+                    JhiBase64Service
                 ]
             });
         });
 
-        it('should encode the text', inject([Base64], (service: Base64) => {
+        it('should encode the text', inject([JhiBase64Service], (service: JhiBase64Service) => {
             expect(service.encode('Hello Jhipster')).toBe('SGVsbG8gSmhpcHN0ZXI=');
         }));
 
-        it('should decode the encoded text', inject([Base64], (service: Base64) => {
+        it('should decode the encoded text', inject([JhiBase64Service], (service: JhiBase64Service) => {
             expect(service.decode('SGVsbG8gSmhpcHN0ZXI=')).toBe('Hello Jhipster');
         }));
     });

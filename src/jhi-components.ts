@@ -17,44 +17,44 @@
  limitations under the License.
  */
 import {
-    CapitalizePipe,
-    FilterPipe,
-    KeysPipe,
-    OrderByPipe,
-    PureFilterPipe,
-    TruncateCharactersPipe,
-    TruncateWordsPipe
+    JhiCapitalizePipe,
+    JhiFilterPipe,
+    JhiKeysPipe,
+    JhiOrderByPipe,
+    JhiPureFilterPipe,
+    JhiTruncateCharactersPipe,
+    JhiTruncateWordsPipe
 } from './pipe';
 import {
-    MaxbytesValidatorDirective,
-    MinbytesValidatorDirective,
+    JhiMaxbytesValidatorDirective,
+    JhiMinbytesValidatorDirective,
     JhiSortDirective,
     JhiSortByDirective
 } from './directive';
 import { JhiItemCountComponent } from './component';
 import {
-    DataUtils,
-    DateUtils,
-    EventManager,
-    ParseLinks,
-    PaginationUtil,
-    Base64,
-    AlertService
+    JhiDataUtils,
+    JhiDateUtils,
+    JhiEventManager,
+    JhiParseLinks,
+    JhiPaginationUtil,
+    JhiBase64Service,
+    JhiAlertService
 } from './service';
 
 export const JHI_PIPES = [
-    CapitalizePipe,
-    FilterPipe,
-    KeysPipe,
-    OrderByPipe,
-    PureFilterPipe,
-    TruncateCharactersPipe,
-    TruncateWordsPipe
+    JhiCapitalizePipe,
+    JhiFilterPipe,
+    JhiKeysPipe,
+    JhiOrderByPipe,
+    JhiPureFilterPipe,
+    JhiTruncateCharactersPipe,
+    JhiTruncateWordsPipe
 ];
 
 export const JHI_DIRECTIVES = [
-    MaxbytesValidatorDirective,
-    MinbytesValidatorDirective,
+    JhiMaxbytesValidatorDirective,
+    JhiMinbytesValidatorDirective,
     JhiSortDirective,
     JhiSortByDirective
 ];
@@ -64,11 +64,11 @@ export const JHI_COMPONENTS = [
 ];
 
 export const JHI_SERVICES = [
-    DataUtils,
-    DateUtils,
-    EventManager,
-    ParseLinks,
-    PaginationUtil,
-    Base64,
-    AlertService
+    JhiDataUtils,
+    JhiDateUtils,
+    JhiEventManager,
+    JhiParseLinks,
+    JhiPaginationUtil,
+    JhiBase64Service,
+    JhiAlertService
 ];

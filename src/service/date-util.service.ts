@@ -23,7 +23,7 @@ import { Injectable } from '@angular/core';
  * An utility service for date.
  */
 @Injectable()
-export class DateUtils {
+export class JhiDateUtils {
 
     private pattern = 'yyyy-MM-dd';
 

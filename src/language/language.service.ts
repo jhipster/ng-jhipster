@@ -19,14 +19,14 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ConfigService } from '../config.service';
+import { JhiConfigService } from '../config.service';
 
 @Injectable()
 export class JhiLanguageService {
 
     currentLang = 'en';
 
-    constructor(private translateService: TranslateService, private configService: ConfigService) {
+    constructor(private translateService: TranslateService, private configService: JhiConfigService) {
         this.init();
     }
 

@@ -16,14 +16,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {KeysPipe} from '../../src/pipe/keys.pipe';
+import {JhiKeysPipe} from '../../src/pipe/keys.pipe';
 
 describe('keysPipe Tests', () => {
     const value = {'one': 1 , 'two' : 2, 'three' : 3 } ;
-    let pipe: KeysPipe;
+    let pipe: JhiKeysPipe;
 
     beforeEach(() => {
-        pipe = new KeysPipe();
+        pipe = new JhiKeysPipe();
     });
     it('Should associate key to a value ', () => {
         const result = pipe.transform(value, null);

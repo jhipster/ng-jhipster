@@ -16,11 +16,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { ModuleConfig } from '../src/config';
+import { JhiModuleConfig } from '../src/config';
 
 describe('ModuleConfig Test', () => {
   it('should have default values as specified', () => {
-    const config = new ModuleConfig();
+    const config = new JhiModuleConfig();
 
     expect(config.sortIcon).toBe('fa-sort');
     expect(config.sortAscIcon).toBe('fa-sort-asc');

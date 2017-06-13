@@ -23,15 +23,13 @@ import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ng
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
-
 import {
     JhiMissingTranslationHandler,
     JhiTranslateComponent,
     JhiLanguageService
 } from './src/language';
-
-import { ModuleConfig } from './src/config';
-import { ConfigService } from './src/config.service';
+import { JhiModuleConfig } from './src/config';
+import { JhiConfigService } from './src/config.service';
 
 // Re export the files
 export * from './src/pipe';
@@ -45,7 +43,7 @@ export function translatePartialLoader(http: Http) {
     return new TranslateHttpLoader(http, 'i18n/', '.json');
 }
 
-export function missingTranslationHandler(configService: ConfigService) {
+export function missingTranslationHandler(configService: JhiConfigService) {
     return new JhiMissingTranslationHandler(configService);
 }
 
@@ -60,7 +58,7 @@ export function missingTranslationHandler(configService: ConfigService) {
             missingTranslationHandler: {
                 provide: MissingTranslationHandler,
                 useFactory: missingTranslationHandler,
-                deps: [ConfigService]
+                deps: [JhiConfigService]
             }
         }),
         HttpModule,
@@ -83,14 +81,14 @@ export function missingTranslationHandler(configService: ConfigService) {
     ]
 })
 export class NgJhipsterModule {
-    static forRoot(moduleConfig: ModuleConfig): ModuleWithProviders {
+    static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders {
         return {
             ngModule: NgJhipsterModule,
             providers: [
                 ...JHI_SERVICES,
                 JhiLanguageService,
-                { provide: ModuleConfig, useValue: moduleConfig },
-                ConfigService
+                { provide: JhiModuleConfig, useValue: moduleConfig },
+                JhiConfigService
             ]
         };
     }

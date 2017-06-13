@@ -25,10 +25,10 @@ import { numberOfBytes } from './number-of-bytes';
 @Directive({
     selector: '[jhiMinbytes][ngModel]',
     providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MinbytesValidatorDirective), multi: true }
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }
     ]
 })
-export class MinbytesValidatorDirective {
+export class JhiMinbytesValidatorDirective {
     @Input() jhiMinbytes: number;
 
     constructor() {}

@@ -20,7 +20,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { JhiLanguageService } from '../../src/language/language.service';
-import { ConfigService } from '../../src/config.service';
+import { JhiConfigService } from '../../src/config.service';
 
 describe('LanguageService Test', () => {
     beforeEach(() => {
@@ -29,8 +29,8 @@ describe('LanguageService Test', () => {
             providers: [
                 JhiLanguageService,
                 {
-                    provide: ConfigService,
-                    useValue: new ConfigService({})
+                    provide: JhiConfigService,
+                    useValue: new JhiConfigService({})
                 }
 
             ]

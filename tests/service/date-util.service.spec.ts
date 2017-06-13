@@ -19,7 +19,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
 
-import { DateUtils } from '../../src/service/date-util.service';
+import { JhiDateUtils } from '../../src/service/date-util.service';
 
 describe('Date Utils service test', () => {
 
@@ -27,67 +27,67 @@ describe('Date Utils service test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    DateUtils,
+                    JhiDateUtils,
                     DatePipe
                 ]
             });
         });
 
-        it('should set the pattern to default value', inject([DateUtils], (service: DateUtils) => {
+        it('should set the pattern to default value', inject([JhiDateUtils], (service: JhiDateUtils) => {
             expect(service.dateformat()).toBe('yyyy-MM-dd');
         }));
 
-        it('should convertDateTimeFromServer to a new date value', inject([DateUtils], (service: DateUtils) => {
+        it('should convertDateTimeFromServer to a new date value', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const dateValue = service.convertDateTimeFromServer('2016-05-10 11:00');
             expect(dateValue).toEqual(new Date('2016-05-10 11:00'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
-        it('should convertDateTimeFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
+        it('should convertDateTimeFromServer to null when date is undefined', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const date = undefined;
             const dateValue = service.convertDateTimeFromServer(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
-        it('should convertLocalDateFromServer to a new date value', inject([DateUtils], (service: DateUtils) => {
+        it('should convertLocalDateFromServer to a new date value', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const dateValue = service.convertDateTimeFromServer('2016-05-10');
             expect(dateValue).toEqual(new Date('2016-05-10'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
-        it('should convertLocalDateFromServer to null when date is undefined', inject([DateUtils], (service: DateUtils) => {
+        it('should convertLocalDateFromServer to null when date is undefined', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const date = undefined;
             const dateValue = service.convertLocalDateFromServer(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
-        it('should convertLocalDateToServer to default date pattern', inject([DateUtils], (service: DateUtils) => {
+        it('should convertLocalDateToServer to default date pattern', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10});
             expect(dateValue).toEqual('2016-05-10');
         }));
 
-        it('should convertLocalDateToServer to specified date pattern', inject([DateUtils], (service: DateUtils) => {
+        it('should convertLocalDateToServer to specified date pattern', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const dateValue = service.convertLocalDateToServer({year: 2016, month: 5, day: 10}, 'yyyy');
             expect(dateValue).toEqual('2016');
         }));
 
-        it('should toDate convert datetime-local to date', inject([DateUtils], (service: DateUtils) => {
+        it('should toDate convert datetime-local to date', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const date = '2016-05-10T23:20:50.52';
             const dateValue = service.toDate(date);
             expect(dateValue).toEqual(new Date('2016-05-10 23:20'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
-        it('should toDate to null when input is undefined', inject([DateUtils], (service: DateUtils) => {
+        it('should toDate to null when input is undefined', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const date = undefined;
             const dateValue = service.toDate(date);
             expect(dateValue).toBeNull();
             expect(dateValue instanceof Date).toBe(false);
         }));
 
-        it('should toDate to null when input is null', inject([DateUtils], (service: DateUtils) => {
+        it('should toDate to null when input is null', inject([JhiDateUtils], (service: JhiDateUtils) => {
             const date = null;
             const dateValue = service.toDate(date);
             expect(dateValue).toBeNull();

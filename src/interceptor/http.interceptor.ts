@@ -23,10 +23,10 @@ import { Response, RequestOptionsArgs } from '@angular/http';
  * A HTTP interceptor responsibility chain member is a class, which may react on request and response of all requests
  * done by HTTP.
  */
-export abstract class HttpInterceptor {
-    private _successor: HttpInterceptor = null;
+export abstract class JhiHttpInterceptor {
+    private _successor: JhiHttpInterceptor = null;
 
-    set successor(successor: HttpInterceptor) {
+    set successor(successor: JhiHttpInterceptor) {
         this._successor = successor;
     }
 

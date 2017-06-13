@@ -17,20 +17,20 @@
  limitations under the License.
  */
 import { Injectable } from '@angular/core';
-import { ModuleConfig } from './config';
+import { JhiModuleConfig } from './config';
 
 @Injectable()
-export class ConfigService {
-    CONFIG_OPTIONS: ModuleConfig;
+export class JhiConfigService {
+    CONFIG_OPTIONS: JhiModuleConfig;
 
-    constructor(moduleConfig?: ModuleConfig) {
+    constructor(moduleConfig?: JhiModuleConfig) {
         this.CONFIG_OPTIONS = {
-            ...new ModuleConfig(),
+            ...new JhiModuleConfig(),
             ...moduleConfig
         }
     }
 
-    getConfig(): ModuleConfig {
+    getConfig(): JhiModuleConfig {
         return this.CONFIG_OPTIONS;
     }
 }

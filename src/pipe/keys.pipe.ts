@@ -19,7 +19,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({name: 'keys'})
-export class KeysPipe implements PipeTransform {
+export class JhiKeysPipe implements PipeTransform {
   transform(value, args: string[]): any {
     const keys = [];
     for (let i = 0, valueKeys = Object.keys(value); i < valueKeys.length; i++) {

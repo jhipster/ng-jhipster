@@ -17,10 +17,10 @@
  limitations under the License.
  */
 import { Pipe, PipeTransform } from '@angular/core';
-import { FilterPipe } from './filter.pipe';
+import { JhiFilterPipe } from './filter.pipe';
 
 @Pipe({ name: 'pureFilter' })
-export class PureFilterPipe extends FilterPipe implements PipeTransform {
+export class JhiPureFilterPipe extends JhiFilterPipe implements PipeTransform {
     transform(input: Array<any>, filter: string, field: string): any {
         return super.transform(input, filter, field);
     }

@@ -18,7 +18,7 @@
  */
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PaginationUtil } from '../../src/service/pagination-util.service';
+import { JhiPaginationUtil } from '../../src/service/pagination-util.service';
 
 describe('Pagination Util service test', () => {
 
@@ -26,37 +26,37 @@ describe('Pagination Util service test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    PaginationUtil
+                    JhiPaginationUtil
                 ]
             });
         });
 
-        it('should return true when no sort is defined', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return true when no sort is defined', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = 'id';
             expect(service.parseAscending(sort)).toBeTruthy();
         }));
 
-        it('should return true when sort is ascending', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return true when sort is ascending', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = 'id,asc';
             expect(service.parseAscending(sort)).toBeTruthy();
         }));
 
-        it('should return false when sort is descending', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return false when sort is descending', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = 'id,desc';
             expect(service.parseAscending(sort)).toBeFalsy();
         }));
 
-        it('should return the number for the pagenumber sent', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return the number for the pagenumber sent', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = '1';
             expect(service.parsePage(sort)).toBe(1);
         }));
 
-        it('should return the NAN error for not valid pagenumber sent', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return the NAN error for not valid pagenumber sent', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = 'asdas';
             expect(service.parsePage(sort)).toBeNaN();
         }));
 
-        it('should return only the predicate when sort is sent', inject([PaginationUtil], (service: PaginationUtil) => {
+        it('should return only the predicate when sort is sent', inject([JhiPaginationUtil], (service: JhiPaginationUtil) => {
             const sort = 'id,asc';
             expect(service.parsePredicate(sort)).toBe('id');
         }));

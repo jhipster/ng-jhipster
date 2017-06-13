@@ -19,7 +19,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({name: 'capitalize'})
-export class CapitalizePipe implements PipeTransform  {
+export class JhiCapitalizePipe implements PipeTransform  {
 
     transform(input: string): string {
         if (input !== null) {

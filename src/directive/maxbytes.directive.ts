@@ -25,10 +25,10 @@ import { numberOfBytes } from './number-of-bytes';
 @Directive({
     selector: '[jhiMaxbytes][ngModel]',
     providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => MaxbytesValidatorDirective), multi: true }
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }
     ]
 })
-export class MaxbytesValidatorDirective {
+export class JhiMaxbytesValidatorDirective {
     @Input() jhiMaxbytes: number;
 
     constructor() {}
