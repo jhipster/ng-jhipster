@@ -18,7 +18,7 @@
  */
 import { JhiHttpInterceptor } from './http.interceptor';
 import { forwardRef, Inject, Injectable } from '@angular/core';
-import { Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Request, Response, Headers } from '@angular/http';
+import { Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, RequestMethod, Request, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -53,40 +53,45 @@ export class JhiInterceptableHttp extends Http {
     }
 
     get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.get(url, this.getRequestOptionArgs(options)));
+        return this.intercept(super.get(url, this.getRequestOptionArgs(url, RequestMethod.Get, options)));
     }
 
     post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.post(url, body, this.getRequestOptionArgs(options)));
+        return this.intercept(super.post(url, body, this.getRequestOptionArgs(url, RequestMethod.Post, options, body)));
     }
 
     put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.put(url, body, this.getRequestOptionArgs(options)));
+        return this.intercept(super.put(url, body, this.getRequestOptionArgs(url, RequestMethod.Put, options, body)));
     }
 
     delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.delete(url, this.getRequestOptionArgs(options)));
+        return this.intercept(super.delete(url, this.getRequestOptionArgs(url, RequestMethod.Delete, options)));
     }
 
     patch(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.patch(url, body, this.getRequestOptionArgs(options)));
+        return this.intercept(super.patch(url, body, this.getRequestOptionArgs(url, RequestMethod.Patch, options, body)));
     }
 
     head(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.head(url, this.getRequestOptionArgs(options)));
+        return this.intercept(super.head(url, this.getRequestOptionArgs(url, RequestMethod.Head, options)));
     }
 
     options(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.options(url, this.getRequestOptionArgs(options)));
+        return this.intercept(super.options(url, this.getRequestOptionArgs(url, RequestMethod.Options, options)));
     }
 
-    getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
+    getRequestOptionArgs(url: string, method: RequestMethod, options?: RequestOptionsArgs, body?: any): RequestOptionsArgs {
         if (!options) {
             options = new RequestOptions();
         }
+
         if (!options.headers) {
             options.headers = new Headers();
         }
+
+        options.url = options.url || url;
+        options.method = options.method || method;
+        options.body = options.body || body;
 
         return !this.firstInterceptor ? options : this.firstInterceptor.processRequestInterception(options);
     }
