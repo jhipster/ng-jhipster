@@ -49,7 +49,7 @@ export class JhiInterceptableHttp extends Http {
     }
 
     request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
-        return this.intercept(super.request(url, this.getRequestOptionArgs(options)));
+        return super.request(url, options);
     }
 
     get(url: string, options?: RequestOptionsArgs): Observable<Response> {
