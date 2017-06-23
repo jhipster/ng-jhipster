@@ -72,15 +72,15 @@
     "lint": "tslint --project tslint.json",
     "lint:fix": "tslint --project tslint.json --fix",
     "test": "npm run lint && karma start",
-    "test-watch": "karma start --singleRun=false --autoWatch=true",
+    "test:watch": "karma start --singleRun=false --autoWatch=true",
     "ngc": "ngc",
     "ngc-aot": "ngc -p tsconfig-aot.json",
-    "build": "npm run ngc && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "build-aot": "npm run ngc-aot && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
+    "build": "npm run cleanup && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
+    "build:aot": "npm run cleanup && npm run ngc-aot && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
     "prepublish": "npm run build && npm test",
     "release": "git push && git push --tags && npm publish",
-    "release-patch": "npm version patch -a -m \"Update to %s\" && npm run release",
-    "release-minor": "npm version minor -a -m \"Update to %s\" && npm run release",
-    "release-major": "npm version major -a -m \"Update to %s\" && npm run release"
+    "release:patch": "npm version patch -a -m \"Update to %s\" && npm run release",
+    "release:minor": "npm version minor -a -m \"Update to %s\" && npm run release",
+    "release:major": "npm version major -a -m \"Update to %s\" && npm run release"
   }
 }
