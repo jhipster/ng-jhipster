@@ -77,7 +77,7 @@
     "ngc-aot": "ngc -p tsconfig-aot.json",
     "build": "webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
     "build:aot": "npm run cleanup && npm run ngc-aot && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "release": "npm run cleanup && npm run build && npm test && git push && git push --tags && npm publish",
+    "release": "npm run cleanup && npm run ngc && npm run build && npm test && git push && git push --tags && npm publish",
     "release:patch": "npm version patch -a -m \"Update to %s\" && npm run release",
     "release:minor": "npm version minor -a -m \"Update to %s\" && npm run release",
     "release:major": "npm version major -a -m \"Update to %s\" && npm run release"
