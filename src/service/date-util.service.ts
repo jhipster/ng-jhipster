@@ -27,7 +27,11 @@ export class JhiDateUtils {
 
     private pattern = 'yyyy-MM-dd';
 
-    constructor(private datePipe: DatePipe) {}
+    private datePipe: DatePipe;
+
+    constructor() {
+        this.datePipe = new DatePipe('en');
+    }
 
     /**
      * Method to convert the date time from server into JS date object
