@@ -80,6 +80,6 @@ export class JhiDateUtils {
             return null;
         }
         const dateParts = date.split(/\D+/);
-        return new Date(dateParts[0], dateParts[1] - 1, dateParts[2], dateParts[3], dateParts[4]);
+        return new Date(dateParts[0], dateParts[1] - 1, dateParts[2], dateParts[3], dateParts[4], dateParts[5]);
     }
 }
