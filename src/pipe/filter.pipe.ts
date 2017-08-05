@@ -42,7 +42,8 @@ export class JhiFilterPipe implements PipeTransform {
 
     private filterByObject(filter) {
         return (value) => {
-            for (let i = 0, keys = Object.keys(filter); i < keys.length; i++) {
+            const keys = Object.keys(filter);
+            for (let i = 0; i < keys.length; i++) {
                 const key = keys[i];
                 const type = typeof value[key];
                 let isMatching;
