@@ -27,7 +27,7 @@ export class JhiConfigService {
         this.CONFIG_OPTIONS = {
             ...new JhiModuleConfig(),
             ...moduleConfig
-        }
+        };
     }
 
     getConfig(): JhiModuleConfig {
