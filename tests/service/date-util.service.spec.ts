@@ -74,9 +74,9 @@ describe('Date Utils service test', () => {
         }));
 
         it('should toDate convert datetime-local to date', inject([JhiDateUtils], (service: JhiDateUtils) => {
-            const date = '2016-05-10T23:20:50.52';
+            const date = '2016-05-10T23:20:50.567';
             const dateValue = service.toDate(date);
-            expect(dateValue).toEqual(new Date('2016-05-10 23:20:50'));
+            expect(dateValue).toEqual(new Date('2016-05-10 23:20:50.567'));
             expect(dateValue instanceof Date).toBe(true);
         }));
 
