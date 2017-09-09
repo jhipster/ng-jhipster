@@ -27,6 +27,8 @@ before_script:
 script:
   - yarn run lint
   - yarn test
+  - yarn build
+  - yarn build-aot
 
 notifications:
   email: false
