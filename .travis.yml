@@ -28,7 +28,7 @@ script:
   - yarn run lint
   - yarn test
   - yarn build
-  - yarn build-aot
+  - yarn build:aot
 
 notifications:
   email: false
