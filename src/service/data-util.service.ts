@@ -48,7 +48,7 @@ export class JhiDataUtils {
      * Method to open file
      */
     openFile(type: string, data: string) {
-        const fileURL = 'data:' + contentType + ';base64,' + field;
+        const fileURL = 'data:' + type + ';base64,' + data;
         const win = window.open();
         win.document.write(
             '<iframe src="' + fileURL + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
