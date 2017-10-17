@@ -53,7 +53,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: translatePartialLoader,
-                deps: [Http]
+                deps: [Http, JhiConfigService]
             },
             missingTranslationHandler: {
                 provide: MissingTranslationHandler,
