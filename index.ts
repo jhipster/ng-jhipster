@@ -40,7 +40,12 @@ export * from './src/language';
 export * from './src/interceptor';
 
 export function translatePartialLoader(http: Http) {
-    return new TranslateHttpLoader(http, 'i18n/', '.json?cacheBuster=' + (new Date()).getTime());
+    let postfix = '.json';
+    const config = new JhiModuleConfig();
+    if (config.i18nCacheBuster) {
+        postfix = postfix + '?cacheBuster=' + (new Date()).getTime();
+    }
+    return new TranslateHttpLoader(http, 'i18n/', postfix);
 }
 
 export function missingTranslationHandler(configService: JhiConfigService) {

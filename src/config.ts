@@ -27,5 +27,6 @@ export class JhiModuleConfig {
     i18nEnabled? = false;
     defaultI18nLang? = 'en';
     noi18nMessage? = 'translation-not-found';
+    i18nCacheBuster? = false;
     alertAsToast? = false;
 }
