@@ -35,7 +35,7 @@
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",    
+    "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/platform-server": "^5.0.0",
     "@types/hammerjs": "^2.0.34",
@@ -67,7 +67,7 @@
     "webpack": "^2.6.1",
     "zone.js": "^0.8.11"
   },
-  "version": "0.2.12",
+  "version": "0.3.0",
   "scripts": {
     "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",
