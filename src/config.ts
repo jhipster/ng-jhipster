@@ -28,4 +28,8 @@ export class JhiModuleConfig {
     defaultI18nLang? = 'en';
     noi18nMessage? = 'translation-not-found';
     alertAsToast? = false;
+    classBadgeTrue? = 'badge badge-success';
+    classBadgeFalse? = 'badge badge-danger';
+    classTrue? = 'fa fa-lg fa-check text-success';
+    classFalse? = 'fa fa-lg fa-times text-danger';
 }
