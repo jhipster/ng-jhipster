@@ -17,3 +17,4 @@
  limitations under the License.
  */
 export * from './jhi-item-count.component';
+export * from './jhi-boolean.component';

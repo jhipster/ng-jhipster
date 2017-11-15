@@ -29,4 +29,8 @@ export class JhiModuleConfig {
     noi18nMessage? = 'translation-not-found';
     buildTimestamp? = '';
     alertAsToast? = false;
+    classBadgeTrue? = 'badge badge-success';
+    classBadgeFalse? = 'badge badge-danger';
+    classTrue? = 'fa fa-lg fa-check text-success';
+    classFalse? = 'fa fa-lg fa-times text-danger';
 }

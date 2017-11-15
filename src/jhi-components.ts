@@ -31,7 +31,10 @@ import {
     JhiSortDirective,
     JhiSortByDirective
 } from './directive';
-import { JhiItemCountComponent } from './component';
+import {
+    JhiItemCountComponent,
+    JhiBooleanComponent
+} from './component';
 import {
     JhiDataUtils,
     JhiDateUtils,
@@ -60,7 +63,8 @@ export const JHI_DIRECTIVES = [
 ];
 
 export const JHI_COMPONENTS = [
-    JhiItemCountComponent
+    JhiItemCountComponent,
+    JhiBooleanComponent
 ];
 
 export const JHI_SERVICES = [

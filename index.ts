@@ -17,7 +17,8 @@
  limitations under the License.
  */
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -39,7 +40,7 @@ export * from './src/component';
 export * from './src/language';
 export * from './src/interceptor';
 
-export function translatePartialLoader(http: Http, configService: JhiConfigService) {
+export function translatePartialLoader(http: HttpClient, configService: JhiConfigService) {
     return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${configService.getConfig().buildTimestamp}`);
 }
 
@@ -53,7 +54,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: translatePartialLoader,
-                deps: [Http, JhiConfigService]
+                deps: [HttpClient, JhiConfigService]
             },
             missingTranslationHandler: {
                 provide: MissingTranslationHandler,
