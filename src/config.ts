@@ -27,6 +27,7 @@ export class JhiModuleConfig {
     i18nEnabled? = false;
     defaultI18nLang? = 'en';
     noi18nMessage? = 'translation-not-found';
+    buildTimestamp? = '';
     alertAsToast? = false;
     classBadgeTrue? = 'badge badge-success';
     classBadgeFalse? = 'badge badge-danger';

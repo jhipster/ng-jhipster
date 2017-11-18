@@ -40,8 +40,8 @@ export * from './src/component';
 export * from './src/language';
 export * from './src/interceptor';
 
-export function translatePartialLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, 'i18n/', '.json');
+export function translatePartialLoader(http: HttpClient, configService: JhiConfigService) {
+    return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${configService.getConfig().buildTimestamp}`);
 }
 
 export function missingTranslationHandler(configService: JhiConfigService) {
@@ -54,7 +54,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: translatePartialLoader,
-                deps: [HttpClient]
+                deps: [HttpClient, JhiConfigService]
             },
             missingTranslationHandler: {
                 provide: MissingTranslationHandler,
