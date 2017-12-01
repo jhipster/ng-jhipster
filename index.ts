@@ -16,11 +16,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Sanitizer } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS, JHI_SERVICES } from './src/jhi-components';
@@ -31,6 +31,7 @@ import {
 } from './src/language';
 import { JhiModuleConfig } from './src/config';
 import { JhiConfigService } from './src/config.service';
+import { JhiAlertService } from './src/service';
 
 // Re export the files
 export * from './src/pipe';
@@ -62,6 +63,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
                 deps: [JhiConfigService]
             }
         }),
+        HttpClientModule,
         HttpModule,
         CommonModule
     ],
@@ -77,6 +79,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         ...JHI_COMPONENTS,
         JhiTranslateComponent,
         TranslateModule,
+        HttpClientModule,
         HttpModule,
         CommonModule
     ]
@@ -87,9 +90,10 @@ export class NgJhipsterModule {
             ngModule: NgJhipsterModule,
             providers: [
                 ...JHI_SERVICES,
-                JhiLanguageService,
+                { provide: JhiLanguageService, useClass: JhiLanguageService, deps:[TranslateService, JhiConfigService]},
+                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService]},
                 { provide: JhiModuleConfig, useValue: moduleConfig },
-                JhiConfigService
+                { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
             ]
         };
     }
