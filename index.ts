@@ -90,8 +90,8 @@ export class NgJhipsterModule {
             ngModule: NgJhipsterModule,
             providers: [
                 ...JHI_SERVICES,
-                { provide: JhiLanguageService, useClass: JhiLanguageService, deps:[TranslateService, JhiConfigService]},
-                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService]},
+                { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
+                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
                 { provide: JhiModuleConfig, useValue: moduleConfig },
                 { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
             ]
