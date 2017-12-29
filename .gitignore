@@ -21,6 +21,7 @@ coverage
 *.metadata.json
 /bundles
 /aot/
+*.tgz
 
 #################
 ## IDE
