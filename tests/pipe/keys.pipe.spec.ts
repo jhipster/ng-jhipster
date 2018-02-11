@@ -26,7 +26,7 @@ describe('keysPipe Tests', () => {
         pipe = new JhiKeysPipe();
     });
     it('Should associate key to a value ', () => {
-        const result = pipe.transform(value, null);
+        const result = pipe.transform(value);
         expect(result).toEqual([{key : 'one' , value : 1 }, {key : 'two' , value : 2 }, {key : 'three' , value : 3 }]);
     });
 });
