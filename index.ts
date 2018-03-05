@@ -17,7 +17,7 @@
  limitations under the License.
  */
 import { NgModule, ModuleWithProviders, Sanitizer } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -61,7 +61,6 @@ export function missingTranslationHandler(configService: JhiConfigService) {
                 deps: [JhiConfigService]
             }
         }),
-        HttpClientModule,
         CommonModule
     ],
     declarations: [
@@ -76,7 +75,6 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         ...JHI_COMPONENTS,
         JhiTranslateComponent,
         TranslateModule,
-        HttpClientModule,
         CommonModule
     ]
 })
