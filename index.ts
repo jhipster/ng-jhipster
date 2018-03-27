@@ -91,4 +91,15 @@ export class NgJhipsterModule {
             ]
         };
     }
+    static forChild(moduleConfig: JhiModuleConfig): ModuleWithProviders {
+        return {
+            ngModule: NgJhipsterModule,
+            providers: [
+                { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
+                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
+                { provide: JhiModuleConfig, useValue: moduleConfig },
+                { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
+            ]
+        };
+    }
 }
