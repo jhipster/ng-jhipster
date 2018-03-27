@@ -44,8 +44,6 @@ import {
     JhiBase64Service
 } from './service';
 
-import { JhiConfigService } from './config.service';
-
 export const JHI_PIPES = [
     JhiCapitalizePipe,
     JhiFilterPipe,
@@ -74,6 +72,5 @@ export const JHI_SERVICES = [
     JhiEventManager,
     JhiParseLinks,
     JhiPaginationUtil,
-    JhiBase64Service,
-    JhiConfigService
+    JhiBase64Service
 ];

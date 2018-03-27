@@ -38,6 +38,8 @@ export * from './src/directive';
 export * from './src/service';
 export * from './src/component';
 export * from './src/language';
+export * from './src/config.service';
+export * from './src/config';
 
 export function translatePartialLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
@@ -95,10 +97,10 @@ export class NgJhipsterModule {
         return {
             ngModule: NgJhipsterModule,
             providers: [
-                { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
-                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
-                { provide: JhiModuleConfig, useValue: moduleConfig },
-                { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
+                // { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
+                // { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
+                // { provide: JhiModuleConfig, useValue: moduleConfig },
+                // { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
             ]
         };
     }
