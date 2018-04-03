@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "@ngx-translate/core": "^8.0.0",
-    "@ngx-translate/http-loader": "^2.0.0"
+    "@ngx-translate/http-loader": "^2.0.0",
+    "ng-jhipster": "/Users/azizkhani/Data/git/ng-jhipster/ng-jhipster-v0.4.5.tgz"
   },
   "devDependencies": {
     "@angular/animations": "^5.0.0",
@@ -37,6 +38,7 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/platform-server": "^5.0.0",
+    "@angular/router": "^5.2.8",
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.22",
@@ -68,7 +70,7 @@
   },
   "version": "0.4.5",
   "scripts": {
-    "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
+    "cleanup": "rimraf src/*.d.ts src/**/*.json src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",
     "lint:fix": "tslint --project tslint.json --fix",
     "test": "npm run lint && karma start",

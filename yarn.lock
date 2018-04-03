@@ -67,6 +67,12 @@
     tslib "^1.7.1"
     xhr2 "^0.1.4"
 
+"@angular/router@^5.2.8":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.9.tgz#0369df6e60c6da3a5842c6eb35e3958d4ffe727e"
+  dependencies:
+    tslib "^1.7.1"
+
 "@ngx-translate/core@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-8.0.0.tgz#751fd6b512d80f3a748d2de8dfc96dfefa29afe0"
@@ -2467,6 +2473,14 @@ nanomatch@^1.2.5:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+"ng-jhipster@file:ng-jhipster-v0.4.5.tgz":
+  version "0.4.5"
+  resolved "file:ng-jhipster-v0.4.5.tgz#116d2a99584cb940cd1597f524b0238bcee1ed0f"
+  dependencies:
+    "@ngx-translate/core" "^8.0.0"
+    "@ngx-translate/http-loader" "^2.0.0"
+    ng-jhipster "file:ng-jhipster-v0.4.5.tgz"
 
 node-libs-browser@^2.0.0:
   version "2.1.0"
