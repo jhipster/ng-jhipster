@@ -20,8 +20,7 @@
   "typings": "index.d.ts",
   "homepage": "https://jhipster.github.io",
   "peerDependencies": {
-    "@angular/core": "^5.0.0",
-    "@angular/router": "^5.2.8"
+    "@angular/core": "^5.0.0"
   },
   "dependencies": {
     "@ngx-translate/core": "^8.0.0",
@@ -33,6 +32,7 @@
     "@angular/compiler": "^5.0.0",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.0.0",
+    "@angular/router": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.2.7",
     "@angular/platform-browser": "^5.0.0",
@@ -57,7 +57,7 @@
     "loader-utils": "^1.1.0",
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.6.1",
-    "rxjs": "^5.5.5",
+    "rxjs": "^5.5.6",
     "shx": "^0.2.2",
     "source-map-loader": "^0.2.1",
     "ts-helpers": "^1.1.2",

@@ -21,13 +21,14 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { JhiPaginationUtil } from '.';
 
 @Injectable()
-export class JHiResolvePagingParams implements Resolve<any> {
+export class JhiResolvePagingParams implements Resolve<any> {
 
     constructor(private paginationUtil: JhiPaginationUtil) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
-        const sort = route.queryParams['sort'] ? route.queryParams['sort'] : route.data['defaultSort'];
+        const defaultSort = route.data['defaultSort'] ? route.data['defaultSort'] : 'id,asc';
+        const sort = route.queryParams['sort'] ? route.queryParams['sort'] : defaultSort;
         return {
             page: this.paginationUtil.parsePage(page),
             predicate: this.paginationUtil.parsePredicate(sort),
