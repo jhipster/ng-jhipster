@@ -22,6 +22,7 @@ coverage
 /bundles
 /aot/
 *.tgz
+yarn-error.log
 
 #################
 ## IDE
@@ -30,7 +31,7 @@ coverage
 .project
 .settings
 .vscode
-
+ng-jhipster.iml
 ############
 ## Windows
 ############
