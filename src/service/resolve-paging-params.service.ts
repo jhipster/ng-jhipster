@@ -18,7 +18,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {JhiPaginationUtil} from './pagination-util.service';
+import { JhiPaginationUtil } from './pagination-util.service';
 
 @Injectable()
 export class JhiResolvePagingParams implements Resolve<any> {
