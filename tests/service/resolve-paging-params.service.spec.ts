@@ -16,32 +16,31 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { JhiResolvePagingParams, JhiPaginationUtil } from '../..';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { TestBed, inject } from '@angular/core/testing';
+import { JhiResolvePagingParams } from '../../src/service/resolve-paging-params.service';
+import { JhiPaginationUtil } from '../../src/service/pagination-util.service';
 
 describe('ResolvePagingParams  service test', () => {
 
     describe('ResolvePagingParams Links Service Test', () => {
-        let resolver: JhiResolvePagingParams;
-        let route: ActivatedRouteSnapshot;
-
         beforeEach(() => {
-            resolver = new JhiResolvePagingParams(new JhiPaginationUtil());
-            route = new ActivatedRouteSnapshot();
             TestBed.configureTestingModule({
                 providers: [
                     JhiResolvePagingParams,
-                    JhiPaginationUtil
+                    {
+                        provide: JhiPaginationUtil,
+                        useValue: new JhiPaginationUtil()
+                    }
                 ]
             });
         });
 
-        it(`should return { page: 1, predicate: 'id',ascending: true } when page and sort and defaultSort is undefined` ,
-            inject([JhiResolvePagingParams], (service: JhiResolvePagingParams) => {
+        it(`should return default when page and sort and defaultSort is undefined`, inject([JhiResolvePagingParams], (service: JhiResolvePagingParams) => {
+            const route = new ActivatedRouteSnapshot();
             route.queryParams = { page: undefined, sort: undefined };
             route.data = { defaultSort: undefined };
-            const { page, predicate, ascending } = resolver.resolve(route, null);
+            const { page, predicate, ascending } = service.resolve(route, null);
 
             expect(page).toEqual(1);
             expect(predicate).toEqual('id');

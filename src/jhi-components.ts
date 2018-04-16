@@ -41,8 +41,7 @@ import {
     JhiEventManager,
     JhiParseLinks,
     JhiPaginationUtil,
-    JhiBase64Service,
-    JhiResolvePagingParams
+    JhiBase64Service
 } from './service';
 
 export const JHI_PIPES = [
@@ -73,6 +72,5 @@ export const JHI_SERVICES = [
     JhiEventManager,
     JhiParseLinks,
     JhiPaginationUtil,
-    JhiBase64Service,
-    JhiResolvePagingParams
+    JhiBase64Service
 ];
