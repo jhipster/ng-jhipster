@@ -52,4 +52,4 @@ Go to your generated JHipster application and run...
     rm -rf `yarn cache dir`/.tmp
     yarn add path/to/ng-jhipster/ng-jhipster-vX.Y.Z.tgz
 
-...so that your JHipster application use the content of this archive as `ng-jhipster` dependency which is located in `node_modules/ng-jhipster`.
+...so that your JHipster application uses the content of this archive as `ng-jhipster` dependency which is located in `node_modules/ng-jhipster`.
