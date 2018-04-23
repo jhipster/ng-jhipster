@@ -30,7 +30,7 @@ import {
 } from './src/language';
 import { JhiModuleConfig } from './src/config';
 import { JhiConfigService } from './src/config.service';
-import { JhiAlertService } from './src/service';
+import { JhiAlertService, JhiPaginationUtil, JhiResolvePagingParams } from './src/service';
 
 // Re export the files
 export * from './src/pipe';
@@ -87,6 +87,7 @@ export class NgJhipsterModule {
             providers: [
                 ...JHI_SERVICES,
                 { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
+                { provide: JhiResolvePagingParams, useClass: JhiResolvePagingParams, deps: [JhiPaginationUtil] },
                 { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
                 { provide: JhiModuleConfig, useValue: moduleConfig },
                 { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }

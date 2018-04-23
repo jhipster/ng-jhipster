@@ -67,6 +67,12 @@
     tslib "^1.7.1"
     xhr2 "^0.1.4"
 
+"@angular/router@^5.0.0":
+  version "5.2.10"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.10.tgz#cb36c32de0a233a9b49789e11ca0f96c5304f25a"
+  dependencies:
+    tslib "^1.7.1"
+
 "@ngx-translate/core@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-8.0.0.tgz#751fd6b512d80f3a748d2de8dfc96dfefa29afe0"
