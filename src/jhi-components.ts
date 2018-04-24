@@ -26,6 +26,8 @@ import {
     JhiTruncateWordsPipe
 } from './pipe';
 import {
+    JhiMaxValidatorDirective,
+    JhiMinValidatorDirective,
     JhiMaxbytesValidatorDirective,
     JhiMinbytesValidatorDirective,
     JhiSortDirective,
@@ -55,6 +57,8 @@ export const JHI_PIPES = [
 ];
 
 export const JHI_DIRECTIVES = [
+    JhiMaxValidatorDirective,
+    JhiMinValidatorDirective,
     JhiMaxbytesValidatorDirective,
     JhiMinbytesValidatorDirective,
     JhiSortDirective,
