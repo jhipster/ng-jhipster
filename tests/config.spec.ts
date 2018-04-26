@@ -23,8 +23,8 @@ describe('ModuleConfig Test', () => {
     const config = new JhiModuleConfig();
 
     expect(config.sortIcon).toBe('fa-sort');
-    expect(config.sortAscIcon).toBe('fa-sort-asc');
-    expect(config.sortDescIcon).toBe('fa-sort-desc');
+    expect(config.sortAscIcon).toBe('fa-sort-up');
+    expect(config.sortDescIcon).toBe('fa-sort-down');
     expect(config.sortIconSelector).toBe('span.fa');
     expect(config.i18nEnabled).toBe(false);
     expect(config.alertAsToast).toBe(false);
