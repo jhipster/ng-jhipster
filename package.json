@@ -68,7 +68,7 @@
     "webpack": "^2.6.1",
     "zone.js": "^0.8.11"
   },
-  "version": "0.5.2",
+  "version": "0.5.3",
   "scripts": {
     "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",
@@ -84,6 +84,5 @@
     "release:patch": "npm run build && npm version patch -a -m \"Update to %s\" && npm run release",
     "release:minor": "npm run build && npm version minor -a -m \"Update to %s\" && npm run release",
     "release:major": "npm run build && npm version major -a -m \"Update to %s\" && npm run release"
-
   }
 }
