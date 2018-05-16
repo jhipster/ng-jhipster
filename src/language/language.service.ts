@@ -21,7 +21,9 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { JhiConfigService } from '../config.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class JhiLanguageService {
 
     currentLang = 'en';

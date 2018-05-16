@@ -27,7 +27,6 @@ describe('ResolvePagingParams  service test', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    JhiResolvePagingParams,
                     {
                         provide: JhiPaginationUtil,
                         useValue: new JhiPaginationUtil()

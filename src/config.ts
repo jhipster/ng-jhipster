@@ -18,7 +18,9 @@
  */
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class JhiModuleConfig {
     sortIcon ? = 'fa-sort';
     sortAscIcon ? = 'fa-sort-up';

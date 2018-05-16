@@ -19,7 +19,9 @@
 /* tslint:disable:no-bitwise */
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class JhiBase64Service {
     private keyStr: string = 'ABCDEFGHIJKLMNOP' +
         'QRSTUVWXYZabcdef' +

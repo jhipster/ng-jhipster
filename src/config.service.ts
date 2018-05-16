@@ -19,7 +19,9 @@
 import { Injectable } from '@angular/core';
 import { JhiModuleConfig } from './config';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class JhiConfigService {
     CONFIG_OPTIONS: JhiModuleConfig;
 

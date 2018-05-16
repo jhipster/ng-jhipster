@@ -21,7 +21,9 @@ import { Injectable } from '@angular/core';
 /**
  * An utility service for pagination
  */
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class JhiPaginationUtil  {
 
     constructor() {}

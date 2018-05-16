@@ -27,7 +27,6 @@ describe('LanguageService Test', () => {
         TestBed.configureTestingModule({
             imports: [TranslateModule.forRoot()],
             providers: [
-                JhiLanguageService,
                 {
                     provide: JhiConfigService,
                     useValue: new JhiConfigService({})
