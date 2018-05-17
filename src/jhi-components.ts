@@ -37,14 +37,6 @@ import {
     JhiItemCountComponent,
     JhiBooleanComponent
 } from './component';
-import {
-    JhiDataUtils,
-    JhiDateUtils,
-    JhiEventManager,
-    JhiParseLinks,
-    JhiPaginationUtil,
-    JhiBase64Service
-} from './service';
 
 export const JHI_PIPES = [
     JhiCapitalizePipe,
@@ -68,13 +60,4 @@ export const JHI_DIRECTIVES = [
 export const JHI_COMPONENTS = [
     JhiItemCountComponent,
     JhiBooleanComponent
-];
-
-export const JHI_SERVICES = [
-    JhiDataUtils,
-    JhiDateUtils,
-    JhiEventManager,
-    JhiParseLinks,
-    JhiPaginationUtil,
-    JhiBase64Service
 ];

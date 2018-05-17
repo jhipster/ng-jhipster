@@ -16,7 +16,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, async } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { JhiLanguageService } from '../../src/language/language.service';
@@ -27,7 +27,6 @@ describe('LanguageService Test', () => {
         TestBed.configureTestingModule({
             imports: [TranslateModule.forRoot()],
             providers: [
-                JhiLanguageService,
                 {
                     provide: JhiConfigService,
                     useValue: new JhiConfigService({})
@@ -37,15 +36,15 @@ describe('LanguageService Test', () => {
         });
     });
 
-    it('should change Language', inject([JhiLanguageService], (service: JhiLanguageService) => {
+    it('should change Language', async(inject([JhiLanguageService], (service: JhiLanguageService) => {
         service.changeLanguage('fr');
-        expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
-    }));
+        service.getCurrent().then((language) => expect(language).toEqual('fr'));
+    })));
 
-    it('should retain changed language even after force refresh', inject([JhiLanguageService], (service: JhiLanguageService) => {
+    it('should retain changed language even after force refresh', async(inject([JhiLanguageService], (service: JhiLanguageService) => {
         service.changeLanguage('fr');
         service.init();
-        expect(service.getCurrent()).toEqual(Promise.resolve('fr'));
-    }));
+        service.getCurrent().then((language) => expect(language).toEqual('fr'));
+    })));
 
 });
