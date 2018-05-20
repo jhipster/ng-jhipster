@@ -33,7 +33,7 @@ export class JhiMinValidatorDirective {
     constructor() {}
 
     validate(c: FormControl) {
-        return (c.value && c.value >= this.jhiMin) ? null : {
+        return (!c.value || c.value >= this.jhiMin) ? null : {
             min: {
                 valid: false
             }

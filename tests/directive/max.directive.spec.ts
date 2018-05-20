@@ -49,5 +49,11 @@ describe('JhiMaxValidatorDirective Tests', () => {
             c.setValue(9);
             expect(dir.validate(c)).toBeNull();
         });
+
+        it('should accept null values', () => {
+            dir.jhiMax = 10;
+            c.setValue(null);
+            expect(dir.validate(c)).toBeNull();
+        });
     });
 });

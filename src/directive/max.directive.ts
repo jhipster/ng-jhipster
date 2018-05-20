@@ -33,7 +33,7 @@ export class JhiMaxValidatorDirective {
     constructor() {}
 
     validate(c: FormControl) {
-        return (c.value && c.value <= this.jhiMax) ? null : {
+        return (!c.value || c.value <= this.jhiMax) ? null : {
             max: {
                 valid: false
             }
