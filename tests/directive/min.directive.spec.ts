@@ -49,5 +49,20 @@ describe('JhiMinValidatorDirective Tests', () => {
             expect(dir.validate(c).min.valid).toBeDefined();
             expect(dir.validate(c).min.valid).toBe(false);
         });
+
+        it('should accept null values', () => {
+            dir.jhiMin = 10;
+            c.setValue(null);
+            expect(dir.validate(c)).toBeNull();
+        });
+
+        it('should validate 0 correctly', () => {
+            dir.jhiMin = 10;
+            c.setValue(0);
+            expect(dir.validate(c)).toBeDefined();
+            expect(dir.validate(c).min).toBeDefined();
+            expect(dir.validate(c).min.valid).toBeDefined();
+            expect(dir.validate(c).min.valid).toBe(false);
+        });
     });
 });
