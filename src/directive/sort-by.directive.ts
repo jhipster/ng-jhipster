@@ -27,6 +27,7 @@ export class JhiSortByDirective implements AfterViewInit {
 
     @Input() jhiSortBy: string;
 
+    sortIcon = 'fa-sort';
     sortAscIcon = 'fa-sort-up';
     sortDescIcon = 'fa-sort-down';
 
@@ -58,6 +59,7 @@ export class JhiSortByDirective implements AfterViewInit {
         if (!this.jhiSort.ascending) {
             add = this.sortDescIcon;
         }
+        this.renderer.setElementClass(childSpan, this.sortIcon, false);
         this.renderer.setElementClass(childSpan, add, true);
     };
 }

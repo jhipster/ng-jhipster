@@ -30,7 +30,7 @@ export class JhiSortDirective {
     sortIcon = 'fa-sort';
     sortAscIcon = 'fa-sort-up';
     sortDescIcon = 'fa-sort-down';
-    sortIconSelector = 'span.fa';
+    sortIconSelector = 'fa-icon';
 
     @Output() predicateChange: EventEmitter<any> = new EventEmitter();
     @Output() ascendingChange: EventEmitter<any> = new EventEmitter();
