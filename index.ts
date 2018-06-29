@@ -42,7 +42,7 @@ export * from './src/config.service';
 export * from './src/config';
 
 export function translatePartialLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
+    return new TranslateHttpLoader(http, 'content/i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
 }
 
 export function missingTranslationHandler(configService: JhiConfigService) {
