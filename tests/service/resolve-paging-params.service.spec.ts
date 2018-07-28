@@ -41,7 +41,7 @@ describe('ResolvePagingParams  service test', () => {
             route.data = { defaultSort: undefined };
             const { page, predicate, ascending } = service.resolve(route, null);
 
-            expect(page).toEqual(1);
+            expect(page).toEqual(0);
             expect(predicate).toEqual('id');
             expect(ascending).toEqual(true);
         }));
