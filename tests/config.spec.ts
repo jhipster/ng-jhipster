@@ -1,3 +1,7 @@
+import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
+import * as faSortDown from '@fortawesome/free-solid-svg-icons/faSortDown';
+import * as faSortUp from '@fortawesome/free-solid-svg-icons/faSortUp';
+
 /*
  Copyright 2013-2017 the original author or authors from the JHipster project.
 
@@ -19,16 +23,19 @@
 import { JhiModuleConfig } from '../src/config';
 
 describe('ModuleConfig Test', () => {
-  it('should have default values as specified', () => {
-    const config = new JhiModuleConfig();
+    it('should have default values as specified', () => {
+        const config = new JhiModuleConfig();
 
-    expect(config.sortIcon).toBe('fa-sort');
-    expect(config.sortAscIcon).toBe('fa-sort-up');
-    expect(config.sortDescIcon).toBe('fa-sort-down');
-    expect(config.sortIconSelector).toBe('span.fa');
-    expect(config.i18nEnabled).toBe(false);
-    expect(config.alertAsToast).toBe(false);
-    expect(config.defaultI18nLang).toBe('en');
-    expect(config.noi18nMessage).toBe('translation-not-found');
-  });
+        expect(config.sortIcon).toBe(faSort);
+        expect(config.sortIconName).toBe('fa-sort');
+        expect(config.sortAscIcon).toBe(faSortUp);
+        expect(config.sortAscIconName).toBe('fa-sort-up');
+        expect(config.sortDescIcon).toBe(faSortDown);
+        expect(config.sortDescIconName).toBe('fa-sort-down');
+        expect(config.sortIconSelector).toBe('span.fa');
+        expect(config.i18nEnabled).toBe(false);
+        expect(config.alertAsToast).toBe(false);
+        expect(config.defaultI18nLang).toBe('en');
+        expect(config.noi18nMessage).toBe('translation-not-found');
+    });
 });

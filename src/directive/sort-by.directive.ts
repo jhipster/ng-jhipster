@@ -16,9 +16,13 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { Directive, Host, HostListener, Input, ElementRef, Renderer, AfterViewInit } from '@angular/core';
-import { JhiSortDirective } from './sort.directive';
-import { JhiConfigService } from '../config.service';
+import {AfterViewInit, Directive, ElementRef, Host, HostListener, Input, Renderer} from '@angular/core';
+
+import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
+import * as faSortDown from '@fortawesome/free-solid-svg-icons/faSortDown';
+import * as faSortUp from '@fortawesome/free-solid-svg-icons/faSortUp';
+import {JhiConfigService} from '../config.service';
+import {JhiSortDirective} from './sort.directive';
 
 @Directive({
     selector: '[jhiSortBy]'
@@ -27,16 +31,24 @@ export class JhiSortByDirective implements AfterViewInit {
 
     @Input() jhiSortBy: string;
 
-    sortAscIcon = 'fa-sort-up';
-    sortDescIcon = 'fa-sort-down';
+    sortIcon = faSort;
+    sortIconName = 'fa-sort';
+    sortAscIcon = faSortUp;
+    sortAscIconName = 'fa-sort-up';
+    sortDescIcon = faSortDown;
+    sortDescIconName = 'fa-sort-down';
 
     jhiSort: JhiSortDirective;
 
     constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, private renderer: Renderer, configService: JhiConfigService) {
         this.jhiSort = jhiSort;
         const config = configService.getConfig();
+        this.sortIcon = config.sortIcon;
+        this.sortIconName = config.sortIconName;
         this.sortAscIcon = config.sortAscIcon;
+        this.sortAscIconName = config.sortAscIconName;
         this.sortDescIcon = config.sortDescIcon;
+        this.sortDescIconName = config.sortDescIconName;
     }
 
     ngAfterViewInit(): void {
@@ -53,11 +65,23 @@ export class JhiSortByDirective implements AfterViewInit {
     }
 
     private applyClass() {
-        const childSpan = this.el.nativeElement.children[1];
-        let add = this.sortAscIcon;
-        if (!this.jhiSort.ascending) {
-            add = this.sortDescIcon;
+        let icon: any = this.sortIcon;
+        let iconName = this.sortIconName;
+        if (this.jhiSort.predicate === this.jhiSortBy) {
+            if (this.jhiSort.ascending) {
+                icon = this.sortAscIcon;
+                iconName = this.sortAscIconName;
+            } else {
+                icon = this.sortDescIcon;
+                iconName = this.sortDescIconName;
+            }
         }
-        this.renderer.setElementClass(childSpan, add, true);
-    };
+
+        const childIcon = this.el.nativeElement.children[1];
+        this.renderer.setElementAttribute(childIcon.children[0], 'data-icon', iconName);
+        this.renderer.setElementAttribute(childIcon.children[0], 'class', 'svg-inline--fa fa-w-10 ' + iconName);
+        // update the path with de 5th icon attribute.
+        //
+        this.renderer.setElementAttribute(childIcon.children[0].children[0], 'd', icon.definition.icon[4]);
+    }
 }

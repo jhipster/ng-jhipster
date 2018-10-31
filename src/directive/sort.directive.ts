@@ -19,6 +19,8 @@
 import { Directive, Input, Output, Renderer, EventEmitter, ElementRef } from '@angular/core';
 import { JhiConfigService } from '../config.service';
 
+import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
+
 @Directive({
     selector: '[jhiSort]'
 })
@@ -27,23 +29,19 @@ export class JhiSortDirective {
     @Input() ascending: boolean;
     @Input() callback: Function;
 
-    sortIcon = 'fa-sort';
-    sortAscIcon = 'fa-sort-up';
-    sortDescIcon = 'fa-sort-down';
-    sortIconSelector = 'span.fa';
+    sortIcon = faSort;
+    sortIconName = 'fa-sort';
 
     @Output() predicateChange: EventEmitter<any> = new EventEmitter();
     @Output() ascendingChange: EventEmitter<any> = new EventEmitter();
 
     element: any;
 
-    constructor(el: ElementRef, renderer: Renderer, configService: JhiConfigService) {
+    constructor(el: ElementRef, private renderer: Renderer, configService: JhiConfigService) {
         this.element = el.nativeElement;
         const config = configService.getConfig();
         this.sortIcon = config.sortIcon;
-        this.sortAscIcon = config.sortAscIcon;
-        this.sortDescIcon = config.sortDescIcon;
-        this.sortIconSelector = config.sortIconSelector;
+        this.sortIconName = config.sortIconName;
     }
 
     sort(field: any) {
@@ -60,12 +58,15 @@ export class JhiSortDirective {
     }
 
     private resetClasses() {
-        const allThIcons = this.element.querySelectorAll(this.sortIconSelector);
+        const allThIcons = this.element.querySelectorAll('fa-icon');
         // Use normal loop instead of forEach because IE does not support forEach on NodeList.
         for (let i = 0; i < allThIcons.length; i++) {
-            allThIcons[i].classList.remove(this.sortAscIcon);
-            allThIcons[i].classList.remove(this.sortDescIcon);
-            allThIcons[i].classList.add(this.sortIcon);
-        };
-    };
+
+            const faIconElement = allThIcons[i];
+
+            this.renderer.setElementAttribute(faIconElement.children[0], 'data-icon', 'sort');
+            this.renderer.setElementAttribute(faIconElement.children[0], 'class', 'svg-inline--fa fa-w-10 ' + this.sortIconName);
+            this.renderer.setElementAttribute(faIconElement.children[0].children[0], 'd', this.sortIcon.definition.icon[4]);
+        }
+    }
 }

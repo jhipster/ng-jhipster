@@ -18,13 +18,20 @@
  */
 import { Injectable } from '@angular/core';
 
+import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
+import * as faSortDown from '@fortawesome/free-solid-svg-icons/faSortDown';
+import * as faSortUp from '@fortawesome/free-solid-svg-icons/faSortUp';
+
 @Injectable({
     providedIn: 'root'
 })
 export class JhiModuleConfig {
-    sortIcon ? = 'fa-sort';
-    sortAscIcon ? = 'fa-sort-up';
-    sortDescIcon ? = 'fa-sort-down';
+    sortIcon ? = faSort;
+    sortIconName ? = 'fa-sort';
+    sortAscIcon ? = faSortUp;
+    sortAscIconName ? = 'fa-sort-up';
+    sortDescIcon ? = faSortDown;
+    sortDescIconName ? = 'fa-sort-down';
     sortIconSelector ? = 'span.fa';
     i18nEnabled ? = false;
     defaultI18nLang ? = 'en';
