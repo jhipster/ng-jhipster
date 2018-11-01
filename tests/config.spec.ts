@@ -32,7 +32,9 @@ describe('ModuleConfig Test', () => {
         expect(config.sortAscIconName).toBe('fa-sort-up');
         expect(config.sortDescIcon).toBe(faSortDown);
         expect(config.sortDescIconName).toBe('fa-sort-down');
-        expect(config.sortIconSelector).toBe('span.fa');
+        expect(config.sortIconSelector).toBe('th fa-icon svg');
+        expect(config.sortIconSvgSelector).toBe('fa-icon svg');
+        expect(config.sortIconSvgPathSelector).toBe('path');
         expect(config.i18nEnabled).toBe(false);
         expect(config.alertAsToast).toBe(false);
         expect(config.defaultI18nLang).toBe('en');

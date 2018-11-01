@@ -32,7 +32,9 @@ export class JhiModuleConfig {
     sortAscIconName ? = 'fa-sort-up';
     sortDescIcon ? = faSortDown;
     sortDescIconName ? = 'fa-sort-down';
-    sortIconSelector ? = 'span.fa';
+    sortIconSelector ? = 'th fa-icon svg';
+    sortIconSvgSelector ? = 'fa-icon svg';
+    sortIconSvgPathSelector ? = 'path';
     i18nEnabled ? = false;
     defaultI18nLang ? = 'en';
     noi18nMessage ? = 'translation-not-found';

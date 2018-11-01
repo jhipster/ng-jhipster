@@ -29,19 +29,15 @@ export class JhiSortDirective {
     @Input() ascending: boolean;
     @Input() callback: Function;
 
-    sortIcon = faSort;
-    sortIconName = 'fa-sort';
-
     @Output() predicateChange: EventEmitter<any> = new EventEmitter();
     @Output() ascendingChange: EventEmitter<any> = new EventEmitter();
 
     element: any;
+    config: JhiModuleConfig;
 
-    constructor(el: ElementRef, private renderer: Renderer, configService: JhiConfigService) {
+    constructor(el: ElementRef, renderer: Renderer, configService: JhiConfigService) {
         this.element = el.nativeElement;
-        const config = configService.getConfig();
-        this.sortIcon = config.sortIcon;
-        this.sortIconName = config.sortIconName;
+        this.config = configService.getConfig();
     }
 
     sort(field: any) {
@@ -58,15 +54,19 @@ export class JhiSortDirective {
     }
 
     private resetClasses() {
-        const allThIcons = this.element.querySelectorAll('fa-icon');
+        const allSvgIcons = this.element.querySelectorAll(this.config.sortIconSelector);
+        // path is stored in the 5th icon attribute.
+        const svgPath = this.config.sortIcon.definition.icon[4];
         // Use normal loop instead of forEach because IE does not support forEach on NodeList.
-        for (let i = 0; i < allThIcons.length; i++) {
-
-            const faIconElement = allThIcons[i];
-
-            this.renderer.setElementAttribute(faIconElement.children[0], 'data-icon', 'sort');
-            this.renderer.setElementAttribute(faIconElement.children[0], 'class', 'svg-inline--fa fa-w-10 ' + this.sortIconName);
-            this.renderer.setElementAttribute(faIconElement.children[0].children[0], 'd', this.sortIcon.definition.icon[4]);
+        for (let i = 0; i < allSvgIcons.length; i++) {
+            const svgElement = allSvgIcons[i];
+            const pathElements = svgElement.getElementsByTagName(this.config.sortIconSvgPathSelector);
+            if (pathElements && pathElements.length > 0) {
+                const pathElement = pathElements.item(0);
+                svgElement.setAttribute('data-icon', this.config.sortIconName.substr(3, this.config.sortIconName.length));
+                svgElement.setAttribute('class', 'svg-inline--fa fa-w-10 ' + this.config.sortIconName);
+                pathElement.setAttribute('d', svgPath);
+            }
         }
     }
 }

@@ -31,24 +31,12 @@ export class JhiSortByDirective implements AfterViewInit {
 
     @Input() jhiSortBy: string;
 
-    sortIcon = faSort;
-    sortIconName = 'fa-sort';
-    sortAscIcon = faSortUp;
-    sortAscIconName = 'fa-sort-up';
-    sortDescIcon = faSortDown;
-    sortDescIconName = 'fa-sort-down';
-
     jhiSort: JhiSortDirective;
+    config: JhiModuleConfig;
 
-    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, private renderer: Renderer, configService: JhiConfigService) {
+    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, renderer: Renderer, configService: JhiConfigService) {
         this.jhiSort = jhiSort;
-        const config = configService.getConfig();
-        this.sortIcon = config.sortIcon;
-        this.sortIconName = config.sortIconName;
-        this.sortAscIcon = config.sortAscIcon;
-        this.sortAscIconName = config.sortAscIconName;
-        this.sortDescIcon = config.sortDescIcon;
-        this.sortDescIconName = config.sortDescIconName;
+        this.config = configService.getConfig();
     }
 
     ngAfterViewInit(): void {
@@ -65,23 +53,30 @@ export class JhiSortByDirective implements AfterViewInit {
     }
 
     private applyClass() {
-        let icon: any = this.sortIcon;
-        let iconName = this.sortIconName;
+        let icon: any = this.config.sortIcon;
+        let iconName = this.config.sortIconName;
         if (this.jhiSort.predicate === this.jhiSortBy) {
             if (this.jhiSort.ascending) {
-                icon = this.sortAscIcon;
-                iconName = this.sortAscIconName;
+                icon = this.config.sortAscIcon;
+                iconName = this.config.sortAscIconName;
             } else {
-                icon = this.sortDescIcon;
-                iconName = this.sortDescIconName;
+                icon = this.config.sortDescIcon;
+                iconName = this.config.sortDescIconName;
             }
         }
 
-        const childIcon = this.el.nativeElement.children[1];
-        this.renderer.setElementAttribute(childIcon.children[0], 'data-icon', iconName);
-        this.renderer.setElementAttribute(childIcon.children[0], 'class', 'svg-inline--fa fa-w-10 ' + iconName);
-        // update the path with de 5th icon attribute.
-        //
-        this.renderer.setElementAttribute(childIcon.children[0].children[0], 'd', icon.definition.icon[4]);
+        // path is stored in the 5th icon attribute.
+        const svgPath = icon.definition.icon[4];
+        const svgElements: NodeList = this.el.nativeElement.querySelectorAll(this.config.sortIconSvgSelector);
+        if (svgElements && svgElements.length > 0) {
+            const svgElement = svgElements.item(0) as SVGSVGElement;
+            const pathElements = svgElement.getElementsByTagName(this.config.sortIconSvgPathSelector);
+            if (pathElements && pathElements.length > 0) {
+                const pathElement = pathElements.item(0);
+                svgElement.setAttribute('data-icon', iconName.substr(3, iconName.length));
+                svgElement.setAttribute('class', 'svg-inline--fa fa-w-10 ' + iconName);
+                pathElement.setAttribute('d', svgPath);
+            }
+        }
     }
 }
