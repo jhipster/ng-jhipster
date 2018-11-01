@@ -17,10 +17,7 @@
  limitations under the License.
  */
 import {AfterViewInit, Directive, ElementRef, Host, HostListener, Input, Renderer} from '@angular/core';
-
-import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
-import * as faSortDown from '@fortawesome/free-solid-svg-icons/faSortDown';
-import * as faSortUp from '@fortawesome/free-solid-svg-icons/faSortUp';
+import {JhiModuleConfig} from '../config';
 import {JhiConfigService} from '../config.service';
 import {JhiSortDirective} from './sort.directive';
 

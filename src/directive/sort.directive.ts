@@ -16,10 +16,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { Directive, Input, Output, Renderer, EventEmitter, ElementRef } from '@angular/core';
-import { JhiConfigService } from '../config.service';
-
-import * as faSort from '@fortawesome/free-solid-svg-icons/faSort';
+import {Directive, ElementRef, EventEmitter, Input, Output, Renderer} from '@angular/core';
+import {JhiModuleConfig} from '../config';
+import {JhiConfigService} from '../config.service';
 
 @Directive({
     selector: '[jhiSort]'
