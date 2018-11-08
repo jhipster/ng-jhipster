@@ -37,7 +37,8 @@ import {
     JhiItemCountComponent,
     JhiBooleanComponent,
     JhiJvmMemoryComponent,
-    JhiJvmThreadsComponent
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent
 } from './component';
 
 export const JHI_PIPES = [
@@ -63,5 +64,6 @@ export const JHI_COMPONENTS = [
     JhiItemCountComponent,
     JhiBooleanComponent,
     JhiJvmMemoryComponent,
-    JhiJvmThreadsComponent
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent
 ];
