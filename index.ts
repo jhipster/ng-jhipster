@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS } from './src/jhi-components';
 import {
@@ -65,7 +66,8 @@ export function missingTranslationHandler(configService: JhiConfigService) {
             }
         }),
         CommonModule,
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        FontAwesomeModule
     ],
     declarations: [
         ...JHI_PIPES,
