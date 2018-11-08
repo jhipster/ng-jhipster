@@ -22,7 +22,7 @@ import {Component, Input, OnInit} from '@angular/core';
     selector: 'jhi-jvm-memory',
     template: `
             <b jhiTranslate="metrics.jvm.memory.title">Memory</b>
-            <div *ngFor="let entry of metrics['jvm'] | keys">
+            <div *ngFor="let entry of jvmMetrics | keys">
                 <p><span>{{entry.key}}</span> ({{entry.value.used / 1048576 | number:'1.0-0'}}M / {{entry.value.max / 1048576 | number:'1.0-0'}}M)</p>
                 <ngb-progressbar type="success" [value]="100 * entry.value.used/entry.value.max" [striped]="true" [animated]="false">
                     <span>{{entry.value.used * 100 / entry.value.max | number:'1.0-0'}}%</span>
@@ -34,7 +34,7 @@ export class JhiJvmMemoryComponent implements OnInit {
     /**
      * the boolean input value
      */
-    @Input() metrics: {};
+    @Input() jvmMetrics: {};
 
     constructor() {
 
