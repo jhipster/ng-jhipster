@@ -21,3 +21,4 @@ export * from './jhi-boolean.component';
 export * from './jhi-jvm-memory.component';
 export * from './jhi-jvm-threads.component';
 export * from './jhi-metrics-request.component';
+export * from './jhi-metrics-services.component';
