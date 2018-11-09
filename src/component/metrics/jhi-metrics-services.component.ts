@@ -56,7 +56,7 @@ import {Component, Input} from '@angular/core';
 export class JhiMetricsServicesComponent {
 
     /**
-     * the boolean input value
+     * object containing service related metrics
      */
     @Input() servicesMetrics: {};
 
