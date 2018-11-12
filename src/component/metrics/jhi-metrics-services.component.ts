@@ -42,11 +42,11 @@ import {Component, Input} from '@angular/core';
                     <td>{{entry.key}}</td>
                     <td class="text-right">{{entry.value.count}}</td>
                     <td class="text-right">{{entry.value.mean | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.0'] / 1000000 | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.5'] / 1000000 | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.75'] / 1000000 | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.95'] / 1000000 | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.99'] / 1000000 | number:'1.0-3'}}</td>
+                    <td class="text-right">{{entry.value['0.0'] | number:'1.0-3'}}</td>
+                    <td class="text-right">{{entry.value['0.5'] | number:'1.0-3'}}</td>
+                    <td class="text-right">{{entry.value['0.75'] | number:'1.0-3'}}</td>
+                    <td class="text-right">{{entry.value['0.95'] | number:'1.0-3'}}</td>
+                    <td class="text-right">{{entry.value['0.99'] | number:'1.0-3'}}</td>
                     <td class="text-right">{{entry.value.max | number:'1.0-3'}}</td>
                 </tr>
                 </tbody>

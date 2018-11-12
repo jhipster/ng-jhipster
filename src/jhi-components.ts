@@ -41,7 +41,9 @@ import {
     JhiMetricsHttpRequestComponent,
     JhiMetricsServicesComponent,
     JhiMetricsCacheComponent,
-    JhiMetricsDatasourceComponent
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent, JhiThreadModalComponent
 } from './component';
 
 export const JHI_PIPES = [
@@ -71,5 +73,8 @@ export const JHI_COMPONENTS = [
     JhiMetricsHttpRequestComponent,
     JhiMetricsServicesComponent,
     JhiMetricsCacheComponent,
-    JhiMetricsDatasourceComponent
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
 ];

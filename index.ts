@@ -25,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS } from './src/jhi-components';
+import {JhiThreadModalComponent} from './src/component/metrics';
 import {
     JhiMissingTranslationHandler,
     JhiTranslateComponent,
@@ -75,6 +76,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         ...JHI_COMPONENTS,
         JhiTranslateComponent
     ],
+    entryComponents: [JhiThreadModalComponent],
     exports: [
         ...JHI_PIPES,
         ...JHI_DIRECTIVES,
