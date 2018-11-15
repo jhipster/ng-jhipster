@@ -20,38 +20,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'jhi-metrics-services',
-    template: `
-        <h3 jhiTranslate="metrics.servicesstats.title">Services statistics (time in millisecond)</h3>
-        <div class="table-responsive" *ngIf="!updating">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th jhiTranslate="metrics.servicesstats.table.name">Service name</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.count">Count</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.mean">Mean</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.min">Min</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.p50">p50</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.p75">p75</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.p95">p95</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.p99">p99</th>
-                    <th class="text-right" jhiTranslate="metrics.servicesstats.table.max">Max</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let entry of servicesMetrics | keys">
-                    <td>{{entry.key}}</td>
-                    <td class="text-right">{{entry.value.count}}</td>
-                    <td class="text-right">{{entry.value.mean | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.0'] | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.5'] | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.75'] | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.95'] | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value['0.99'] | number:'1.0-3'}}</td>
-                    <td class="text-right">{{entry.value.max | number:'1.0-3'}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>`
+    templateUrl: './jhi-metrics-services.component.html'
 })
 export class JhiMetricsServicesComponent {
 
