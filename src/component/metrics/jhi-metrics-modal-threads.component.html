@@ -21,6 +21,20 @@ limitations under the License.
     <button type="button" class="close" (click)="activeModal.dismiss('closed')">&times;</button>
 </div>
 <div class="modal-body">
+    <span class="badge badge-primary" (click)="threadDumpFilter = {}">All&nbsp;<span
+        class="badge badge-pill badge-default">{{threadDumpAll}}</span></span>&nbsp;
+    <span class="badge badge-success" (click)="threadDumpFilter = {threadState: 'RUNNABLE'}">Runnable&nbsp;<span
+        class="badge badge-pill badge-default">{{threadDumpRunnable}}</span></span>&nbsp;
+    <span class="badge badge-info" (click)="threadDumpFilter = {threadState: 'WAITING'}">Waiting&nbsp;<span
+        class="badge badge-pill badge-default">{{threadDumpWaiting}}</span></span>&nbsp;
+    <span class="badge badge-warning"
+          (click)="threadDumpFilter = {threadState: 'TIMED_WAITING'}">Timed Waiting&nbsp;<span
+        class="badge badge-pill badge-default">{{threadDumpTimedWaiting}}</span></span>&nbsp;
+    <span class="badge badge-danger" (click)="threadDumpFilter = {threadState: 'BLOCKED'}">Blocked&nbsp;<span
+        class="badge badge-pill badge-default">{{threadDumpBlocked}}</span></span>&nbsp;
+    <div class="mt-2">&nbsp;</div>
+    Filter
+    <input type="text" [(ngModel)]="threadDumpFilter" class="form-control">
     <div class="pad" *ngFor="let entry of threadDump | pureFilter:threadDumpFilter:'lockName' | keys">
         <h6>
             <span class="badge" [ngClass]="getBadgeClass(entry.value.threadState)">{{entry.value.threadState}}</span>&nbsp;{{entry.value.threadName}}

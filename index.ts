@@ -34,6 +34,7 @@ import {
 import { JhiModuleConfig } from './src/config';
 import { JhiConfigService } from './src/config.service';
 import { JhiAlertService, JhiPaginationUtil, JhiResolvePagingParams } from './src/service';
+import {FormsModule} from '@angular/forms';
 
 // Re export the files
 export * from './src/pipe';
@@ -68,6 +69,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         }),
         CommonModule,
         NgbModule.forRoot(),
+        FormsModule,
         FontAwesomeModule
     ],
     declarations: [
