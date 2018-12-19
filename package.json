@@ -24,9 +24,6 @@
     "@angular/router": "^6.0.0"
   },
   "dependencies": {
-    "@fortawesome/angular-fontawesome": "^0.3.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngx-translate/core": "^10.0.1",
     "@ngx-translate/http-loader": "^3.0.1"
