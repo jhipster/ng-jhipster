@@ -15,13 +15,15 @@
   "bugs": {
     "url": "https://github.com/jhipster/generator-jhipster/issues"
   },
-  "main": "bundles/ng-jhipster.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
   "homepage": "https://www.jhipster.tech",
   "peerDependencies": {
     "@angular/core": "^6.0.0",
-    "@angular/router": "^6.0.0"
+    "@angular/common": "^6.0.0",
+    "@angular/forms": "^6.0.0",
+    "@angular/router": "^6.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "@ngx-translate/core": "^10.0.1",
+    "@ngx-translate/http-loader": "^3.0.1"
   },
   "dependencies": {
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
@@ -40,6 +42,8 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/platform-server": "^6.0.0",
+    "@ngx-translate/core": "^10.0.1",
+    "@ngx-translate/http-loader": "^3.0.1",
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.22",
@@ -57,6 +61,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "loader-utils": "^1.1.0",
+    "ng-packagr": "^4.4.5",
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.6.1",
     "rxjs": "6.1.0",
@@ -70,18 +75,19 @@
     "zone.js": "^0.8.11"
   },
   "version": "0.6.0",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    }
+  },
   "scripts": {
     "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",
     "lint:fix": "tslint --project tslint.json --fix",
     "test": "npm run lint && karma start",
     "test:watch": "karma start --singleRun=false --autoWatch=true",
-    "ngc": "ngc",
-    "ngc-aot": "ngc -p tsconfig-aot.json",
-    "build": "npm run cleanup && npm run ngc && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "build:aot": "npm run cleanup && npm run ngc-aot && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "build:local": "npm run build && npm test && npm pack",
-    "release": "npm test && git push && git push --tags && npm publish",
+    "build": "ng-packagr -p package.json",
+    "release": "npm test && git push && git push --tags && npm publish dist/",
     "release:patch": "npm run build && npm version patch -a -m \"Update to %s\" && npm run release",
     "release:minor": "npm run build && npm version minor -a -m \"Update to %s\" && npm run release",
     "release:major": "npm run build && npm version major -a -m \"Update to %s\" && npm run release"

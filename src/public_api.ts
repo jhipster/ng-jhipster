@@ -16,4 +16,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-export * from './index';
+export * from './ng-jhipster.module';
+export * from './pipe';
+export * from './directive';
+export * from './service';
+export * from './component';
+export * from './language';
+export * from './config.service';
+export * from './config';
