@@ -16,26 +16,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+import { JhiBooleanComponent } from './component/jhi-boolean.component';
+import { JhiItemCountComponent } from './component/jhi-item-count.component';
+import { JhiMaxValidatorDirective } from './directive/max.directive';
+import { JhiMaxbytesValidatorDirective } from './directive/maxbytes.directive';
+import { JhiMinValidatorDirective } from './directive/min.directive';
+import { JhiMinbytesValidatorDirective } from './directive/minbytes.directive';
+import { JhiSortByDirective } from './directive/sort-by.directive';
+import { JhiSortDirective } from './directive/sort.directive';
+import { JhiCapitalizePipe } from './pipe/capitalize.pipe';
+import { JhiFilterPipe } from './pipe/filter.pipe';
+import { JhiKeysPipe } from './pipe/keys.pipe';
+import { JhiOrderByPipe } from './pipe/order-by.pipe';
+import { JhiPureFilterPipe } from './pipe/pure-filter.pipe';
+import { JhiTruncateCharactersPipe } from './pipe/truncate-characters.pipe';
+import { JhiTruncateWordsPipe } from './pipe/truncate-words.pipe';
 import {
-    JhiCapitalizePipe,
-    JhiFilterPipe,
-    JhiKeysPipe,
-    JhiOrderByPipe,
-    JhiPureFilterPipe,
-    JhiTruncateCharactersPipe,
-    JhiTruncateWordsPipe
-} from './pipe';
-import {
-    JhiMaxValidatorDirective,
-    JhiMinValidatorDirective,
-    JhiMaxbytesValidatorDirective,
-    JhiMinbytesValidatorDirective,
-    JhiSortDirective,
-    JhiSortByDirective
-} from './directive';
-import {
-    JhiItemCountComponent,
-    JhiBooleanComponent,
     JhiJvmMemoryComponent,
     JhiJvmThreadsComponent,
     JhiMetricsHttpRequestComponent,
@@ -43,8 +39,9 @@ import {
     JhiMetricsCacheComponent,
     JhiMetricsDatasourceComponent,
     JhiMetricsSystemComponent,
-    JhiMetricsGarbageCollectorComponent, JhiThreadModalComponent
-} from './component';
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
+} from 'component';
 
 export const JHI_PIPES = [
     JhiCapitalizePipe,

@@ -19,8 +19,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Sanitizer } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
     MissingTranslationHandler,
     TranslateLoader,
@@ -28,20 +26,18 @@ import {
     TranslateService
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { JhiThreadModalComponent } from './component/metrics';
+import { JhiMissingTranslationHandler } from './language/jhi-missing-translation.config';
+import { JhiTranslateComponent } from './language/jhi-translate.directive';
+import { JhiLanguageService } from './language/language.service';
+import { JhiAlertService } from './service/alert.service';
+import { JhiPaginationUtil } from './service/pagination-util.service';
+import { JhiResolvePagingParams } from './service/resolve-paging-params.service';
 import { JhiModuleConfig } from './config';
 import { JhiConfigService } from './config.service';
-import {
-    JhiLanguageService,
-    JhiMissingTranslationHandler,
-    JhiTranslateComponent
-} from './language';
-import {
-    JhiAlertService,
-    JhiPaginationUtil,
-    JhiResolvePagingParams
-} from './service';
 import { JHI_COMPONENTS, JHI_DIRECTIVES, JHI_PIPES } from './jhi-components';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { JhiThreadModalComponent } from 'component';
 
 export function translatePartialLoader(http: HttpClient) {
     return new TranslateHttpLoader(
@@ -57,6 +53,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
 
 @NgModule({
     imports: [
+        CommonModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
