@@ -17,15 +17,15 @@
  limitations under the License.
  */
 import { JhiModuleConfig } from '../src/config';
+import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 describe('ModuleConfig Test', () => {
   it('should have default values as specified', () => {
     const config = new JhiModuleConfig();
 
-    expect(config.sortIcon).toBe('fa-sort');
-    expect(config.sortAscIcon).toBe('fa-sort-up');
-    expect(config.sortDescIcon).toBe('fa-sort-down');
-    expect(config.sortIconSelector).toBe('span.fa');
+    expect(config.sortIcon).toBe(faSort);
+    expect(config.sortAscIcon).toBe(faSortUp);
+    expect(config.sortDescIcon).toBe(faSortDown);
     expect(config.i18nEnabled).toBe(false);
     expect(config.alertAsToast).toBe(false);
     expect(config.defaultI18nLang).toBe('en');
