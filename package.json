@@ -24,6 +24,7 @@
     "@angular/router": "^6.0.0"
   },
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngx-translate/core": "^10.0.1",
     "@ngx-translate/http-loader": "^3.0.1"
   },

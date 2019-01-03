@@ -35,7 +35,15 @@ import {
 } from './directive';
 import {
     JhiItemCountComponent,
-    JhiBooleanComponent
+    JhiBooleanComponent,
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent, JhiThreadModalComponent
 } from './component';
 
 export const JHI_PIPES = [
@@ -59,5 +67,14 @@ export const JHI_DIRECTIVES = [
 
 export const JHI_COMPONENTS = [
     JhiItemCountComponent,
-    JhiBooleanComponent
+    JhiBooleanComponent,
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
 ];
