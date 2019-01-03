@@ -18,7 +18,7 @@
   "main": "bundles/ng-jhipster.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
-  "homepage": "https://jhipster.github.io",
+  "homepage": "https://www.jhipster.tech",
   "peerDependencies": {
     "@angular/core": "^6.0.0",
     "@angular/router": "^6.0.0"
