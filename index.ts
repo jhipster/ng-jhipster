@@ -1,7 +1,7 @@
 /*
  Copyright 2013-2019 the original author or authors from the JHipster project.
 
- This file is part of the JHipster project, see https://jhipster.github.io/
+ This file is part of the JHipster project, see https://www.jhipster.tech/
  for more information.
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,8 +21,10 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS } from './src/jhi-components';
+import {JhiThreadModalComponent} from './src/component/metrics';
 import {
     JhiMissingTranslationHandler,
     JhiTranslateComponent,
@@ -31,6 +33,7 @@ import {
 import { JhiModuleConfig } from './src/config';
 import { JhiConfigService } from './src/config.service';
 import { JhiAlertService, JhiPaginationUtil, JhiResolvePagingParams } from './src/service';
+import {FormsModule} from '@angular/forms';
 
 // Re export the files
 export * from './src/pipe';
@@ -63,7 +66,9 @@ export function missingTranslationHandler(configService: JhiConfigService) {
                 deps: [JhiConfigService]
             }
         }),
-        CommonModule
+        CommonModule,
+        NgbModule.forRoot(),
+        FormsModule,
     ],
     declarations: [
         ...JHI_PIPES,
@@ -71,6 +76,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         ...JHI_COMPONENTS,
         JhiTranslateComponent
     ],
+    entryComponents: [JhiThreadModalComponent],
     exports: [
         ...JHI_PIPES,
         ...JHI_DIRECTIVES,

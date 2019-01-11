@@ -18,7 +18,7 @@
   "main": "bundles/ng-jhipster.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
-  "homepage": "https://jhipster.github.io",
+  "homepage": "https://www.jhipster.tech",
   "peerDependencies": {
     "@angular/core": "^6.0.0",
     "@angular/router": "^6.0.0",
@@ -27,6 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.6.3"
   },
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngx-translate/core": "^10.0.1",
     "@ngx-translate/http-loader": "^3.0.1"
   },
@@ -74,7 +75,7 @@
     "webpack": "^2.6.1",
     "zone.js": "^0.8.11"
   },
-  "version": "0.5.6",
+  "version": "0.6.0",
   "scripts": {
     "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",

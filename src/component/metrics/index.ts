@@ -16,6 +16,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-export * from './jhi-item-count.component';
-export * from './jhi-boolean.component';
-export * from './metrics';
+export * from './jhi-jvm-memory.component';
+export * from './jhi-jvm-threads.component';
+export * from './jhi-metrics-modal-threads.component';
+export * from './jhi-metrics-request.component';
+export * from './jhi-metrics-endpoints-requests';
+export * from './jhi-metrics-cache.component';
+export * from './jhi-metrics-datasource.component';
+export * from './jhi-metrics-system.component';
+export * from './jhi-metrics-garbagecollector.component';

@@ -1,7 +1,7 @@
 /*
  Copyright 2013-2019 the original author or authors from the JHipster project.
 
- This file is part of the JHipster project, see https://jhipster.github.io/
+ This file is part of the JHipster project, see https://www.jhipster.tech/
  for more information.
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,7 +35,15 @@ import {
 } from './directive';
 import {
     JhiItemCountComponent,
-    JhiBooleanComponent
+    JhiBooleanComponent,
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent, JhiThreadModalComponent
 } from './component';
 
 export const JHI_PIPES = [
@@ -59,5 +67,14 @@ export const JHI_DIRECTIVES = [
 
 export const JHI_COMPONENTS = [
     JhiItemCountComponent,
-    JhiBooleanComponent
+    JhiBooleanComponent,
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
 ];
