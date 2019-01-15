@@ -16,36 +16,35 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { NgModule, ModuleWithProviders, Sanitizer } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateLoader, MissingTranslationHandler, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { ModuleWithProviders, NgModule, Sanitizer } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { JHI_PIPES, JHI_DIRECTIVES, JHI_COMPONENTS } from './src/jhi-components';
-import {JhiThreadModalComponent} from './src/component/metrics';
 import {
-    JhiMissingTranslationHandler,
-    JhiTranslateComponent,
-    JhiLanguageService
-} from './src/language';
-import { JhiModuleConfig } from './src/config';
-import { JhiConfigService } from './src/config.service';
-import { JhiAlertService, JhiPaginationUtil, JhiResolvePagingParams } from './src/service';
-import {FormsModule} from '@angular/forms';
-
-// Re export the files
-export * from './src/pipe';
-export * from './src/directive';
-export * from './src/service';
-export * from './src/component';
-export * from './src/language';
-export * from './src/config.service';
-export * from './src/config';
+    MissingTranslationHandler,
+    TranslateLoader,
+    TranslateModule,
+    TranslateService
+} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { JhiThreadModalComponent } from './component/metrics/jhi-metrics-modal-threads.component';
+import { JhiModuleConfig } from './config';
+import { JhiConfigService } from './config.service';
+import { JHI_COMPONENTS, JHI_DIRECTIVES, JHI_PIPES } from './jhi-components';
+import { JhiMissingTranslationHandler } from './language/jhi-missing-translation.config';
+import { JhiTranslateComponent } from './language/jhi-translate.directive';
+import { JhiLanguageService } from './language/language.service';
+import { JhiAlertService } from './service/alert.service';
+import { JhiPaginationUtil } from './service/pagination-util.service';
+import { JhiResolvePagingParams } from './service/resolve-paging-params.service';
 
 export function translatePartialLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
+    return new TranslateHttpLoader(
+        http,
+        'i18n/',
+        `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`
+    );
 }
 
 export function missingTranslationHandler(configService: JhiConfigService) {
@@ -54,6 +53,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
 
 @NgModule({
     imports: [
+        CommonModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -68,7 +68,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
         }),
         CommonModule,
         NgbModule.forRoot(),
-        FormsModule,
+        FormsModule
     ],
     declarations: [
         ...JHI_PIPES,
@@ -91,20 +91,34 @@ export class NgJhipsterModule {
         return {
             ngModule: NgJhipsterModule,
             providers: [
-                { provide: JhiLanguageService, useClass: JhiLanguageService, deps: [TranslateService, JhiConfigService] },
-                { provide: JhiResolvePagingParams, useClass: JhiResolvePagingParams, deps: [JhiPaginationUtil] },
-                { provide: JhiAlertService, useClass: JhiAlertService, deps: [Sanitizer, JhiConfigService, TranslateService] },
+                {
+                    provide: JhiLanguageService,
+                    useClass: JhiLanguageService,
+                    deps: [TranslateService, JhiConfigService]
+                },
+                {
+                    provide: JhiResolvePagingParams,
+                    useClass: JhiResolvePagingParams,
+                    deps: [JhiPaginationUtil]
+                },
+                {
+                    provide: JhiAlertService,
+                    useClass: JhiAlertService,
+                    deps: [Sanitizer, JhiConfigService, TranslateService]
+                },
                 { provide: JhiModuleConfig, useValue: moduleConfig },
-                { provide: JhiConfigService, useClass: JhiConfigService, deps: [JhiModuleConfig] }
+                {
+                    provide: JhiConfigService,
+                    useClass: JhiConfigService,
+                    deps: [JhiModuleConfig]
+                }
             ]
         };
     }
     static forChild(moduleConfig: JhiModuleConfig): ModuleWithProviders {
         return {
             ngModule: NgJhipsterModule,
-            providers: [
-                { provide: JhiModuleConfig, useValue: moduleConfig },
-            ]
+            providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
         };
     }
 }

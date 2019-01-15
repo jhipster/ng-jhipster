@@ -16,4 +16,15 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-export * from './index';
+export * from './component/index';
+export { JhiModuleConfig } from './config';
+export * from './config.service';
+export * from './directive/index';
+export * from './language/index';
+export {
+    missingTranslationHandler,
+    NgJhipsterModule,
+    translatePartialLoader
+} from './ng-jhipster.module';
+export * from './pipe/index';
+export * from './service/index';

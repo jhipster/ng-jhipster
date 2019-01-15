@@ -16,35 +16,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {
-    JhiCapitalizePipe,
-    JhiFilterPipe,
-    JhiKeysPipe,
-    JhiOrderByPipe,
-    JhiPureFilterPipe,
-    JhiTruncateCharactersPipe,
-    JhiTruncateWordsPipe
-} from './pipe';
-import {
-    JhiMaxValidatorDirective,
-    JhiMinValidatorDirective,
-    JhiMaxbytesValidatorDirective,
-    JhiMinbytesValidatorDirective,
-    JhiSortDirective,
-    JhiSortByDirective
-} from './directive';
-import {
-    JhiItemCountComponent,
-    JhiBooleanComponent,
-    JhiJvmMemoryComponent,
-    JhiJvmThreadsComponent,
-    JhiMetricsHttpRequestComponent,
-    JhiMetricsEndpointsRequestsComponent,
-    JhiMetricsCacheComponent,
-    JhiMetricsDatasourceComponent,
-    JhiMetricsSystemComponent,
-    JhiMetricsGarbageCollectorComponent, JhiThreadModalComponent
-} from './component';
+import { JhiJvmMemoryComponent } from './component/metrics/jhi-jvm-memory.component';
+import { JhiJvmThreadsComponent } from './component/metrics/jhi-jvm-threads.component';
+import { JhiMetricsCacheComponent } from './component/metrics/jhi-metrics-cache.component';
+import { JhiMetricsDatasourceComponent } from './component/metrics/jhi-metrics-datasource.component';
+import { JhiMetricsEndpointsRequestsComponent } from './component/metrics/jhi-metrics-endpoints-requests';
+import { JhiMetricsGarbageCollectorComponent } from './component/metrics/jhi-metrics-garbagecollector.component';
+import { JhiThreadModalComponent } from './component/metrics/jhi-metrics-modal-threads.component';
+import { JhiMetricsHttpRequestComponent } from './component/metrics/jhi-metrics-request.component';
+import { JhiMetricsSystemComponent } from './component/metrics/jhi-metrics-system.component';
+import { JhiBooleanComponent } from './component/jhi-boolean.component';
+import { JhiItemCountComponent } from './component/jhi-item-count.component';
+import { JhiMaxValidatorDirective } from './directive/max.directive';
+import { JhiMaxbytesValidatorDirective } from './directive/maxbytes.directive';
+import { JhiMinValidatorDirective } from './directive/min.directive';
+import { JhiMinbytesValidatorDirective } from './directive/minbytes.directive';
+import { JhiSortByDirective } from './directive/sort-by.directive';
+import { JhiSortDirective } from './directive/sort.directive';
+import { JhiCapitalizePipe } from './pipe/capitalize.pipe';
+import { JhiFilterPipe } from './pipe/filter.pipe';
+import { JhiKeysPipe } from './pipe/keys.pipe';
+import { JhiOrderByPipe } from './pipe/order-by.pipe';
+import { JhiPureFilterPipe } from './pipe/pure-filter.pipe';
+import { JhiTruncateCharactersPipe } from './pipe/truncate-characters.pipe';
+import { JhiTruncateWordsPipe } from './pipe/truncate-words.pipe';
 
 export const JHI_PIPES = [
     JhiCapitalizePipe,

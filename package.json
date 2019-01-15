@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ng-jhipster",
   "description": "A Jhipster util library for Angular 2",
   "repository": {
@@ -15,73 +16,70 @@
   "bugs": {
     "url": "https://github.com/jhipster/generator-jhipster/issues"
   },
-  "main": "bundles/ng-jhipster.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
   "homepage": "https://www.jhipster.tech",
   "peerDependencies": {
     "@angular/core": "^6.0.0",
-    "@angular/router": "^6.0.0"
-  },
-  "dependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/forms": "^6.0.0",
+    "@angular/router": "^6.0.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngx-translate/core": "^10.0.1",
     "@ngx-translate/http-loader": "^3.0.1"
   },
   "devDependencies": {
-    "@angular/animations": "^6.0.0",
-    "@angular/common": "^6.0.0",
-    "@angular/compiler": "^6.0.0",
-    "@angular/compiler-cli": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "@angular/router": "^6.0.0",
-    "@angular/forms": "^6.0.0",
-    "@angular/http": "^6.0.0",
-    "@angular/platform-browser": "^6.0.0",
-    "@angular/platform-browser-dynamic": "^6.0.0",
-    "@angular/platform-server": "^6.0.0",
-    "@types/hammerjs": "^2.0.34",
-    "@types/jasmine": "^2.5.47",
-    "@types/node": "^7.0.22",
-    "awesome-typescript-loader": "^3.1.3",
-    "codelyzer": "^4.0.1",
-    "core-js": "^2.4.1",
-    "istanbul-instrumenter-loader": "^2.0.0",
-    "jasmine-core": "^2.6.2",
-    "karma": "^1.7.0",
-    "karma-chrome-launcher": "^2.1.1",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-mocha-reporter": "^2.2.3",
-    "karma-remap-coverage": "^0.1.4",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.3",
-    "loader-utils": "^1.1.0",
-    "reflect-metadata": "^0.1.10",
-    "rimraf": "^2.6.1",
-    "rxjs": "6.1.0",
-    "shx": "^0.2.2",
-    "source-map-loader": "^0.2.1",
-    "ts-helpers": "^1.1.2",
-    "tslint": "^5.8.0",
-    "tslint-loader": "^3.5.3",
-    "typescript": "2.7.2",
-    "webpack": "^2.6.1",
-    "zone.js": "^0.8.11"
+    "@angular/animations": "^7.0.0",
+    "@angular/common": "^7.0.0",
+    "@angular/compiler": "^7.0.0",
+    "@angular/compiler-cli": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/forms": "^7.0.0",
+    "@angular/http": "^7.0.0",
+    "@angular/platform-browser": "^7.0.0",
+    "@angular/platform-browser-dynamic": "^7.0.0",
+    "@angular/platform-server": "^7.0.0",
+    "@angular/router": "^7.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
+    "@types/node": "^10.12.18",
+    "codelyzer": "^4.5.0",
+    "jest": "^23.6.0",
+    "jest-preset-angular": "^6.0.2",
+    "ng-packagr": "^4.4.5",
+    "reflect-metadata": "^0.1.12",
+    "rimraf": "^2.6.2",
+    "rxjs": "~6.3.3",
+    "tsickle": "^0.34.0",
+    "tslint": "^5.12.0",
+    "typescript": "~3.1.6",
+    "zone.js": "~0.8.26"
   },
   "version": "0.6.0",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setupJest.ts",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tests/tsconfig.spec.json"
+      },
+      "__TRANSFORM_HTML__": true
+    },
+    "testMatch": [
+      "<rootDir>/tests/**/*.spec.ts"
+    ]
+  },
   "scripts": {
-    "cleanup": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js aot/* tests/**/*.d.ts tests/**/*.js tests/*.d.ts tests/*.js",
     "lint": "tslint --project tslint.json",
     "lint:fix": "tslint --project tslint.json --fix",
-    "test": "npm run lint && karma start",
-    "test:watch": "karma start --singleRun=false --autoWatch=true",
-    "ngc": "ngc",
-    "ngc-aot": "ngc -p tsconfig-aot.json",
-    "build": "npm run cleanup && npm run ngc && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "build:aot": "npm run cleanup && npm run ngc-aot && webpack && shx cp bundles/ng-jhipster.umd.js bundles/index.js",
-    "build:local": "npm run build && npm test && npm pack",
-    "release": "npm test && git push && git push --tags && npm publish",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "ng-packagr -p package.json",
+    "release": "npm test && git push && git push --tags && npm publish dist/",
     "release:patch": "npm run build && npm version patch -a -m \"Update to %s\" && npm run release",
     "release:minor": "npm run build && npm version minor -a -m \"Update to %s\" && npm run release",
     "release:major": "npm run build && npm version major -a -m \"Update to %s\" && npm run release"
