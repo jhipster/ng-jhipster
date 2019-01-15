@@ -16,10 +16,10 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {AfterViewInit, Directive, ElementRef, Host, HostListener, Input, Renderer} from '@angular/core';
-import {JhiModuleConfig} from '../config';
-import {JhiConfigService} from '../config.service';
-import {JhiSortDirective} from './sort.directive';
+import { AfterViewInit, Directive, ElementRef, Host, HostListener, Input } from '@angular/core';
+import { JhiModuleConfig } from '../config';
+import { JhiConfigService } from '../config.service';
+import { JhiSortDirective } from './sort.directive';
 
 @Directive({
     selector: '[jhiSortBy]'
@@ -31,7 +31,7 @@ export class JhiSortByDirective implements AfterViewInit {
     jhiSort: JhiSortDirective;
     config: JhiModuleConfig;
 
-    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, renderer: Renderer, configService: JhiConfigService) {
+    constructor(@Host() jhiSort: JhiSortDirective, private el: ElementRef, configService: JhiConfigService) {
         this.jhiSort = jhiSort;
         this.config = configService.getConfig();
     }

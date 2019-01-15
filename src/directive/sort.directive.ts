@@ -16,9 +16,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {Directive, ElementRef, EventEmitter, Input, Output, Renderer} from '@angular/core';
-import {JhiModuleConfig} from '../config';
-import {JhiConfigService} from '../config.service';
+import { Directive, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { JhiModuleConfig } from '../config';
+import { JhiConfigService } from '../config.service';
 
 @Directive({
     selector: '[jhiSort]'
@@ -34,7 +34,7 @@ export class JhiSortDirective {
     element: any;
     config: JhiModuleConfig;
 
-    constructor(el: ElementRef, renderer: Renderer, configService: JhiConfigService) {
+    constructor(el: ElementRef, configService: JhiConfigService) {
         this.element = el.nativeElement;
         this.config = configService.getConfig();
     }
