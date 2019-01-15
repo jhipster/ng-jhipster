@@ -1,7 +1,7 @@
 /*
- Copyright 2013-2019 the original author or authors from the JHipster project.
+ Copyright 2013-2017 the original author or authors from the JHipster project.
 
- This file is part of the JHipster project, see https://www.jhipster.tech/
+ This file is part of the JHipster project, see https://jhipster.github.io/
  for more information.
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,5 +16,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-export * from './jhi-item-count.component';
-export * from './jhi-boolean.component';
+export * from './src/ng-jhipster.module';
+// Re export the files
+export * from './src/pipe';
+export * from './src/directive';
+export * from './src/service';
+export * from './src/component';
+export * from './src/language';
+export * from './src/config.service';
+export * from './src/config';

@@ -1,27 +1,21 @@
 {
-  "compilerOptions": {
-    "module": "es2015",
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "declaration": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "types": [
-      "hammerjs",
-      "jasmine",
-      "node"
-    ],
-    "lib": ["es2015", "dom"]
-  },
-  "exclude": [
-    "node_modules",
-    "bundles"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true,
-    "fullTemplateTypeCheck": true
+    "compileOnSave": false,
+    "compilerOptions": {
+      "outDir": "./dist/out-tsc",
+      "baseUrl": "src",
+      "sourceMap": true,
+      "declaration": false,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es5",
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es2016",
+        "dom"
+      ]
+    }
   }
-}
