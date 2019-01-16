@@ -60,7 +60,7 @@
     "typescript": "~3.1.6",
     "zone.js": "~0.8.26"
   },
-  "version": "0.6.0",
+  "version": "0.7.0",
   "ngPackage": {
     "lib": {
       "entryFile": "src/public_api.ts"
