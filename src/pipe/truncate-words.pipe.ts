@@ -16,25 +16,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'truncateWords'})
-export class JhiTruncateWordsPipe implements PipeTransform  {
-
-    transform(input: string, words: number): string {
-        if (isNaN(words)) {
-            return input;
-        }
-        if (words <= 0) {
-            return '';
-        }
-        if (input) {
-            const inputWords = input.split(/\s+/);
-            if (inputWords.length > words) {
-                input = inputWords.slice(0, words).join(' ') + '...';
-            }
-        }
-
-        return input;
+@Pipe({ name: 'truncateWords' })
+export class JhiTruncateWordsPipe implements PipeTransform {
+  transform(input: string, words: number): string {
+    if (isNaN(words)) {
+      return input;
     }
+    if (words <= 0) {
+      return '';
+    }
+    if (input) {
+      const inputWords = input.split(/\s+/);
+      if (inputWords.length > words) {
+        input = inputWords.slice(0, words).join(' ') + '...';
+      }
+    }
+
+    return input;
+  }
 }

@@ -22,30 +22,29 @@ import { TranslateService } from '@ngx-translate/core';
 import { JhiConfigService } from '../config.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class JhiLanguageService {
+  currentLang = 'en';
 
-    currentLang = 'en';
+  constructor(private translateService: TranslateService, private configService: JhiConfigService) {
+    this.init();
+  }
 
-    constructor(private translateService: TranslateService, private configService: JhiConfigService) {
-        this.init();
-    }
+  init() {
+    const config = this.configService.getConfig();
+    this.currentLang = config.defaultI18nLang;
+    this.translateService.setDefaultLang(this.currentLang);
+    this.translateService.use(this.currentLang);
+  }
 
-    init() {
-        const config = this.configService.getConfig();
-        this.currentLang = config.defaultI18nLang;
-        this.translateService.setDefaultLang(this.currentLang);
-        this.translateService.use(this.currentLang);
-    }
+  changeLanguage(languageKey: string) {
+    this.currentLang = languageKey;
+    this.configService.CONFIG_OPTIONS.defaultI18nLang = languageKey;
+    this.translateService.use(this.currentLang);
+  }
 
-    changeLanguage(languageKey: string) {
-        this.currentLang = languageKey;
-        this.configService.CONFIG_OPTIONS.defaultI18nLang = languageKey;
-        this.translateService.use(this.currentLang);
-    }
-
-    getCurrent(): Promise<string> {
-        return Promise.resolve(this.currentLang);
-    }
+  getCurrent(): Promise<string> {
+    return Promise.resolve(this.currentLang);
+  }
 }

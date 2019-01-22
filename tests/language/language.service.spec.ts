@@ -16,11 +16,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { TestBed, inject, async } from '@angular/core/testing';
+import { async, inject, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { JhiLanguageService } from '../../src/language/language.service';
 import { JhiConfigService } from '../../src/config.service';
+import { JhiLanguageService } from '../../src/language/language.service';
 
 describe('LanguageService Test', () => {
     beforeEach(() => {
@@ -38,13 +38,13 @@ describe('LanguageService Test', () => {
 
     it('should change Language', async(inject([JhiLanguageService], (service: JhiLanguageService) => {
         service.changeLanguage('fr');
-        service.getCurrent().then((language) => expect(language).toEqual('fr'));
+        service.getCurrent().then(language => expect(language).toEqual('fr'));
     })));
 
     it('should retain changed language even after force refresh', async(inject([JhiLanguageService], (service: JhiLanguageService) => {
         service.changeLanguage('fr');
         service.init();
-        service.getCurrent().then((language) => expect(language).toEqual('fr'));
+        service.getCurrent().then(language => expect(language).toEqual('fr'));
     })));
 
 });

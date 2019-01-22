@@ -16,28 +16,27 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { Directive, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NG_VALIDATORS } from '@angular/forms';
-import { forwardRef } from '@angular/core';
+import { Directive, forwardRef, Input } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
+
 import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
-    selector: '[jhiMaxbytes][ngModel]',
-    providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }
-    ]
+  selector: '[jhiMaxbytes][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }]
 })
 export class JhiMaxbytesValidatorDirective {
-    @Input() jhiMaxbytes: number;
+  @Input() jhiMaxbytes: number;
 
-    constructor() {}
+  constructor() {}
 
-    validate(c: FormControl) {
-        return (c.value && numberOfBytes(c.value) > this.jhiMaxbytes) ? {
-            maxbytes: {
-                valid: false
-            }
-        } : null;
-    }
+  validate(c: FormControl) {
+    return c.value && numberOfBytes(c.value) > this.jhiMaxbytes
+      ? {
+          maxbytes: {
+            valid: false
+          }
+        }
+      : null;
+  }
 }

@@ -16,6 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+import { JhiBooleanComponent } from './component/jhi-boolean.component';
+import { JhiItemCountComponent } from './component/jhi-item-count.component';
 import { JhiJvmMemoryComponent } from './component/metrics/jhi-jvm-memory.component';
 import { JhiJvmThreadsComponent } from './component/metrics/jhi-jvm-threads.component';
 import { JhiMetricsCacheComponent } from './component/metrics/jhi-metrics-cache.component';
@@ -25,8 +27,6 @@ import { JhiMetricsGarbageCollectorComponent } from './component/metrics/jhi-met
 import { JhiThreadModalComponent } from './component/metrics/jhi-metrics-modal-threads.component';
 import { JhiMetricsHttpRequestComponent } from './component/metrics/jhi-metrics-request.component';
 import { JhiMetricsSystemComponent } from './component/metrics/jhi-metrics-system.component';
-import { JhiBooleanComponent } from './component/jhi-boolean.component';
-import { JhiItemCountComponent } from './component/jhi-item-count.component';
 import { JhiMaxValidatorDirective } from './directive/max.directive';
 import { JhiMaxbytesValidatorDirective } from './directive/maxbytes.directive';
 import { JhiMinValidatorDirective } from './directive/min.directive';
@@ -42,34 +42,34 @@ import { JhiTruncateCharactersPipe } from './pipe/truncate-characters.pipe';
 import { JhiTruncateWordsPipe } from './pipe/truncate-words.pipe';
 
 export const JHI_PIPES = [
-    JhiCapitalizePipe,
-    JhiFilterPipe,
-    JhiKeysPipe,
-    JhiOrderByPipe,
-    JhiPureFilterPipe,
-    JhiTruncateCharactersPipe,
-    JhiTruncateWordsPipe
+  JhiCapitalizePipe,
+  JhiFilterPipe,
+  JhiKeysPipe,
+  JhiOrderByPipe,
+  JhiPureFilterPipe,
+  JhiTruncateCharactersPipe,
+  JhiTruncateWordsPipe
 ];
 
 export const JHI_DIRECTIVES = [
-    JhiMaxValidatorDirective,
-    JhiMinValidatorDirective,
-    JhiMaxbytesValidatorDirective,
-    JhiMinbytesValidatorDirective,
-    JhiSortDirective,
-    JhiSortByDirective
+  JhiMaxValidatorDirective,
+  JhiMinValidatorDirective,
+  JhiMaxbytesValidatorDirective,
+  JhiMinbytesValidatorDirective,
+  JhiSortDirective,
+  JhiSortByDirective
 ];
 
 export const JHI_COMPONENTS = [
-    JhiItemCountComponent,
-    JhiBooleanComponent,
-    JhiJvmMemoryComponent,
-    JhiJvmThreadsComponent,
-    JhiMetricsHttpRequestComponent,
-    JhiMetricsEndpointsRequestsComponent,
-    JhiMetricsCacheComponent,
-    JhiMetricsDatasourceComponent,
-    JhiMetricsSystemComponent,
-    JhiMetricsGarbageCollectorComponent,
-    JhiThreadModalComponent
+  JhiItemCountComponent,
+  JhiBooleanComponent,
+  JhiJvmMemoryComponent,
+  JhiJvmThreadsComponent,
+  JhiMetricsHttpRequestComponent,
+  JhiMetricsEndpointsRequestsComponent,
+  JhiMetricsCacheComponent,
+  JhiMetricsDatasourceComponent,
+  JhiMetricsSystemComponent,
+  JhiMetricsGarbageCollectorComponent,
+  JhiThreadModalComponent
 ];

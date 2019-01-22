@@ -20,65 +20,62 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'filter', pure: false })
 export class JhiFilterPipe implements PipeTransform {
-
-    private filterByStringAndField(filter, field) {
-        return (value) => {
-            return !filter || (value[field] && value[field].toLowerCase().indexOf(filter.toLowerCase()) !== -1);
-        };
+  transform(input: any[], filter: string, field: string): any {
+    if (!filter) {
+      return input;
+    }
+    const type = typeof filter;
+    if (type === 'string') {
+      if (field) {
+        return input.filter(this.filterByStringAndField(filter, field));
+      }
+      return input.filter(this.filterByString(filter));
     }
 
-    // adapted from https://github.com/VadimDez/ng2-filter-pipe
-    private filterByString(filter) {
-        return (value) => {
-            return !filter || value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
-        };
+    if (type === 'object') {
+      return input.filter(this.filterByObject(filter));
     }
+  }
+  private filterByStringAndField(filter, field) {
+    return value => {
+      return !filter || (value[field] && value[field].toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+    };
+  }
 
-    private filterDefault(filter) {
-        return (value) => {
-            return !filter || filter === value;
-        };
-    }
+  // adapted from https://github.com/VadimDez/ng2-filter-pipe
+  private filterByString(filter) {
+    return value => {
+      return !filter || value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
+    };
+  }
 
-    private filterByObject(filter) {
-        return (value) => {
-            const keys = Object.keys(filter);
-            for (let i = 0; i < keys.length; i++) {
-                const key = keys[i];
-                const type = typeof value[key];
-                let isMatching;
+  private filterDefault(filter) {
+    return value => {
+      return !filter || filter === value;
+    };
+  }
 
-                if (type === 'string') {
-                    isMatching = this.filterByString(filter[key])(value[key]);
-                } else if (type === 'object') {
-                    isMatching = this.filterByObject(filter[key])(value[key]);
-                } else {
-                    isMatching = this.filterDefault(filter[key])(value[key]);
-                }
+  private filterByObject(filter) {
+    return value => {
+      const keys = Object.keys(filter);
+      for (const key of keys) {
+        const type = typeof value[key];
+        let isMatching;
 
-                if (!isMatching) {
-                    return false;
-                }
-            }
-
-            return true;
-        };
-    }
-
-    transform(input: Array<any>, filter: string, field: string): any {
-        if (!filter) {
-            return input;
-        }
-        const type = typeof filter;
         if (type === 'string') {
-            if (field) {
-                return input.filter(this.filterByStringAndField(filter, field));
-            }
-            return input.filter(this.filterByString(filter));
+          isMatching = this.filterByString(filter[key])(value[key]);
+        } else if (type === 'object') {
+          isMatching = this.filterByObject(filter[key])(value[key]);
+        } else {
+          isMatching = this.filterDefault(filter[key])(value[key]);
         }
 
-        if (type === 'object') {
-            return input.filter(this.filterByObject(filter));
+        if (!isMatching) {
+          return false;
         }
-    }
+      }
+
+      return true;
+    };
+  }
 }

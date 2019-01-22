@@ -17,24 +17,23 @@
  limitations under the License.
  */
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { JhiPaginationUtil } from './pagination-util.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class JhiResolvePagingParams implements Resolve<any> {
+  constructor(private paginationUtil: JhiPaginationUtil) {}
 
-    constructor(private paginationUtil: JhiPaginationUtil) { }
-
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
-        const defaultSort = route.data['defaultSort'] ? route.data['defaultSort'] : 'id,asc';
-        const sort = route.queryParams['sort'] ? route.queryParams['sort'] : defaultSort;
-        return {
-            page: this.paginationUtil.parsePage(page),
-            predicate: this.paginationUtil.parsePredicate(sort),
-            ascending: this.paginationUtil.parseAscending(sort)
-        };
-    }
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
+    const defaultSort = route.data['defaultSort'] ? route.data['defaultSort'] : 'id,asc';
+    const sort = route.queryParams['sort'] ? route.queryParams['sort'] : defaultSort;
+    return {
+      page: this.paginationUtil.parsePage(page),
+      predicate: this.paginationUtil.parsePredicate(sort),
+      ascending: this.paginationUtil.parseAscending(sort)
+    };
+  }
 }

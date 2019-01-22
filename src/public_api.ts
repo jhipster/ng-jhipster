@@ -21,10 +21,6 @@ export { JhiModuleConfig } from './config';
 export * from './config.service';
 export * from './directive/index';
 export * from './language/index';
-export {
-    missingTranslationHandler,
-    NgJhipsterModule,
-    translatePartialLoader
-} from './ng-jhipster.module';
+export { missingTranslationHandler, NgJhipsterModule, translatePartialLoader } from './ng-jhipster.module';
 export * from './pipe/index';
 export * from './service/index';

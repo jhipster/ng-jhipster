@@ -16,8 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { JhiModuleConfig } from '../src/config';
-import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 describe('ModuleConfig Test', () => {
   it('should have default values as specified', () => {

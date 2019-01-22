@@ -20,7 +20,7 @@ import { JhiPureFilterPipe } from '../../src/pipe/pure-filter.pipe';
 
 describe('PureFilterPipe Tests', () => {
     let pipe: JhiPureFilterPipe;
-    let list: Array<any>;
+    let list: any[];
     let filter;
     beforeEach(() => {
         pipe = new JhiPureFilterPipe();

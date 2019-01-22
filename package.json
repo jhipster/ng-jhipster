@@ -27,7 +27,8 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
-    "@fortawesome/free-solid-svg-icons": "^5.6.3"
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "rxjs": "^6.3.3"
   },
   "devDependencies": {
     "@angular/animations": "^7.0.0",
@@ -84,15 +85,15 @@
     ]
   },
   "lint-staged": {
-    "{src,tests}/**/*.{ts}": [
+    "{,src/**/}*.{md,json,ts}": [
       "prettier --write",
       "git add"
     ]
   },
   "scripts": {
-    "format": "prettier --write \"{src,tests}/**/*.{ts}\"",
-    "lint": "tslint --project tslint.json",
-    "lint:fix": "tslint --project tslint.json --fix",
+    "format": "prettier --write \"{,src/**/}*.{md,json,ts}\"",
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --project tsconfig.json --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "ng-packagr -p package.json",

@@ -16,8 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { JhiMinbytesValidatorDirective } from '../../src/directive/minbytes.directive';
 import {FormControl} from '@angular/forms';
+import { JhiMinbytesValidatorDirective } from '../../src/directive/minbytes.directive';
 
 describe('JhiMinbytesValidatorDirective Tests', () => {
     let dir: JhiMinbytesValidatorDirective;
@@ -27,7 +27,7 @@ describe('JhiMinbytesValidatorDirective Tests', () => {
 
     beforeEach(() => {
         dir = new JhiMinbytesValidatorDirective();
-        c = new FormControl('', {})
+        c = new FormControl('', {});
     });
 
     describe('UI logic tests', () => {
