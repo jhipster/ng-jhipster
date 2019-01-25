@@ -28,7 +28,7 @@ import { JhiModuleConfig } from './config';
 import { JhiConfigService } from './config.service';
 import { JHI_COMPONENTS, JHI_DIRECTIVES, JHI_PIPES } from './jhi-components';
 import { JhiMissingTranslationHandler } from './language/jhi-missing-translation.config';
-import { JhiTranslateComponent } from './language/jhi-translate.directive';
+import { JhiTranslateDirective } from './language/jhi-translate.directive';
 import { JhiLanguageService } from './language/language.service';
 import { JhiAlertService } from './service/alert.service';
 import { JhiPaginationUtil } from './service/pagination-util.service';
@@ -61,9 +61,9 @@ export function missingTranslationHandler(configService: JhiConfigService) {
     NgbModule.forRoot(),
     FormsModule
   ],
-  declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateComponent],
+  declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective],
   entryComponents: [JhiThreadModalComponent],
-  exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateComponent, TranslateModule, CommonModule]
+  exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective, TranslateModule, CommonModule]
 })
 export class NgJhipsterModule {
   static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders {
