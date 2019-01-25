@@ -82,12 +82,12 @@
   "scripts": {
     "lint": "tslint --project tslint.json",
     "lint:fix": "tslint --project tslint.json --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "npm run lint && jest",
+    "test:watch": "npm run lint && jest --watch",
     "build": "ng-packagr -p package.json",
-    "release": "npm test && git push && git push --tags && npm publish dist/",
-    "release:patch": "npm run build && npm version patch -a -m \"Update to %s\" && npm run release",
-    "release:minor": "npm run build && npm version minor -a -m \"Update to %s\" && npm run release",
-    "release:major": "npm run build && npm version major -a -m \"Update to %s\" && npm run release"
+    "release": "git push && git push --tags && npm publish dist/",
+    "release:patch": "npm test && npm version patch -a -m \"Update to %s\" && npm run build && npm run release",
+    "release:minor": "npm test && npm version minor -a -m \"Update to %s\" && npm run build && npm run release",
+    "release:major": "npm test && npm version major -a -m \"Update to %s\" && npm run build && npm run release"
   }
 }
