@@ -20,21 +20,21 @@ import { Directive, forwardRef, Input } from '@angular/core';
 import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[jhiMin][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinValidatorDirective), multi: true }]
+    selector: '[jhiMin][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinValidatorDirective), multi: true }]
 })
 export class JhiMinValidatorDirective {
-  @Input() jhiMin: number;
+    @Input() jhiMin: number;
 
-  constructor() {}
+    constructor() {}
 
-  validate(c: FormControl) {
-    return c.value === undefined || c.value === null || c.value >= this.jhiMin
-      ? null
-      : {
-          min: {
-            valid: false
-          }
-        };
-  }
+    validate(c: FormControl) {
+        return c.value === undefined || c.value === null || c.value >= this.jhiMin
+            ? null
+            : {
+                  min: {
+                      valid: false
+                  }
+              };
+    }
 }

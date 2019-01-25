@@ -22,21 +22,21 @@ import { FormControl, NG_VALIDATORS } from '@angular/forms';
 import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
-  selector: '[jhiMinbytes][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }]
+    selector: '[jhiMinbytes][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }]
 })
 export class JhiMinbytesValidatorDirective {
-  @Input() jhiMinbytes: number;
+    @Input() jhiMinbytes: number;
 
-  constructor() {}
+    constructor() {}
 
-  validate(c: FormControl) {
-    return c.value && numberOfBytes(c.value) < this.jhiMinbytes
-      ? {
-          minbytes: {
-            valid: false
-          }
-        }
-      : null;
-  }
+    validate(c: FormControl) {
+        return c.value && numberOfBytes(c.value) < this.jhiMinbytes
+            ? {
+                  minbytes: {
+                      valid: false
+                  }
+              }
+            : null;
+    }
 }

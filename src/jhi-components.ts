@@ -42,34 +42,34 @@ import { JhiTruncateCharactersPipe } from './pipe/truncate-characters.pipe';
 import { JhiTruncateWordsPipe } from './pipe/truncate-words.pipe';
 
 export const JHI_PIPES = [
-  JhiCapitalizePipe,
-  JhiFilterPipe,
-  JhiKeysPipe,
-  JhiOrderByPipe,
-  JhiPureFilterPipe,
-  JhiTruncateCharactersPipe,
-  JhiTruncateWordsPipe
+    JhiCapitalizePipe,
+    JhiFilterPipe,
+    JhiKeysPipe,
+    JhiOrderByPipe,
+    JhiPureFilterPipe,
+    JhiTruncateCharactersPipe,
+    JhiTruncateWordsPipe
 ];
 
 export const JHI_DIRECTIVES = [
-  JhiMaxValidatorDirective,
-  JhiMinValidatorDirective,
-  JhiMaxbytesValidatorDirective,
-  JhiMinbytesValidatorDirective,
-  JhiSortDirective,
-  JhiSortByDirective
+    JhiMaxValidatorDirective,
+    JhiMinValidatorDirective,
+    JhiMaxbytesValidatorDirective,
+    JhiMinbytesValidatorDirective,
+    JhiSortDirective,
+    JhiSortByDirective
 ];
 
 export const JHI_COMPONENTS = [
-  JhiItemCountComponent,
-  JhiBooleanComponent,
-  JhiJvmMemoryComponent,
-  JhiJvmThreadsComponent,
-  JhiMetricsHttpRequestComponent,
-  JhiMetricsEndpointsRequestsComponent,
-  JhiMetricsCacheComponent,
-  JhiMetricsDatasourceComponent,
-  JhiMetricsSystemComponent,
-  JhiMetricsGarbageCollectorComponent,
-  JhiThreadModalComponent
+    JhiItemCountComponent,
+    JhiBooleanComponent,
+    JhiJvmMemoryComponent,
+    JhiJvmThreadsComponent,
+    JhiMetricsHttpRequestComponent,
+    JhiMetricsEndpointsRequestsComponent,
+    JhiMetricsCacheComponent,
+    JhiMetricsDatasourceComponent,
+    JhiMetricsSystemComponent,
+    JhiMetricsGarbageCollectorComponent,
+    JhiThreadModalComponent
 ];

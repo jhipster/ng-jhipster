@@ -20,19 +20,19 @@ import { Injectable } from '@angular/core';
 import { faSort, faSortDown, faSortUp, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class JhiModuleConfig {
-  sortIcon?: IconDefinition = faSort;
-  sortAscIcon?: IconDefinition = faSortUp;
-  sortDescIcon?: IconDefinition = faSortDown;
-  i18nEnabled? = false;
-  defaultI18nLang? = 'en';
-  noi18nMessage? = 'translation-not-found';
-  alertAsToast? = false;
-  alertTimeout? = 5000;
-  classBadgeTrue? = 'badge badge-success';
-  classBadgeFalse? = 'badge badge-danger';
-  classTrue? = 'fa fa-lg fa-check text-success';
-  classFalse? = 'fa fa-lg fa-times text-danger';
+    sortIcon?: IconDefinition = faSort;
+    sortAscIcon?: IconDefinition = faSortUp;
+    sortDescIcon?: IconDefinition = faSortDown;
+    i18nEnabled? = false;
+    defaultI18nLang? = 'en';
+    noi18nMessage? = 'translation-not-found';
+    alertAsToast? = false;
+    alertTimeout? = 5000;
+    classBadgeTrue? = 'badge badge-success';
+    classBadgeFalse? = 'badge badge-danger';
+    classTrue? = 'fa fa-lg fa-check text-success';
+    classFalse? = 'fa fa-lg fa-times text-danger';
 }

@@ -20,21 +20,21 @@ import { Directive, forwardRef, Input } from '@angular/core';
 import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[jhiMax][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxValidatorDirective), multi: true }]
+    selector: '[jhiMax][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxValidatorDirective), multi: true }]
 })
 export class JhiMaxValidatorDirective {
-  @Input() jhiMax: number;
+    @Input() jhiMax: number;
 
-  constructor() {}
+    constructor() {}
 
-  validate(c: FormControl) {
-    return c.value === undefined || c.value === null || c.value <= this.jhiMax
-      ? null
-      : {
-          max: {
-            valid: false
-          }
-        };
-  }
+    validate(c: FormControl) {
+        return c.value === undefined || c.value === null || c.value <= this.jhiMax
+            ? null
+            : {
+                  max: {
+                      valid: false
+                  }
+              };
+    }
 }

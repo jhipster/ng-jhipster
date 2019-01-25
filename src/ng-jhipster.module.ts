@@ -35,69 +35,69 @@ import { JhiPaginationUtil } from './service/pagination-util.service';
 import { JhiResolvePagingParams } from './service/resolve-paging-params.service';
 
 export function translatePartialLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
+    return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
 }
 
 export function missingTranslationHandler(configService: JhiConfigService) {
-  return new JhiMissingTranslationHandler(configService);
+    return new JhiMissingTranslationHandler(configService);
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: translatePartialLoader,
-        deps: [HttpClient]
-      },
-      missingTranslationHandler: {
-        provide: MissingTranslationHandler,
-        useFactory: missingTranslationHandler,
-        deps: [JhiConfigService]
-      }
-    }),
-    CommonModule,
-    NgbModule.forRoot(),
-    FormsModule
-  ],
-  declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective],
-  entryComponents: [JhiThreadModalComponent],
-  exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective, TranslateModule, CommonModule]
+    imports: [
+        CommonModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: translatePartialLoader,
+                deps: [HttpClient]
+            },
+            missingTranslationHandler: {
+                provide: MissingTranslationHandler,
+                useFactory: missingTranslationHandler,
+                deps: [JhiConfigService]
+            }
+        }),
+        CommonModule,
+        NgbModule.forRoot(),
+        FormsModule
+    ],
+    declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective],
+    entryComponents: [JhiThreadModalComponent],
+    exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective, TranslateModule, CommonModule]
 })
 export class NgJhipsterModule {
-  static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders {
-    return {
-      ngModule: NgJhipsterModule,
-      providers: [
-        {
-          provide: JhiLanguageService,
-          useClass: JhiLanguageService,
-          deps: [TranslateService, JhiConfigService]
-        },
-        {
-          provide: JhiResolvePagingParams,
-          useClass: JhiResolvePagingParams,
-          deps: [JhiPaginationUtil]
-        },
-        {
-          provide: JhiAlertService,
-          useClass: JhiAlertService,
-          deps: [Sanitizer, JhiConfigService, TranslateService]
-        },
-        { provide: JhiModuleConfig, useValue: moduleConfig },
-        {
-          provide: JhiConfigService,
-          useClass: JhiConfigService,
-          deps: [JhiModuleConfig]
-        }
-      ]
-    };
-  }
-  static forChild(moduleConfig: JhiModuleConfig): ModuleWithProviders {
-    return {
-      ngModule: NgJhipsterModule,
-      providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
-    };
-  }
+    static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders {
+        return {
+            ngModule: NgJhipsterModule,
+            providers: [
+                {
+                    provide: JhiLanguageService,
+                    useClass: JhiLanguageService,
+                    deps: [TranslateService, JhiConfigService]
+                },
+                {
+                    provide: JhiResolvePagingParams,
+                    useClass: JhiResolvePagingParams,
+                    deps: [JhiPaginationUtil]
+                },
+                {
+                    provide: JhiAlertService,
+                    useClass: JhiAlertService,
+                    deps: [Sanitizer, JhiConfigService, TranslateService]
+                },
+                { provide: JhiModuleConfig, useValue: moduleConfig },
+                {
+                    provide: JhiConfigService,
+                    useClass: JhiConfigService,
+                    deps: [JhiModuleConfig]
+                }
+            ]
+        };
+    }
+    static forChild(moduleConfig: JhiModuleConfig): ModuleWithProviders {
+        return {
+            ngModule: NgJhipsterModule,
+            providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
+        };
+    }
 }

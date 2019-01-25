@@ -22,21 +22,21 @@ import { FormControl, NG_VALIDATORS } from '@angular/forms';
 import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
-  selector: '[jhiMaxbytes][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }]
+    selector: '[jhiMaxbytes][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }]
 })
 export class JhiMaxbytesValidatorDirective {
-  @Input() jhiMaxbytes: number;
+    @Input() jhiMaxbytes: number;
 
-  constructor() {}
+    constructor() {}
 
-  validate(c: FormControl) {
-    return c.value && numberOfBytes(c.value) > this.jhiMaxbytes
-      ? {
-          maxbytes: {
-            valid: false
-          }
-        }
-      : null;
-  }
+    validate(c: FormControl) {
+        return c.value && numberOfBytes(c.value) > this.jhiMaxbytes
+            ? {
+                  maxbytes: {
+                      valid: false
+                  }
+              }
+            : null;
+    }
 }
