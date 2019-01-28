@@ -84,13 +84,13 @@
     ]
   },
   "lint-staged": {
-    "{,src/**/}*.{md,json,ts}": [
+    "{,src/**/}*.{md,json,ts,html}": [
       "prettier --write",
       "git add"
     ]
   },
   "scripts": {
-    "format": "prettier --write \"{,src/**/}*.{md,json,ts}\"",
+    "format": "prettier --write \"{,src/**/}*.{md,json,ts,html}\"",
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest",
