@@ -58,13 +58,13 @@
     "prettier": "^1.16.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "tsickle": "^0.34.0",
     "tslint": "^5.12.0",
-    "typescript": "~3.1.6",
-    "zone.js": "~0.8.26"
+    "typescript": "^3.1.6",
+    "zone.js": "^0.8.26"
   },
-  "version": "0.9.0",
+  "version": "0.9.1",
   "ngPackage": {
     "lib": {
       "entryFile": "src/public_api.ts"
