@@ -26,14 +26,12 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class JhiDateUtils {
-
-    private pattern = 'yyyy-MM-dd';
-
-    private datePipe: DatePipe;
-
     constructor() {
         this.datePipe = new DatePipe('en');
     }
+    private pattern = 'yyyy-MM-dd';
+
+    private datePipe: DatePipe;
 
     /**
      * Method to convert the date time from server into JS date object

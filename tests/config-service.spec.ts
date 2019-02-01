@@ -16,8 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { JhiConfigService } from '../src/config.service';
 import { JhiModuleConfig } from '../src/config';
+import { JhiConfigService } from '../src/config.service';
 
 describe('ConfigService Test', () => {
   it('should have default values as specified in ModuleConfig when initiated', () => {

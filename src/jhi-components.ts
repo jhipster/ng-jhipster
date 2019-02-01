@@ -16,6 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+import { JhiBooleanComponent } from './component/jhi-boolean.component';
+import { JhiItemCountComponent } from './component/jhi-item-count.component';
 import { JhiJvmMemoryComponent } from './component/metrics/jhi-jvm-memory.component';
 import { JhiJvmThreadsComponent } from './component/metrics/jhi-jvm-threads.component';
 import { JhiMetricsCacheComponent } from './component/metrics/jhi-metrics-cache.component';
@@ -25,8 +27,6 @@ import { JhiMetricsGarbageCollectorComponent } from './component/metrics/jhi-met
 import { JhiThreadModalComponent } from './component/metrics/jhi-metrics-modal-threads.component';
 import { JhiMetricsHttpRequestComponent } from './component/metrics/jhi-metrics-request.component';
 import { JhiMetricsSystemComponent } from './component/metrics/jhi-metrics-system.component';
-import { JhiBooleanComponent } from './component/jhi-boolean.component';
-import { JhiItemCountComponent } from './component/jhi-item-count.component';
 import { JhiMaxValidatorDirective } from './directive/max.directive';
 import { JhiMaxbytesValidatorDirective } from './directive/maxbytes.directive';
 import { JhiMinValidatorDirective } from './directive/min.directive';

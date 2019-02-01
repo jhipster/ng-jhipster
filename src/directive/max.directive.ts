@@ -16,16 +16,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { Directive, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NG_VALIDATORS } from '@angular/forms';
-import { forwardRef } from '@angular/core';
+import { Directive, forwardRef, Input } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
     selector: '[jhiMax][ngModel]',
-    providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxValidatorDirective), multi: true }
-    ]
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxValidatorDirective), multi: true }]
 })
 export class JhiMaxValidatorDirective {
     @Input() jhiMax: number;
@@ -33,10 +29,12 @@ export class JhiMaxValidatorDirective {
     constructor() {}
 
     validate(c: FormControl) {
-        return (c.value === undefined || c.value === null || c.value <= this.jhiMax) ? null : {
-            max: {
-                valid: false
-            }
-        };
+        return c.value === undefined || c.value === null || c.value <= this.jhiMax
+            ? null
+            : {
+                  max: {
+                      valid: false
+                  }
+              };
     }
 }

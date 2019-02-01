@@ -16,10 +16,10 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
+import { inject, TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { TestBed, inject } from '@angular/core/testing';
-import { JhiResolvePagingParams } from '../../src/service/resolve-paging-params.service';
 import { JhiPaginationUtil } from '../../src/service/pagination-util.service';
+import { JhiResolvePagingParams } from '../../src/service/resolve-paging-params.service';
 
 describe('ResolvePagingParams  service test', () => {
 

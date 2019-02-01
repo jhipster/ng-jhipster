@@ -25,7 +25,6 @@ import { JhiConfigService } from '../config.service';
     providedIn: 'root'
 })
 export class JhiLanguageService {
-
     currentLang = 'en';
 
     constructor(private translateService: TranslateService, private configService: JhiConfigService) {

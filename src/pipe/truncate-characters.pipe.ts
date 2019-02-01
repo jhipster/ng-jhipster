@@ -16,11 +16,10 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'truncateCharacters'})
+@Pipe({ name: 'truncateCharacters' })
 export class JhiTruncateCharactersPipe implements PipeTransform {
-
     transform(input: string, chars: number, breakOnWord?: boolean): string {
         if (isNaN(chars)) {
             return input;

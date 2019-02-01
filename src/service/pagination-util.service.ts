@@ -24,8 +24,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class JhiPaginationUtil  {
-
+export class JhiPaginationUtil {
     constructor() {}
 
     /**

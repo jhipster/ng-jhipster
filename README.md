@@ -4,7 +4,6 @@ Greetings, Java Hipster!
 
 This is the JHipster Angular 2+ utilities library
 
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]

@@ -16,8 +16,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { JhiMaxValidatorDirective } from '../../src/directive/max.directive';
 import {FormControl} from '@angular/forms';
+import { JhiMaxValidatorDirective } from '../../src/directive/max.directive';
 
 describe('JhiMaxValidatorDirective Tests', () => {
     let dir: JhiMaxValidatorDirective;
@@ -25,7 +25,7 @@ describe('JhiMaxValidatorDirective Tests', () => {
 
     beforeEach(() => {
         dir = new JhiMaxValidatorDirective();
-        c = new FormControl('', {})
+        c = new FormControl('', {});
     });
 
     describe('UI logic tests', () => {

@@ -16,17 +16,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { Directive, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NG_VALIDATORS } from '@angular/forms';
-import { forwardRef } from '@angular/core';
+import { Directive, forwardRef, Input } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
+
 import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
     selector: '[jhiMinbytes][ngModel]',
-    providers: [
-        { provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }
-    ]
+    providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }]
 })
 export class JhiMinbytesValidatorDirective {
     @Input() jhiMinbytes: number;
@@ -34,10 +31,12 @@ export class JhiMinbytesValidatorDirective {
     constructor() {}
 
     validate(c: FormControl) {
-        return (c.value && numberOfBytes(c.value) < this.jhiMinbytes) ? {
-            minbytes: {
-                valid: false
-            }
-        } : null;
+        return c.value && numberOfBytes(c.value) < this.jhiMinbytes
+            ? {
+                  minbytes: {
+                      valid: false
+                  }
+              }
+            : null;
     }
 }

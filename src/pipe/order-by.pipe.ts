@@ -18,7 +18,7 @@
  */
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'orderBy'})
+@Pipe({ name: 'orderBy' })
 export class JhiOrderByPipe implements PipeTransform {
     transform(values: any[], predicate = '', reverse = false): any {
         if (predicate === '') {
