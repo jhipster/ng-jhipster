@@ -90,12 +90,13 @@
     ]
   },
   "scripts": {
+    "cleanup": "rimraf **/*.d.ts src/*.js src/**/*.js tests/**/*.js tests/*.js aot/* dist/*",
     "format": "prettier --write \"{,src/**/}*.{md,json,ts,html}\"",
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest",
     "test:watch": "npm run test -- --watch",
-    "build": "ng-packagr -p package.json",
+    "build": "npm run cleanup && ng-packagr -p package.json",
     "release": "git push && git push --tags && npm publish dist/",
     "release:patch": "npm test && npm version patch -a -m \"Update to %s\" && npm run build && npm run release",
     "release:minor": "npm test && npm version minor -a -m \"Update to %s\" && npm run build && npm run release",
