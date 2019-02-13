@@ -90,7 +90,7 @@
     ]
   },
   "scripts": {
-    "cleanup": "rimraf **/*.d.ts src/*.js src/**/*.js tests/**/*.js tests/*.js aot/* dist/*",
+    "cleanup": "rimraf dist/*",
     "format": "prettier --write \"{,src/**/}*.{md,json,ts,html}\"",
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "npm run lint -- --fix",
