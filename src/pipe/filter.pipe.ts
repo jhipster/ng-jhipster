@@ -20,62 +20,77 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'filter', pure: false })
 export class JhiFilterPipe implements PipeTransform {
-    transform(input: any[], filter: string, field: string): any {
+    transform(input: any[], filter: any, field?: string): any {
         if (!filter) {
             return input;
         }
-        const type = typeof filter;
-        if (type === 'string') {
-            if (field) {
-                return input.filter(this.filterByStringAndField(filter, field));
-            }
-            return input.filter(this.filterByString(filter));
+
+        // if filter is of type 'function' compute current value of filter, otherwise return filter
+        const currentFilter = typeof filter === 'function' ? filter() : filter;
+
+        switch (typeof currentFilter) {
+            case 'number':
+                return input.filter(this.filterByNumber(currentFilter, field));
+            case 'boolean':
+                return input.filter(this.filterByBoolean(currentFilter, field));
+            case 'string':
+                return input.filter(this.filterByString(currentFilter, field));
+            case 'object':
+                // filter by object ignores 'field' if specified
+                return input.filter(this.filterByObject(currentFilter));
+            default:
+                // 'symbol' && 'undefined'
+                return input.filter(this.filterDefault(currentFilter, field));
         }
-
-        if (type === 'object') {
-            return input.filter(this.filterByObject(filter));
-        }
-    }
-    private filterByStringAndField(filter, field) {
-        return value => {
-            return !filter || (value[field] && value[field].toLowerCase().indexOf(filter.toLowerCase()) !== -1);
-        };
     }
 
-    // adapted from https://github.com/VadimDez/ng2-filter-pipe
-    private filterByString(filter) {
-        return value => {
-            return !filter || value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
-        };
+    private filterByNumber(filter, field?) {
+        return value =>
+            (value && !filter) || (typeof value === 'object' && field)
+                ? value[field] && typeof value[field] === 'number' && value[field] === filter
+                : typeof value === 'number' && value === filter;
     }
 
-    private filterDefault(filter) {
-        return value => {
-            return !filter || filter === value;
-        };
+    private filterByBoolean(filter, field?) {
+        return value =>
+            (value && !filter) || (typeof value === 'object' && field)
+                ? value[field] && (typeof value[field] === 'boolean' && value[field] === filter)
+                : typeof value === 'boolean' && value === filter;
+    }
+
+    private filterByString(filter, field?) {
+        return value =>
+            (value && !filter) || (typeof value === 'object' && field)
+                ? value[field] && typeof value[field] === 'string' && value[field] === filter
+                : typeof value === 'string' && value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
+    }
+
+    private filterDefault(filter, field?) {
+        return value => ((value && !filter) || (typeof value === 'object' && field) ? value[field] && filter === value : filter === value);
     }
 
     private filterByObject(filter) {
         return value => {
             const keys = Object.keys(filter);
+            let isMatching = false;
+
+            // all fields defined in filter object must match
             for (const key of keys) {
-                const type = typeof value[key];
-                let isMatching;
-
-                if (type === 'string') {
-                    isMatching = this.filterByString(filter[key])(value[key]);
-                } else if (type === 'object') {
-                    isMatching = this.filterByObject(filter[key])(value[key]);
-                } else {
-                    isMatching = this.filterDefault(filter[key])(value[key]);
-                }
-
-                if (!isMatching) {
-                    return false;
+                switch (typeof filter[key]) {
+                    case 'number':
+                        isMatching = this.filterByNumber(filter[key])(value[key]);
+                        break;
+                    case 'boolean':
+                        isMatching = this.filterByBoolean(filter[key])(value[key]);
+                        break;
+                    case 'string':
+                        isMatching = this.filterByString(filter[key])(value[key]);
+                        break;
+                    default:
+                        isMatching = this.filterDefault(filter[key])(value[key]);
                 }
             }
-
-            return true;
+            return isMatching;
         };
     }
 }

@@ -20,30 +20,51 @@ import { JhiPureFilterPipe } from '../../src/pipe/pure-filter.pipe';
 
 describe('PureFilterPipe Tests', () => {
     let pipe: JhiPureFilterPipe;
+    let objectList: any[];
     let list: any[];
     let filter;
     beforeEach(() => {
+        objectList = [{ value: 'java', extention: 'java', known: true, level: 8 }, { value: 'javaScript', extention: 'js', known: false, level: 0 }, { value: 'TypeScript', extention: 'ts', known: true, level: 5 }];
         pipe = new JhiPureFilterPipe();
     });
 
-    it('Should filter by  string', () => {
+    it('Should filter by string', () => {
         list = ['java', 'javaScript', 'TypeScript'];
-        const result = pipe.transform(list, 'java', null);
+        const result = pipe.transform(list, 'java');
         expect(result).toEqual(['java', 'javaScript']);
     });
 
-    it('Should filter by  string and field', () => {
-        list = [{ value: 'java', extention: 'java' }, { value: 'javaScript', extention: 'js' }, { value: 'TypeScript', extention: 'ts' }];
+    it('Should filter by string and field', () => {
         filter = 'ts';
         const field = 'extention';
-        const result = pipe.transform(list, filter, field);
-        expect(result).toEqual([{ value: 'TypeScript', extention: 'ts' }]);
+        const result = pipe.transform(objectList, filter, field);
+        expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
     });
 
     it('should filter by Object', () => {
-        list = [{ value: 'java' }, { value: 'javaScript' }, { value: 'TypeScript' }];
-        filter = { value: 'java' };
-        const result = pipe.transform(list, filter, null);
-        expect(result).toEqual([{ value: 'java' }, { value: 'javaScript' }]);
+        filter = { value: 'java', extention: 'java' };
+        const result = pipe.transform(objectList, filter);
+        expect(result).toEqual([{ value: 'java', extention: 'java', known: true, level: 8 }]);
+    });
+
+    it('should filter by Function', () => {
+        filter = function () { return 'ts' };
+        const field = 'extention';
+        const result = pipe.transform(objectList, filter, field);
+        expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
+    });
+
+    it('should filter by Boolean', () => {
+        filter = true;
+        const field = 'known';
+        const result = pipe.transform(objectList, filter, field);
+        expect(result).toEqual([{ value: 'java', extention: 'java', known: true, level: 8 }, { value: 'TypeScript', extention: 'ts', known: true, level: 5 }])
+    });
+
+    it('should filter by Number', () => {
+        filter = 5;
+        const field = 'level';
+        const result = pipe.transform(objectList, filter, field);
+        expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
     });
 });
