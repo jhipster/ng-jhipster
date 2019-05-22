@@ -5,6 +5,7 @@ Greetings, Java Hipster!
 This is the JHipster Angular 2+ utilities library
 
 [![NPM version][npm-image]][npm-url]
+[![Azure DevOps Build Status][azure-devops-image]][azure-devops-url-main] 
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
@@ -16,6 +17,8 @@ Please read our [guidelines](https://github.com/jhipster/generator-jhipster/CONT
 [jhipster-url]: http://jhipster.github.io/
 [npm-image]: https://badge.fury.io/js/ng-jhipster.svg
 [npm-url]: https://npmjs.org/package/ng-jhipster
+[azure-devops-image]: https://dev.azure.com/jhipster/ng-jhipster/_apis/build/status/jhipster.ng-jhipster?branchName=master
+[azure-devops-url-main]: https://dev.azure.com/jhipster/ng-jhipster/_build
 [travis-image]: https://travis-ci.org/jhipster/ng-jhipster.svg?branch=master
 [travis-url]: https://travis-ci.org/jhipster/ng-jhipster
 [daviddm-image]: https://david-dm.org/jhipster/ng-jhipster.svg?theme=shields.io
