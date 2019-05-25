@@ -28,40 +28,82 @@ describe('PureFilterPipe Tests', () => {
         pipe = new JhiPureFilterPipe();
     });
 
-    it('Should filter by string', () => {
+    it('should filter by number', () => {
+        list = [2,	3,	5,	7,	11, 13,	17,	19,	23, 29];
+
+        let result = pipe.transform(list, 5);
+        expect(result).toEqual([5]);
+
+        result = pipe.transform(list, 7, null);
+        expect(result).toEqual([7]);
+
+        result = pipe.transform(list, 17, undefined);
+        expect(result).toEqual([17]);
+
+        result = pipe.transform(list, 29, 'not-exists');
+        expect(result).toEqual([29]);
+    });
+
+    it('should filter by boolean', () => {
+        list = [true, false, true, false, true, false];
+        
+        let result = pipe.transform(list, true);
+        expect(result).toEqual([true, true, true]);
+
+        result = pipe.transform(list, false, null);
+        expect(result).toEqual([false, false, false]);
+
+        result = pipe.transform(list, true, undefined);
+        expect(result).toEqual([true, true, true]);
+        
+        result = pipe.transform(list, false, 'not-exists');
+        expect(result).toEqual([false, false, false]);
+    });
+
+    it('should filter by string', () => {
         list = ['java', 'javaScript', 'TypeScript'];
-        const result = pipe.transform(list, 'java');
+        
+        let result = pipe.transform(list, 'java');
+        expect(result).toEqual(['java', 'javaScript']);
+
+        result = pipe.transform(list, 'script', null);
+        expect(result).toEqual(['javaScript', 'TypeScript']);
+
+        result = pipe.transform(list, 'type', undefined);
+        expect(result).toEqual(['TypeScript']);
+
+        result = pipe.transform(list, 'java', 'not-exists');
         expect(result).toEqual(['java', 'javaScript']);
     });
 
-    it('Should filter by string and field', () => {
+    it('should filter by object', () => {
+        filter = { value: 'java', extention: 'java' };
+        const result = pipe.transform(objectList, filter);
+        expect(result).toEqual([{ value: 'java', extention: 'java', known: true, level: 8 }]);
+    });
+
+    it('should filter on field by string', () => {
         filter = 'ts';
         const field = 'extention';
         const result = pipe.transform(objectList, filter, field);
         expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
     });
 
-    it('should filter by Object', () => {
-        filter = { value: 'java', extention: 'java' };
-        const result = pipe.transform(objectList, filter);
-        expect(result).toEqual([{ value: 'java', extention: 'java', known: true, level: 8 }]);
-    });
-
-    it('should filter by Function', () => {
+    it('should filter on field by function', () => {
         filter = function () { return 'ts' };
         const field = 'extention';
         const result = pipe.transform(objectList, filter, field);
         expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
     });
 
-    it('should filter by Boolean', () => {
+    it('should filter on field by boolean', () => {
         filter = true;
         const field = 'known';
         const result = pipe.transform(objectList, filter, field);
         expect(result).toEqual([{ value: 'java', extention: 'java', known: true, level: 8 }, { value: 'TypeScript', extention: 'ts', known: true, level: 5 }])
     });
 
-    it('should filter by Number', () => {
+    it('should filter on field by number', () => {
         filter = 5;
         const field = 'level';
         const result = pipe.transform(objectList, filter, field);

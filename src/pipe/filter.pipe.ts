@@ -21,7 +21,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'filter', pure: false })
 export class JhiFilterPipe implements PipeTransform {
     transform(input: any[], filter: any, field?: string): any {
-        if (!filter) {
+        if (typeof filter === 'undefined') {
             return input;
         }
 
@@ -53,8 +53,8 @@ export class JhiFilterPipe implements PipeTransform {
 
     private filterByBoolean(filter, field?) {
         return value =>
-            (value && !filter) || (typeof value === 'object' && field)
-                ? value[field] && (typeof value[field] === 'boolean' && value[field] === filter)
+            typeof value === 'object' && field
+                ? value[field] && typeof value[field] === 'boolean' && value[field] === filter
                 : typeof value === 'boolean' && value === filter;
     }
 
