@@ -44,6 +44,22 @@ describe('PureFilterPipe Tests', () => {
         expect(result).toEqual([29]);
     });
 
+    it('should filter by number (2)', () => {
+        list = [12.566370, 3.141592, 6.674083, 6.022140, 1.380648];
+
+        let result = pipe.transform(list, 3.141592);
+        expect(result).toEqual([3.141592]);
+
+        result = pipe.transform(list, 6.674083, null);
+        expect(result).toEqual([6.674083]);
+
+        result = pipe.transform(list, 1.380648, undefined);
+        expect(result).toEqual([1.380648]);
+
+        result = pipe.transform(list, 12.566370, 'not-exists');
+        expect(result).toEqual([12.566370]);
+    });
+
     it('should filter by boolean', () => {
         list = [true, false, true, false, true, false];
         
