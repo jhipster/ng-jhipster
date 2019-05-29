@@ -2,7 +2,7 @@ os:
   - linux
 language: node_js
 node_js:
-  - "10.15.3"
+  - "10.16.0"
 cache:
   directories:
     - $HOME/.npm
