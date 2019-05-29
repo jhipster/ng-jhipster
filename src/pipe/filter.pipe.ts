@@ -28,20 +28,22 @@ export class JhiFilterPipe implements PipeTransform {
         // if filter is of type 'function' compute current value of filter, otherwise return filter
         const currentFilter = typeof filter === 'function' ? filter() : filter;
 
-        switch (typeof currentFilter) {
-            case 'number':
-                return input.filter(this.filterByNumber(currentFilter, field));
-            case 'boolean':
-                return input.filter(this.filterByBoolean(currentFilter, field));
-            case 'string':
-                return input.filter(this.filterByString(currentFilter, field));
-            case 'object':
-                // filter by object ignores 'field' if specified
-                return input.filter(this.filterByObject(currentFilter));
-            default:
-                // 'symbol' && 'undefined'
-                return input.filter(this.filterDefault(currentFilter, field));
+        if (typeof currentFilter === 'number') {
+            return input.filter(this.filterByNumber(currentFilter, field));
         }
+        if (typeof currentFilter === 'boolean') {
+            return input.filter(this.filterByBoolean(currentFilter, field));
+        }
+        if (typeof currentFilter === 'string') {
+            return input.filter(this.filterByString(currentFilter, field));
+        }
+        if (typeof currentFilter === 'object') {
+            // filter by object ignores 'field' if specified
+            return input.filter(this.filterByObject(currentFilter));
+        }
+
+        // 'symbol' && 'undefined'
+        return input.filter(this.filterDefault(currentFilter, field));
     }
 
     private filterByNumber(filter, field?) {
@@ -62,7 +64,7 @@ export class JhiFilterPipe implements PipeTransform {
         return value =>
             (value && !filter) || (typeof value === 'object' && field)
                 ? value[field] && typeof value[field] === 'string' && value[field] === filter
-                : typeof value === 'string' && value.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
+                : typeof value === 'string' && value.toLowerCase().includes(filter.toLowerCase());
     }
 
     private filterDefault(filter, field?) {
@@ -76,18 +78,14 @@ export class JhiFilterPipe implements PipeTransform {
 
             // all fields defined in filter object must match
             for (const key of keys) {
-                switch (typeof filter[key]) {
-                    case 'number':
-                        isMatching = this.filterByNumber(filter[key])(value[key]);
-                        break;
-                    case 'boolean':
-                        isMatching = this.filterByBoolean(filter[key])(value[key]);
-                        break;
-                    case 'string':
-                        isMatching = this.filterByString(filter[key])(value[key]);
-                        break;
-                    default:
-                        isMatching = this.filterDefault(filter[key])(value[key]);
+                if (typeof filter[key] === 'number') {
+                    isMatching = this.filterByNumber(filter[key])(value[key]);
+                } else if (typeof filter[key] === 'boolean') {
+                    isMatching = this.filterByBoolean(filter[key])(value[key]);
+                } else if (typeof filter[key] === 'string') {
+                    isMatching = this.filterByString(filter[key])(value[key]);
+                } else {
+                    isMatching = this.filterDefault(filter[key])(value[key]);
                 }
             }
             return isMatching;
