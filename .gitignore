@@ -10,6 +10,7 @@ node_modules/*
 npm-debug.log
 src/**/*.js
 tests/**/*.js
+!tests/jest.conf.js
 /index.js
 /ng-jhipster.js
 config/testing-utils.js
