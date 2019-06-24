@@ -90,6 +90,9 @@ describe('PureFilterPipe Tests', () => {
 
         result = pipe.transform(list, 'java', 'not-exists');
         expect(result).toEqual(['java', 'javaScript']);
+
+        result = pipe.transform(list, '');
+        expect(result).toEqual(list);
     });
 
     it('should filter by object', () => {
@@ -124,5 +127,12 @@ describe('PureFilterPipe Tests', () => {
         const field = 'level';
         const result = pipe.transform(objectList, filter, field);
         expect(result).toEqual([{ value: 'TypeScript', extention: 'ts', known: true, level: 5 }]);
+    });
+
+    it('should return input if filter is not set', () => {
+        filter = '';
+        const field = 'level';
+        const result = pipe.transform(objectList, filter, field);
+        expect(result).toEqual(objectList);
     });
 });
