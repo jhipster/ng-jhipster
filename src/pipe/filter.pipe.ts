@@ -21,7 +21,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'filter', pure: false })
 export class JhiFilterPipe implements PipeTransform {
     transform(input: any[], filter: any, field?: string): any {
-        if (typeof filter === 'undefined') {
+        if (typeof filter === 'undefined' || filter === '') {
             return input;
         }
 
@@ -63,7 +63,7 @@ export class JhiFilterPipe implements PipeTransform {
     private filterByString(filter, field?) {
         return value =>
             (value && !filter) || (typeof value === 'object' && field)
-                ? value[field] && typeof value[field] === 'string' && value[field] === filter
+                ? value[field] && typeof value[field] === 'string' && value[field].toLowerCase().includes(filter.toLowerCase())
                 : typeof value === 'string' && value.toLowerCase().includes(filter.toLowerCase());
     }
 
