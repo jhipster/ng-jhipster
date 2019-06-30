@@ -58,7 +58,7 @@ export function missingTranslationHandler(configService: JhiConfigService) {
             }
         }),
         CommonModule,
-        NgbModule.forRoot(),
+        NgbModule,
         FormsModule
     ],
     declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective],
