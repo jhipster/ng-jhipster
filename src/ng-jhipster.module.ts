@@ -45,19 +45,6 @@ export function missingTranslationHandler(configService: JhiConfigService) {
 @NgModule({
     imports: [
         CommonModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: translatePartialLoader,
-                deps: [HttpClient]
-            },
-            missingTranslationHandler: {
-                provide: MissingTranslationHandler,
-                useFactory: missingTranslationHandler,
-                deps: [JhiConfigService]
-            }
-        }),
-        CommonModule,
         NgbModule,
         FormsModule
     ],
