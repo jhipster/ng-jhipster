@@ -1,3 +1,4 @@
+/* eslint object-shorthand: off */
 Object.defineProperty(window, 'CSS', { value: null });
 Object.defineProperty(window, 'URL', { value: { createObjectURL: () => {} } });
 

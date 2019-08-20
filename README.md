@@ -5,7 +5,7 @@ Greetings, Java Hipster!
 This is the JHipster Angular 2+ utilities library
 
 [![NPM version][npm-image]][npm-url]
-[![Azure DevOps Build Status][azure-devops-image]][azure-devops-url-main] 
+[![Azure DevOps Build Status][azure-devops-image]][azure-devops-url-main]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
@@ -39,7 +39,7 @@ Go to the [ng-jhipster project](https://github.com/jhipster/ng-jhipster) and cli
 
 Run `npm install` to install all dependencies.
 
-Make some changes, run `npm run test` to run both tslint and unit tests.
+Make some changes, run `npm run test` to run both eslint/tslint and unit tests.
 
 Build the library with `npm run build`.
 

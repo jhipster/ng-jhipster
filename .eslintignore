@@ -1,0 +1,4 @@
+node_modules/
+tests/jest.conf.js
+dist
+coverage

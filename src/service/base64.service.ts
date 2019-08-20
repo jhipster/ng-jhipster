@@ -16,7 +16,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-/* tslint:disable:no-bitwise */
+/* eslint no-bitwise: off */
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -72,7 +72,7 @@ export class JhiBase64Service {
         let i = 0;
 
         // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
-        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
+        input = input.replace(/[^A-Za-z0-9+/=]/g, '');
 
         while (i < input.length) {
             enc1 = this.keyStr.indexOf(input.charAt(i++));
