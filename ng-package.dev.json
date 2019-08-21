@@ -1,0 +1,7 @@
+{
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "my-jhipster-app-root-folder/build/dist/ng-jhipster",
+    "lib": {
+        "entryFile": "src/public_api.ts"
+    }
+}

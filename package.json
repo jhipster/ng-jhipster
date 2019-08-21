@@ -1,5 +1,4 @@
 {
-  "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "ng-jhipster",
   "description": "A Jhipster util library for Angular",
   "repository": {
@@ -71,11 +70,6 @@
     "zone.js": "0.10.2"
   },
   "version": "0.10.1",
-  "ngPackage": {
-    "lib": {
-      "entryFile": "src/public_api.ts"
-    }
-  },
   "lint-staged": {
     "{,src/**/}*.{md,json,ts,html}": [
       "prettier --write",
@@ -89,7 +83,8 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest --config tests/jest.conf.js",
     "test:watch": "npm run test -- --watch",
-    "build": "npm run cleanup && ng-packagr -p package.json",
+    "build": "ng-packagr -p ng-package.prod.json",
+    "build:dev": "ng-packagr -p ng-package.dev.json --watch",
     "release": "git push && git push --tags && npm publish dist/",
     "release:patch": "npm test && npm version patch -a -m \"Update to %s\" && npm run build && npm run release",
     "release:minor": "npm test && npm version minor -a -m \"Update to %s\" && npm run build && npm run release",
