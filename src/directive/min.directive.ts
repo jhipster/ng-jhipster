@@ -21,6 +21,7 @@ import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
     selector: '[jhiMin][ngModel]',
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinValidatorDirective), multi: true }]
 })
 export class JhiMinValidatorDirective {

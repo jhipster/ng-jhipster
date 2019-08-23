@@ -37,7 +37,7 @@ export class JhiTruncateCharactersPipe implements PipeTransform {
                     input = input.substr(0, lastspace);
                 }
             } else {
-                while (input.charAt(input.length - 1) === ' ') {
+                while (input.endsWith(' ')) {
                     input = input.substr(0, input.length - 1);
                 }
             }

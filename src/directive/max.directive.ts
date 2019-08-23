@@ -21,6 +21,7 @@ import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
     selector: '[jhiMax][ngModel]',
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxValidatorDirective), multi: true }]
 })
 export class JhiMaxValidatorDirective {

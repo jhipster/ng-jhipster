@@ -23,6 +23,7 @@ import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
     selector: '[jhiMinbytes][ngModel]',
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMinbytesValidatorDirective), multi: true }]
 })
 export class JhiMinbytesValidatorDirective {

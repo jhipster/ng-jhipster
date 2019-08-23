@@ -23,6 +23,7 @@ import { numberOfBytes } from './number-of-bytes';
 
 @Directive({
     selector: '[jhiMaxbytes][ngModel]',
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     providers: [{ provide: NG_VALIDATORS, useExisting: forwardRef(() => JhiMaxbytesValidatorDirective), multi: true }]
 })
 export class JhiMaxbytesValidatorDirective {
