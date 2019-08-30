@@ -50,10 +50,4 @@ export class NgJhipsterModule {
             providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
         };
     }
-    static forChild(moduleConfig: JhiModuleConfig): ModuleWithProviders {
-        return {
-            ngModule: NgJhipsterModule,
-            providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
-        };
-    }
 }
