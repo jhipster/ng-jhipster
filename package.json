@@ -54,6 +54,7 @@
     "codelyzer": "5.1.0",
     "core-js": "3.2.1",
     "eslint": "6.2.1",
+    "eslint-config-jhipster": "0.0.1",
     "eslint-config-prettier": "6.1.0",
     "husky": "3.0.4",
     "jest": "24.9.0",
