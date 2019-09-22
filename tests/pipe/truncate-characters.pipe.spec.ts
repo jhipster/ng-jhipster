@@ -16,24 +16,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import { JhiTruncateWordsPipe } from '../../src/pipe/truncate-words.pipe';
+import {JhiTruncateCharactersPipe} from '../../src/pipe/truncate-characters.pipe';
 
-describe('TruncateWordsPipe Tests', () => {
-    let pipe: JhiTruncateWordsPipe;
-    const input = 'Jhipster is the best';
+describe('TruncateCharactersPipe Tests', () => {
+
+    const input = 'jhipster test';
+    const chars = 12;
+    const breakOnWord = false;
+    let pipe: JhiTruncateCharactersPipe;
     beforeEach(() => {
-        pipe = new JhiTruncateWordsPipe();
+        pipe = new JhiTruncateCharactersPipe();
     });
 
-    it('Should return any', () => {
-        const words: any = -1;
-        const result = pipe.transform(input, words);
-        expect(result).toBe('');
-    });
+    it('Should return the first word', () => {
+        const result = pipe.transform(input, chars, breakOnWord);
 
-    it('Should return sentence', () => {
-        const words = 3;
-        const result = pipe.transform(input, words);
-        expect(result).toBe('Jhipster is the...');
+        expect(result).toEqual('jhipster...');
     });
 });
