@@ -27,9 +27,7 @@ import { JhiConfigService } from '../config.service';
 export class JhiLanguageService {
     currentLang = 'en';
 
-    constructor(private translateService: TranslateService, private configService: JhiConfigService) {
-        this.init();
-    }
+    constructor(private translateService: TranslateService, private configService: JhiConfigService) {}
 
     init() {
         const config = this.configService.getConfig();
