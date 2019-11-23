@@ -29,20 +29,27 @@ export class JhiLanguageService {
 
     constructor(private translateService: TranslateService, private configService: JhiConfigService) {}
 
-    init() {
+    init(): void {
         const config = this.configService.getConfig();
         this.currentLang = config.defaultI18nLang;
         this.translateService.setDefaultLang(this.currentLang);
         this.translateService.use(this.currentLang);
     }
 
-    changeLanguage(languageKey: string) {
+    changeLanguage(languageKey: string): void {
         this.currentLang = languageKey;
         this.configService.CONFIG_OPTIONS.defaultI18nLang = languageKey;
         this.translateService.use(this.currentLang);
     }
 
+    /**
+     * @deprecated Will be removed when releasing generator-jhipster v7
+     */
     getCurrent(): Promise<string> {
         return Promise.resolve(this.currentLang);
+    }
+
+    getCurrentLanguage(): string {
+        return this.currentLang;
     }
 }
