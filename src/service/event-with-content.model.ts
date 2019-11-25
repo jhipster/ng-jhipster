@@ -16,12 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-export * from './pagination-util.service';
-export * from './parse-links.service';
-export * from './data-util.service';
-export * from './date-util.service';
-export * from './event-manager.service';
-export * from './event-with-content.model';
-export * from './alert.service';
-export * from './base64.service';
-export * from './resolve-paging-params.service';
+export class JhiEventWithContent<T> {
+    constructor(public name: string, public content: T) {}
+}
