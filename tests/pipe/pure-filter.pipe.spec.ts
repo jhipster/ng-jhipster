@@ -1,5 +1,5 @@
 /*
- Copyright 2013-2019 the original author or authors from the JHipster project.
+ Copyright 2013-2020 the original author or authors from the JHipster project.
 
  This file is part of the JHipster project, see https://www.jhipster.tech/
  for more information.
@@ -62,7 +62,7 @@ describe('PureFilterPipe Tests', () => {
 
     it('should filter by boolean', () => {
         list = [true, false, true, false, true, false];
-        
+
         let result = pipe.transform(list, true);
         expect(result).toEqual([true, true, true]);
 
@@ -71,14 +71,14 @@ describe('PureFilterPipe Tests', () => {
 
         result = pipe.transform(list, true, undefined);
         expect(result).toEqual([true, true, true]);
-        
+
         result = pipe.transform(list, false, 'not-exists');
         expect(result).toEqual([false, false, false]);
     });
 
     it('should filter by string', () => {
         list = ['java', 'javaScript', 'TypeScript'];
-        
+
         let result = pipe.transform(list, 'java');
         expect(result).toEqual(['java', 'javaScript']);
 
