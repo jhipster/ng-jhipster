@@ -28,7 +28,7 @@ jobs:
     steps:
       - task: NodeTool@0
         inputs:
-          versionSpec: "12.16.0"
+          versionSpec: "12.16.1"
         displayName: "Install Node.js"
       - script: npm install -g npm
         displayName: 'TOOLS: update NPM'
