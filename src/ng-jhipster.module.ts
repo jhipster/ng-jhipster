@@ -41,13 +41,13 @@ export function missingTranslationHandler(configService: JhiConfigService) {
     imports: [CommonModule, NgbModule, FormsModule],
     declarations: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective],
     entryComponents: [JhiThreadModalComponent],
-    exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective, CommonModule]
+    exports: [...JHI_PIPES, ...JHI_DIRECTIVES, ...JHI_COMPONENTS, JhiTranslateDirective, CommonModule],
 })
 export class NgJhipsterModule {
-    static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders {
+    static forRoot(moduleConfig: JhiModuleConfig): ModuleWithProviders<NgJhipsterModule> {
         return {
             ngModule: NgJhipsterModule,
-            providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }]
+            providers: [{ provide: JhiModuleConfig, useValue: moduleConfig }],
         };
     }
 }
