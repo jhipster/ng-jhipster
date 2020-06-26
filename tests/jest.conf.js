@@ -5,12 +5,10 @@ module.exports = {
         'ts-jest': {
             stringifyContentPathRegex: '\\.html$',
             tsConfig: 'tests/tsconfig.spec.json',
-            astTransformers: [
-                require.resolve('jest-preset-angular/InlineHtmlStripStylesTransformer')
-            ]
-        }
+            astTransformers: ['jest-preset-angular/build/InlineFilesTransformer', 'jest-preset-angular/build/StripStylesTransformer'],
+        },
     },
     testMatch: ['<rootDir>/tests/**/*.spec.ts'],
     rootDir: '../',
-    testURL: 'http://localhost/'
+    testURL: 'http://localhost/',
 };
